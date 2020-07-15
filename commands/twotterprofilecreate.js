@@ -2,7 +2,7 @@
  const fs = require("fs");
  const errors = require("../utils/errors.js");
  const Enmap = require("enmap");
- client.points = new Enmap({name: "profiles"});
+ bot.points = new Enmap({name: "profiles"});
 
  module.exports.run = async (bot, message, args) => {
 
