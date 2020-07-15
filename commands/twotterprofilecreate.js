@@ -5,7 +5,7 @@
 
  module.exports.run = async (bot, message, args) => {
   
- bot.points = new Enmap({name: "profiles"});
+ bot.profiles = new Enmap({name: "profiles"});
  const yes = bot.emojis.get("700713527576625205");
  const no = bot.emojis.get("700713478578634783l"); 
  const twotter = bot.emojis.get("727159498686595072");
