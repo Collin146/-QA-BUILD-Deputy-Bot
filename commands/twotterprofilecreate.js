@@ -34,7 +34,6 @@ bot.profiles.ensure(key, {
   civfn: args[0],
   civln: args[1],
   age: args[2],
-  bio: args.join(" ").slice(2)
 });
 
 // bot.profiles.ensure(key, {
