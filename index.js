@@ -41,7 +41,6 @@ jsfile.forEach((f, i) =>{
     console.log(`${f} loaded!`);
     bot.commands.set(props.help.name, props);
 
-	
 });
 
 });
@@ -168,7 +167,7 @@ let consolechannel = bot.channels.find(x => x.name === 'console-log');
 console.log(`${bot.user.username} is online!`);
 consolechannel.send(`All files successfully loaded!`)
 consolechannel.send(`${bot.user.username} is online!`)
-bot.user.setActivity("!help | Status: Online");
+bot.user.setActivity("Version: v7.0.0qa");
 
 });
 
