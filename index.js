@@ -165,7 +165,7 @@ let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
 bot.on("ready", async () => {
 let consolechannel = bot.channels.find(x => x.name === 'console-log');
 console.log(`${bot.user.username} is online!`);
-consolechannel.send(`All files successfully loaded!`)
+consolechannel.send(`All files successfully loaded, Detected ${bot.users.size} users, ${bot.channels.size} channels, & ${bot.guilds.size} guilds.`)
 consolechannel.send(`${bot.user.username} is online!`)
 bot.user.setActivity("Version: v7.0.0qa");
 
