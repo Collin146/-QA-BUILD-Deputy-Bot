@@ -41,6 +41,7 @@ jsfile.forEach((f, i) =>{
     console.log(`${f} loaded!`);
     bot.commands.set(props.help.name, props);
 
+	
 });
 
 });
