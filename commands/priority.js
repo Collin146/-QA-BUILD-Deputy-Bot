@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const errors = require("../utils/errors.js");
+const ms = require("ms");
 
 module.exports.run = async (bot, message, args) => { 
 
@@ -36,7 +37,7 @@ module.exports.run = async (bot, message, args) => {
 	return ['❌'].includes(reaction.emoji.name) && user.id === message.author.id;
        };
 
-    message.awaitReactions(filter, { max: 1 })
+    message.awaitReactions(filter, { max: 2 })
 	.then(collected => {
 		const reaction = collected.first();
 
