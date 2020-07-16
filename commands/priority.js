@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
     
     collector.on('collect', (reaction, user) => {
     
-        //message.channel.bulkDelete(1);
+        message.channel.bulkDelete(1);
 
         let priorityendEmbed = new Discord.RichEmbed()
         .setTitle(`${warningsign} **Priorty Ended!**`)
@@ -58,7 +58,7 @@ module.exports.run = async (bot, message, args) => {
                 }, 5000);
                 
                 function getTimeLeft(timeout) {
-                    return Math.ceil((timeout._idleStart + timeout._idleTimeout - Date.now()) / 1000);
+                   Math.ceil((timeout._idleStart + timeout._idleTimeout - Date.now()) / 1000);
                 }
 
                 let cooldownendEmbed = new Discord.RichEmbed()
@@ -68,7 +68,6 @@ module.exports.run = async (bot, message, args) => {
                 .setDescription(`The priority cooldown has ended! You are now authorized to create another priority. When doing so, please use the \`!priority\` command!`);
         
                 message.channel.send(cooldownendEmbed);
-            return;
             }, ms("30m"));
 
         });
