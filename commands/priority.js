@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
     .setDescription(`A priority has been started by ${message.author}. To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ❌ below. This can not be undone!`);
 
     const sentMessage =  await message.channel.send(priorityEmbed);
-    await sentMessage.react(no.id);
+    await sentMessage.react('❌');
 
     message.delete().catch(O_o=>{});
 
