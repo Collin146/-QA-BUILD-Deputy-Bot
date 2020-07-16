@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
         
         }
 
-    //try {
+    try {
 
     const yes = bot.emojis.get("700713527576625205");
     const no = bot.emojis.get("700713478578634783"); 
@@ -78,10 +78,10 @@ module.exports.run = async (bot, message, args) => {
             });
 
 
-    // } catch(err) {
-    //     catchErr(err)
+    } catch(err) {
+         console.log(err)
 
-    // }    
+    }    
 
 }
 
