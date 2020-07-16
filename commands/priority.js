@@ -28,18 +28,22 @@ module.exports.run = async (bot, message, args) => {
     .setColor("YELLOW")
     .setDescription(`A priority has been started by ${message.author}. To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ❌ below. This can not be undone!`);
 
+    message.delete().catch(O_o=>{});
+
     const sentMessage =  await message.channel.send(priorityEmbed);
     await sentMessage.react('❌');
 
     message.delete().catch(O_o=>{});
 
-    const filter = (reaction, user) => {
-        reaction.emoji.name === '❌' && user.id === message.author.id.then(message.channel.send("You cannot end a priority you didn't start!")).then(msg => msg.delete(5000));
-    };
-    
-    const collector = message.createReactionCollector(filter, { time: 10800000 });
-    
-    collector.on('collect', (reaction, user) => {
+const filter = (reaction, user) => {
+    return ['❌'].includes(reaction.emoji.name) && user.id === message.author.id;
+};
+
+message.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
+    .then(collected => {
+        const reaction = collected.first();
+
+        if (reaction.emoji.name === '❌') {
     
         message.channel.bulkDelete(1);
 
@@ -70,12 +74,12 @@ module.exports.run = async (bot, message, args) => {
                 message.channel.send(cooldownendEmbed);
             }, ms("30m"));
 
-        });
-
-            collector.on('end', collected => {
-                console.log(`Collected ${collected.size} items`);
-            });
-
+        }
+        else {
+        }
+    })
+    .catch(collected => {
+    });
 
     } catch(err) {
          console.log(err)
