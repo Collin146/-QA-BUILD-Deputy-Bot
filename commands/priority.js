@@ -34,15 +34,13 @@ module.exports.run = async (bot, message, args) => {
     message.delete().catch(O_o=>{});
 
     const filter = (reaction, user) => {
-	return ['❌'].includes(reaction.emoji.name) && user.id === message.author.id;
-       };
-
-    message.awaitReactions(filter, { max: 2 })
-	.then(collected => {
-		const reaction = collected.first();
-
-		if(reaction.emoji.name === '❌') {
-
+        reaction.emoji.name === '❌' && user.id === message.author.id.then(message.channel.send("You cannot end a priority you didn't start!")).then(msg => msg.delete(5000));
+    };
+    
+    const collector = message.createReactionCollector(filter, { time: 10800000 });
+    
+    collector.on('collect', (reaction, user) => {
+    
         message.channel.bulkDelete(1);
 
         let priorityendEmbed = new Discord.RichEmbed()
@@ -70,12 +68,16 @@ module.exports.run = async (bot, message, args) => {
                 .setDescription(`The priority cooldown has ended! You are now authorized to create another priority. When doing so, please use the \`!priority\` command!`);
         
                 message.channel.send(cooldownendEmbed);
-
+            return;
             }, ms("30m"));
 
-		}
-	});
-   
+        });
+
+            collector.on('end', collected => {
+                console.log(`Collected ${collected.size} items`);
+            });
+
+
     // } catch(err) {
     //     catchErr(err)
 
