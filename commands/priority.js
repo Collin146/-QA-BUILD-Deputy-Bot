@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
     
     collector.on('collect', (reaction, user) => {
     
-        message.channel.bulkDelete(1);
+        //message.channel.bulkDelete(1);
 
         let priorityendEmbed = new Discord.RichEmbed()
         .setTitle(`${warningsign} **Priorty Ended!**`)
