@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
     .setTitle(`${warningsign} **Priority Active!**`)
     .setTimestamp()
     .setColor("YELLOW")
-    .setDescription(`A priority has been started by ${message.author}. To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ${no} below. This can not be undone!`);
+    .setDescription(`A priority has been started by ${message.author}. To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ❌ below. This can not be undone!`);
 
     const sentMessage =  await message.channel.send(priorityEmbed);
     await sentMessage.react(no.id);
@@ -33,14 +33,14 @@ module.exports.run = async (bot, message, args) => {
     message.delete().catch(O_o=>{});
 
     const filter = (reaction, user) => {
-	return [no.id].includes(reaction.emoji.id) && user.id === message.author.id;
+	return ['❌'].includes(reaction.emoji.name) && user.id === message.author.id;
        };
 
     message.awaitReactions(filter, { max: 1 })
 	.then(collected => {
 		const reaction = collected.first();
 
-		if(reaction.emoji.id === no.id) {
+		if(reaction.emoji.name === '❌') {
 
         message.channel.bulkDelete(1);
 
