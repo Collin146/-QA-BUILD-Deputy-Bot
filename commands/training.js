@@ -128,7 +128,7 @@ if(args[0] === "civilian"){
               return; 
               }
 
-              if(args[0] === "communications"){
+              if(args[0] === "sac"){
 
                 const sentMessage4 =  await message.channel.send([
                     `<@&${commsrole.id}>`,
