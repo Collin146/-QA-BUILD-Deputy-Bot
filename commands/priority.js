@@ -59,7 +59,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
         var timeout = setTimeout(function(){
 
                 setInterval(function() {
-                    message.channel.send('Time left: '+getTimeLeft(timeout)+'s');
+                    message.channel.send('Time left: '+getTimeLeft(ms)+'s');
                 }, 5000);
                 
                 function getTimeLeft(timeout) {
@@ -73,7 +73,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
                 .setDescription(`The priority cooldown has ended! You are now authorized to create another priority. When doing so, please use the \`!priority\` command!`);
         
                 message.channel.send(cooldownendEmbed);
-            }, ms("30m"));
+            }, ms("20s"));
 
         }
         else {
