@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const errors = require("../utils/errors.js");
 const ms = require("ms");
+const { time } = require("console");
 
 module.exports.run = async (bot, message, args) => { 
 
@@ -67,21 +68,23 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
                 message.channel.send(cooldownendEmbed);
             }, ms("10s"));
 
-            setInterval(function() {
-                message.channel.send('Time left: '+getTimeLeft(ms)+'s');
-            }, 5000); return;
-            
             function getTimeLeft(timeout) {
                Math.ceil((timeout._idleStart + timeout._idleTimeout - Date.now()) / 1000);
             }
 
+            var timeleftInterval = setInterval(function() {
+                message.channel.send('Time left: '+getTimeLeft(ms)+'s');
+            }, 5000);
+            
         }
         else {
         }
     })
     .catch(collected => {
     });
-    
+
+    clearInterval(timeleftInterval);
+
     } catch(err) {
          console.log(err)
 
