@@ -21,16 +21,13 @@ module.exports.run = async (bot, message, args) => {
     const no = bot.emojis.get("700713478578634783"); 
     const warningsign = bot.emojis.get("729725849343098900");
 
-    message.channel.bulkDelete(1);
-
     let priorityEmbed = new Discord.RichEmbed()
     .setTitle(`${warningsign} **Priority Active!**`)
     .setTimestamp()
     .setColor("YELLOW")
     .setDescription(`A priority has been started by ${message.author}. To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ❌ below. This can not be undone!`);
 
-    message.delete().catch(O_o=>{});
-
+    message.channel.bulkDelete(1);
     const sentMessage =  await message.channel.send(priorityEmbed);
     await sentMessage.react('❌');
 
@@ -52,12 +49,14 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
         let priorityendEmbed = new Discord.RichEmbed()
         .setTitle(`${warningsign} **Priorty Ended!**`)
         .setTimestamp()
-        .setColor("GREEN")
+        .setColor("ORANGE")
         .setDescription(`The previous priority that was created by ${message.author} has ended! Please wait for the 20 minute cooldown to end before creating another priority!`);
 
         message.channel.send(priorityendEmbed);
 
         var timeout = setTimeout(function(){
+
+            message.channel.bulkDelete(1);
 
                 let cooldownendEmbed = new Discord.RichEmbed()
                 .setTitle(`${warningsign} **Cooldown Ended!**`)
