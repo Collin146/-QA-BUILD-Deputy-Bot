@@ -42,7 +42,7 @@ let confirmationEmbed = new Discord.RichEmbed()
 .setTitle(`${warningsign} **Confirmation!**`)
 .setTimestamp()
 .setColor("RED")
-.setDescription(`Are you sure you want to send a direct message to ${message.guild.memberCount} members? If so, press ✔️. If not, press ❌.`);
+.setDescription(`Are you sure you want to send a direct message to ${message.guild.memberCount} members? If so, press ${yes.id}. If not, press ${no.id}.`);
 
 const sentMessage =  await message.channel.send(confirmationEmbed);
 await sentMessage.react(yes.id);
