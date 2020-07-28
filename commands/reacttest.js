@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
         return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
     };
     
-    testEmbed.awaitReactions(filter, { max: 1, time: 10000, errors: ['time'] })
+    sentMessage.awaitReactions(filter, { max: 1, time: 10000, errors: ['time'] })
         .then(collected => {
             const reaction = collected.first();
     
