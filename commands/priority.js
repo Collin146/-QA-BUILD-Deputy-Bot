@@ -20,14 +20,16 @@ module.exports.run = async (bot, message, args) => {
     const yes = bot.emojis.get("700713527576625205");
     const no = bot.emojis.get("700713478578634783"); 
     const warningsign = bot.emojis.get("729725849343098900");
+    let mentionrole = message.guild.roles.find(x => x.name === 'On Patrol');
 
     let priorityEmbed = new Discord.RichEmbed()
     .setTitle(`${warningsign} **Priority Active!**`)
     .setTimestamp()
-    .setColor("YELLOW")
+    .setColor("RED")
     .setDescription(`A priority has been started by ${message.author}. To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ❌ below. This can not be undone!`);
 
     message.channel.bulkDelete(50);
+    message.channel.send(`<@&${mentionrole.id}>`);
     const sentMessage =  await message.channel.send(priorityEmbed);
     await sentMessage.react('❌');
 
@@ -44,7 +46,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
 
         if (reaction.emoji.name === '❌') {
     
-        message.channel.bulkDelete(1);
+        message.channel.bulkDelete(4);
 
         let priorityendEmbed = new Discord.RichEmbed()
         .setTitle(`${warningsign} **Priorty Ended!**`)
