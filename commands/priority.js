@@ -67,14 +67,6 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
         
                 message.channel.send(cooldownendEmbed);
             }, ms("10s"));
-
-            function getTimeLeft(timeout) {
-               Math.ceil((timeout._idleStart + timeout._idleTimeout - Date.now()) / 1000);
-            }
-
-            var timeleftInterval = setInterval(function() {
-                message.channel.send('Time left: '+getTimeLeft(ms)+'s');
-            }, 5000);
             
         }
         else {
@@ -82,8 +74,6 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
     })
     .catch(collected => {
     });
-
-    clearInterval(timeleftInterval);
 
     } catch(err) {
          console.log(err)
