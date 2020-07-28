@@ -52,7 +52,7 @@ const filter = (reaction, user) => {
   return [yes.id, no.id].includes(reaction.emoji.id) && user.id === message.author.id;
 };
 
-sentMessage.awaitReactions(filter, { max: 2, time: 60000, errors: ['time'] })
+sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
   .then(collected => {
       const reaction = collected.first();
 
