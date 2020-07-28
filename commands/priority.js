@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
     .setColor("YELLOW")
     .setDescription(`A priority has been started by ${message.author}. To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ❌ below. This can not be undone!`);
 
-    message.channel.bulkDelete(1);
+    message.channel.bulkDelete(50);
     const sentMessage =  await message.channel.send(priorityEmbed);
     await sentMessage.react('❌');
 
