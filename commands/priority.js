@@ -49,7 +49,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
         message.channel.bulkDelete(4);
 
         let priorityendEmbed = new Discord.RichEmbed()
-        .setTitle(`${warningsign} **Priorty Ended!**`)
+        .setTitle(`${warningsign} **Priority Ended!**`)
         .setTimestamp()
         .setColor("ORANGE")
         .setDescription(`The previous priority that was created by ${message.author} has ended! Please wait for the 20 minute cooldown to end before creating another priority!`);
