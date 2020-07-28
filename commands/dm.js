@@ -49,14 +49,14 @@ await sentMessage.react(yes.id);
 await sentMessage.react(no.id);
 
 const filter = (reaction, user) => {
-  return [yes.id, no.id].includes(reaction.emoji.name) && user.id === message.author.id;
+  return [yes.id, no.id].includes(reaction.emoji.id) && user.id === message.author.id;
 };
 
 sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
   .then(collected => {
       const reaction = collected.first();
 
-      if (reaction.emoji.name === yes.id) {
+      if (reaction.emoji.id === yes.id) {
   
         let dmembed = new Discord.RichEmbed()
         .setTitle(`**A message from ${message.guild.name}.**`)
