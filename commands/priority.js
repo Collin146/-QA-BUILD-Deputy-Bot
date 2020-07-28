@@ -58,14 +58,6 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
 
         var timeout = setTimeout(function(){
 
-                setInterval(function() {
-                    message.channel.send('Time left: '+getTimeLeft(ms)+'s');
-                }, 5000);
-                
-                function getTimeLeft(timeout) {
-                   Math.ceil((timeout._idleStart + timeout._idleTimeout - Date.now()) / 1000);
-                }
-
                 let cooldownendEmbed = new Discord.RichEmbed()
                 .setTitle(`${warningsign} **Cooldown Ended!**`)
                 .setTimestamp()
@@ -73,7 +65,15 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
                 .setDescription(`The priority cooldown has ended! You are now authorized to create another priority. When doing so, please use the \`!priority\` command!`);
         
                 message.channel.send(cooldownendEmbed);
-            }, ms("20s"));
+            }, ms("10s"));
+
+            setInterval(function() {
+                message.channel.send('Time left: '+getTimeLeft(ms)+'s');
+            }, 5000); return;
+            
+            function getTimeLeft(timeout) {
+               Math.ceil((timeout._idleStart + timeout._idleTimeout - Date.now()) / 1000);
+            }
 
         }
         else {
@@ -81,7 +81,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
     })
     .catch(collected => {
     });
-
+    
     } catch(err) {
          console.log(err)
 
