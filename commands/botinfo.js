@@ -25,7 +25,7 @@ try {
        ` `,
        `Created On: ${moment.utc(bot.user.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
        ` `,  
-       `Currently in: ${bot.guild.size} guilds`,
+       `Currently in: ${bot.guilds.size} guilds`,
        ` `,
        `Created & Developed By: Collin A.#6966`,
        ].join('\n'))
