@@ -45,18 +45,18 @@ let confirmationEmbed = new Discord.RichEmbed()
 .setDescription(`Are you sure you want to send a direct message to ${message.guild.memberCount} members? If so, press ✔️. If not, press ❌.`);
 
 const sentMessage =  await message.channel.send(confirmationEmbed);
-sentMessage.react('✔️');
-await sentMessage.react('❌');
+await sentMessage.react(yes.id);
+await sentMessage.react(no.id);
 
 const filter = (reaction, user) => {
-  return ['✔️', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
+  return [yes.id, no.id].includes(reaction.emoji.name) && user.id === message.author.id;
 };
 
 sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
   .then(collected => {
       const reaction = collected.first();
 
-      if (reaction.emoji.name === '✔️') {
+      if (reaction.emoji.name === yes.id) {
   
         let dmembed = new Discord.RichEmbed()
         .setTitle(`**A message from ${message.guild.name}.**`)
