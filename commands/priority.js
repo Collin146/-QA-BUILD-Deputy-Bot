@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
         let errchannel = bot.channels.find(x => x.name === 'errors');
         const warningsign = bot.emojis.get("729725849343098900");
         
-        errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`prefix.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
+        errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`priority.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
         
         }
 
@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
     .setTitle(`${warningsign} **Priority Active!**`)
     .setTimestamp()
     .setColor("RED")
-    .setDescription(`A priority has been started by ${message.author}. To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ❌ below. This can not be undone!`);
+    .setDescription(`A priority has been started by ${message.author}. To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ❌ below. This cannot be undone!`);
 
     message.channel.bulkDelete(50);
     message.channel.send(`<@&${mentionrole.id}>`);
@@ -58,7 +58,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
 
         var timeout = setTimeout(function(){
 
-            message.channel.bulkDelete(1);
+            message.channel.bulkDelete(5);
 
                 let cooldownendEmbed = new Discord.RichEmbed()
                 .setTitle(`${warningsign} **Cooldown Ended!**`)
@@ -67,7 +67,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
                 .setDescription(`The priority cooldown has ended! You are now authorized to create another priority. When doing so, please use the \`!priority\` command!`);
         
                 message.channel.send(cooldownendEmbed);
-            }, ms("10s"));
+            }, ms("20m"));
             
         }
         else {
@@ -77,7 +77,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
     });
 
     } catch(err) {
-         console.log(err)
+         catchErr(err)
 
     }    
 
