@@ -92,10 +92,8 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
       
       let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
       modlogchannel.send({embed: ModEmbed});
-          
-        return;
-      }
-      else {
+
+      } else {
 
         let stopEmbed = new Discord.RichEmbed()
         .setTitle(`${no} **Done!**`)
