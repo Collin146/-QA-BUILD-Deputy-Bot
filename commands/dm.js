@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
+const moment = require("moment");
 
 module.exports.run = async (bot, message, args) => { 
 
@@ -44,67 +45,67 @@ let confirmationEmbed = new Discord.RichEmbed()
 .setColor("RED")
 .setDescription(`Are you sure you want to send a direct message to ${message.guild.memberCount} members? If so, press ${yes}. If not, press ${no}.`);
 
-const sentMessage =  await message.channel.send(confirmationEmbed);
+const sentMessage = await message.channel.send(confirmationEmbed);
 await sentMessage.react(yes.id);
 await sentMessage.react(no.id);
 
 const filter = (reaction, user) => {
-  return [yes.id, no.id].includes(reaction.emoji.id) && user.id === message.author.id;
+	return [yes.id, no.id].includes(reaction.emoji.id) && user.id === message.author.id;
 };
 
-sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
-  .then(collected => {
-      const reaction = collected.first();
+message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+	.then(collected => {
+		const reaction = collected.first();
 
-      if (reaction.emoji.id === yes.id) {
-  
-        let dmembed = new Discord.RichEmbed()
-        .setTitle("**Serverwide Message**")
-        .setColor("BLACK")
-        .setDescription([
-            `**From:** ${message.guild.name}`,
-            `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
-            `**Reason:** ${reason}`,
-          ].join('\n'))
-      
-      message.guild.members.forEach(member => {
-            if (member.id != bot.user.id && !member.user.bot) member.send(dmembed);
-          });
-      
-      let doneembed = new Discord.RichEmbed()
-      .setTitle(`${yes} **Done!**`)
-      .setColor("GREEN")
-      .setDescription("A message has been sent to everyone in this server.");
-      
-      message.channel.send(doneembed);
-      
-      let ModEmbed = new Discord.RichEmbed()
-      .setTitle("**Command Used!**")
-      .setTimestamp()
+		if (reaction.emoji.id === yes.id) {
+
+      let dmembed = new Discord.RichEmbed()
+      .setTitle("**Serverwide Message**")
       .setColor("BLACK")
       .setDescription([
-          `**Command:** !dm`,
-          `**Used In:** ${message.channel}`,
-          `**Used By:** ${message.author.username}`,
-          `**Message:** ${reason}`
+          `**From:** ${message.guild.name}`,
+          `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+          `**Reason:** ${reason}`,
         ].join('\n'))
-      .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+    
+    message.guild.members.forEach(member => {
+          if (member.id != bot.user.id && !member.user.bot) member.send(dmembed);
+        });
+    
+    let doneembed = new Discord.RichEmbed()
+    .setTitle(`${yes} **Done!**`)
+    .setColor("GREEN")
+    .setDescription("A message has been sent to everyone in this server.");
+    
+    message.channel.send(doneembed);
+    
+    let ModEmbed = new Discord.RichEmbed()
+    .setTitle("**Command Used!**")
+    .setTimestamp()
+    .setColor("BLACK")
+    .setDescription([
+        `**Command:** !dm`,
+        `**Used In:** ${message.channel}`,
+        `**Used By:** ${message.author.username}`,
+        `**Message:** ${reason}`
+      ].join('\n'))
+    .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+    
+    let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+    modlogchannel.send({embed: ModEmbed});
+
+		} else {
+
+      let stopEmbed = new Discord.RichEmbed()
+      .setTitle(`${no} **Done!**`)
+      .setColor("RED")
+      .setDescription("The command has been cancelled");
       
-      let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
-      modlogchannel.send({embed: ModEmbed});
+      message.channel.send(stopEmbed);
 
-      } else {
-
-        let stopEmbed = new Discord.RichEmbed()
-        .setTitle(`${no} **Done!**`)
-        .setColor("RED")
-        .setDescription("The command has been cancelled");
-        
-        message.channel.send(stopEmbed);
-
-      }
-  })
-  .catch(collected => {
+		}
+	})
+	.catch(collected => {
 
     let stopEmbed2 = new Discord.RichEmbed()
     .setTitle(`${no} **Time Expired!**`)
@@ -113,8 +114,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
     
     message.channel.send(stopEmbed2);
 
-  });
-
+	});
 
   } catch(err) {
     console.log(err)
