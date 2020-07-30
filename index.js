@@ -832,7 +832,7 @@ const antiSpam = new AntiSpam({
     // And many more options... See the documentation.
 });
  
-antiSpam.on("warnAdd", (member) => { 
+antiSpam.on("spamThresholdWarn", (member) => { 
     member.lastMessage.channel.bulkDelete(3);
 
 });
