@@ -832,9 +832,9 @@ const antiSpam = new AntiSpam({
     // And many more options... See the documentation.
 });
  
-// antiSpam.on("warnAdd", (member) => message.channel.bulkDelete(4));
+antiSpam.on("warnAdd", (member) => member.channel.bulkDelete(3));
 
-bot.on('message', (message) => message.channel.bulkDelete(4)); 
+bot.on('message', (message) => antiSpam.message(message)); 
 
 //  GIVE ROLES THROUGH JOINING VC
 
