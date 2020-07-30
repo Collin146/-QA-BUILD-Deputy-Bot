@@ -2,6 +2,7 @@ const botconfig = require("./Botconfig.json");
 const Discord = require("discord.js");
 const moment = require('moment');
 const fs = require("fs");
+const AntiSpam = require('discord-anti-spam');
 const bot = new Discord.Client({disableEveryone: false});
 bot.commands = new Discord.Collection();
 process.setMaxListeners(Infinity);
@@ -167,7 +168,7 @@ let consolechannel = bot.channels.find(x => x.name === 'console-log');
 console.log(`${bot.user.username} is online!`);
 consolechannel.send(`Successfully loaded all files and detected ${bot.users.size} user(s), ${bot.channels.size} channel(s), & ${bot.guilds.size} guild(s).`)
 consolechannel.send(`${bot.user.username} is online!`)
-bot.user.setActivity("Version: v7.0.0qa");
+bot.user.setActivity("!help | Status: Online");
 
 });
 
@@ -810,6 +811,28 @@ modlogchannel.send({embed: cuembed});
 }
 
 });
+
+const warningsign = bot.emojis.get("729725849343098900");
+
+let spamEmbed = new Discord.RichEmbed()
+.setTitle(`${warningsign} **Notice!**`)
+.setColor("RED")
+.setDescription("Please refrain from spamming within the server!")
+.setFooter("Continuing on spamming words will result in disciplinary action!");
+
+const antiSpam = new AntiSpam({
+    warnThreshold: 3, // Amount of messages sent in a row that will cause a warning.
+    maxInterval: 2000, // Amount of time (in milliseconds) in which messages are considered spam.
+    warnMessage: '{@user}, Please stop spamming.', // Message that will be sent in chat upon warning a user.
+    maxDuplicatesWarning: 7, // Amount of duplicate messages that trigger a warning.
+    exemptPermissions: [ 'ADMINISTRATOR'], // Bypass users with any of these permissions.
+    ignoreBots: true, // Ignore bot messages.
+    verbose: true, // Extended Logs from module.
+    ignoredUsers: [], // Array of User IDs that get ignored.
+    // And many more options... See the documentation.
+});
+ 
+bot.on('message', (message) => antiSpam.message(message)); 
 
 //  GIVE ROLES THROUGH JOINING VC
 
