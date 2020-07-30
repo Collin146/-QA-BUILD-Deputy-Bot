@@ -821,7 +821,7 @@ let spamEmbed = new Discord.RichEmbed()
 .setFooter("Continuing on spamming words will result in disciplinary action!");
 
 const antiSpam = new AntiSpam({
-    warnThreshold: 4, // Amount of messages sent in a row that will cause a warning.
+    warnThreshold: 3, // Amount of messages sent in a row that will cause a warning.
     maxInterval: 2000, // Amount of time (in milliseconds) in which messages are considered spam.
     warnMessage: '{@user}, Please stop spamming.',  // Message that will be sent in chat upon warning a user.
     maxDuplicatesWarning: 7, // Amount of duplicate messages that trigger a warning.
