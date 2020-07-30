@@ -837,8 +837,6 @@ antiSpam.on("spamThresholdWarn", (member) => {
 
 });
 
-bot.on('message', (message) => antiSpam.message(message)); 
-
 //  GIVE ROLES THROUGH JOINING VC
 
 // bot.on('voiceStateUpdate', (oldMember, newMember) => {
