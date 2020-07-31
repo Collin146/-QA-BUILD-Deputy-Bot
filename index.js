@@ -829,7 +829,7 @@ const antiSpam = new AntiSpam({
     verbose: true, // Extended Logs from module.
     ignoredUsers: [], // Array of User IDs that get ignored.
     warnEnabled: true,
-    kickEnabled: true,
+    kickEnabled: false,
     banEnabled: false
 
 });
