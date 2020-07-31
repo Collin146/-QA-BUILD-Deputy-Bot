@@ -842,7 +842,8 @@ antiSpam.on("warnAdd", async member => {
         limit: 80,
        }).then((messages) => {
     const filterBy = member ? member.id : bot.member.id;
-    messages = messages.filter(m => m.author.id === filterBy).array().slice(0, 10);
+    const amount = ("10");
+    messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
 
     member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
     });
