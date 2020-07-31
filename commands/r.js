@@ -51,7 +51,7 @@ message.channel.fetchMessages({
 const filterBy = "732901249720254485"
 const amount = ("1");
 
-const bannedWords = [`Reminder!`]
+const bannedWords = [`**Reminder!**`]
 
             if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
  
