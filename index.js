@@ -815,7 +815,7 @@ modlogchannel.send({embed: cuembed});
 
 const antiSpam = new AntiSpam({
     warnThreshold: 3, // Amount of messages sent in a row that will cause a warning.
-    kickThreshold: 7, // Amount of messages sent in a row that will cause a ban.
+    kickThreshold: 3, // Amount of messages sent in a row that will cause a ban.
     banThreshold: 7, // Amount of messages sent in a row that will cause a ban.
     maxInterval: 3000, // Amount of time (in milliseconds) in which messages are considered spam.
     warnMessage: 'Deleting Messages...', // Message that will be sent in chat upon warning a user.
@@ -836,7 +836,7 @@ const antiSpam = new AntiSpam({
 
 bot.on('message', (message) => antiSpam.message(message)); 
  
-antiSpam.on("spamThresholdWarn", (member) => { 
+antiSpam.on("warnAdd", (member) => { 
     member.lastMessage.channel.bulkDelete(4);
 
     const warningsign = bot.emojis.get("729725849343098900");
@@ -851,7 +851,7 @@ antiSpam.on("spamThresholdWarn", (member) => {
 
 });
 
-antiSpam.on("spamThresholdkick", async member => { 
+antiSpam.on("kickAdd", async member => { 
     member.lastMessage.channel.bulkDelete(7);
 
 const warningsign = bot.emojis.get("729725849343098900");
