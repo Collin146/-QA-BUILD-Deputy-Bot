@@ -817,7 +817,7 @@ const antiSpam = new AntiSpam({
     warnThreshold: 3, // Amount of messages sent in a row that will cause a warning.
     kickThreshold: 3, // Amount of messages sent in a row that will cause a ban.
     banThreshold: 7, // Amount of messages sent in a row that will cause a ban.
-    maxInterval: 3000, // Amount of time (in milliseconds) in which messages are considered spam.
+    maxInterval: 2000, // Amount of time (in milliseconds) in which messages are considered spam.
     warnMessage: 'Deleting Messages...', // Message that will be sent in chat upon warning a user.
     kickMessage: '**{user_tag}** has been kicked for spamming.', // Message that will be sent in chat upon kicking a user.
     banMessage: '**{user_tag}** has been banned for spamming.', // Message that will be sent in chat upon banning a user.
@@ -849,10 +849,10 @@ antiSpam.on("warnAdd", (member) => {
     member.lastMessage.channel.send(spamEmbed);
 
     member.lastMessage.channel.fetchMessages({
-        limit: 100,
+        limit: 80,
        }).then((messages) => {
     const filterBy = member ? member.id : bot.member.id;
-    messages = messages.filter(m => m.author.id === filterBy).array().slice(15);
+    messages = messages.filter(m => m.author.id === filterBy).array().slice(0, 5);
 
     member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
     });
