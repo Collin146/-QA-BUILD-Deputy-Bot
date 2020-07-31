@@ -826,7 +826,7 @@ const antiSpam = new AntiSpam({
 
 bot.on('message', (message) => antiSpam.message(message)); 
  
-await antiSpam.on("spamThresholdWarn", (member) => { 
+antiSpam.on("spamThresholdWarn", (member) => { 
     member.lastMessage.channel.bulkDelete(3);
 
     const warningsign = bot.emojis.get("729725849343098900");
