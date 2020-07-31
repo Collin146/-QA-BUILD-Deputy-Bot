@@ -854,7 +854,7 @@ antiSpam.on("warnAdd", async member => {
     .setTitle(`${warningsign} **Notice!**`)
     .setColor("RED")
     .setDescription("Please refrain from spamming within the server!")
-    .setFooter("Continuing on spamming will result in an automatic mute!");
+    .setFooter("Continuing with spamming will result in an automatic mute!");
 
     await member.lastMessage.channel.send(spamEmbed);
 
@@ -868,6 +868,18 @@ antiSpam.on("warnAdd", async member => {
     member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
     });
 
+    const modlogspamEmbed = new Discord.RichEmbed()
+    .setColor('RED')
+    .setTimestamp()
+    .setTitle("**Message Spam Detected!**")
+    .setDescription([
+        `**User:** <@${member.id}>`,
+        `**Channel:** ${member.lastMessage.channel}`,
+        `**Action Taken:** Warning`
+      ].join('\n'))
+
+let modlogchannel = member.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: modlogspamEmbed});
 
 });
 
@@ -1003,6 +1015,19 @@ member.removeRole(muterole.id);
     }        
 
 }, ms("4h"));
+
+const modlogspamEmbed2 = new Discord.RichEmbed()
+.setColor('RED')
+.setTimestamp()
+.setTitle("**Message Spam Detected!**")
+.setDescription([
+    `**User:** <@${member.id}>`,
+    `**Channel:** ${member.lastMessage.channel}`,
+    `**Action Taken:** Muted for 4 hours`
+  ].join('\n'))
+
+let modlogchannel = member.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: modlogspamEmbed2});
 
 });
 
