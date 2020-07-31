@@ -48,7 +48,7 @@ let mentionrole = message.guild.roles.find(x => x.name === 'Member');
 message.channel.fetchMessages({
     limit: 50,
    }).then((messages) => {
-const filterBy = ClientUser ? ClientUser.id : ClientUser.member.id;
+const filterBy = Discord.ClientUser ? Discord.ClientUser.id : Discord.ClientUser.member.id;
 const amount = ("1");
 
 const bannedWords = [`Reminder!`]
