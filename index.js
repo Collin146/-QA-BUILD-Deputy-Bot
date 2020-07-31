@@ -235,9 +235,23 @@ bot.on(`message`, async message => {
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Links are not allowed to be sent!")
-            .setFooter("Continuing on sending links words will result in disciplinary action!");
+            .setFooter("Continuing with sending links words will result in disciplinary action!");
            
             await message.channel.send(linkembed);
+
+            const modloglinkEmbed = new Discord.RichEmbed()
+            .setColor('RED')
+            .setTimestamp()
+            .setTitle("**Link Detected!**")
+            .setDescription([
+            `**User:** <@${message.author.id}>`,
+            `**Channel:** ${message.channel}`,
+            `**Action Taken:** Deleted & Warned`
+            ].join('\n'))
+
+            let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+            modlogchannel.send({embed: modloglinkEmbed});
+
         }
     } catch (e) {
         console.log(e);
@@ -380,9 +394,23 @@ bot.on(`message`, async message => {
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Do not mention everyone or member!")
-            .setFooter("Mention spam will result in disciplinary action!");
+            .setFooter("Mentioning these roles can/will result in disciplinary action!");
            
             await message.channel.send(linkembed);
+
+            const mentionEmbed = new Discord.RichEmbed()
+            .setColor('RED')
+            .setTimestamp()
+            .setTitle("**Unauthorized Role Mention Detected!**")
+            .setDescription([
+            `**User:** <@${message.author.id}>`,
+            `**Channel:** ${message.channel}`,
+            `**Action Taken:** Deleted & Warned`
+            ].join('\n'))
+
+            let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+            modlogchannel.send({embed: mentionEmbed});
+
         }
     } catch (e) {
         console.log(e);
@@ -416,10 +444,23 @@ bot.on(`message`, async message => {
             let linkembed = new Discord.RichEmbed()
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
-            .setDescription("Those words are not allowed to be sent!")
-            .setFooter("Continuing on sending those words will result in disciplinary action!");
+            .setDescription("Please refrain from using offensive language!")
+            .setFooter("Continuing on using offensive language will result in disciplinary action!");
            
             await message.channel.send(linkembed);
+
+            const offlangEmbed = new Discord.RichEmbed()
+            .setColor('RED')
+            .setTimestamp()
+            .setTitle("**Offensive Language Detected!**")
+            .setDescription([
+            `**User:** <@${message.author.id}>`,
+            `**Channel:** ${message.channel}`,
+            `**Action Taken:** Deleted & Warned`
+            ].join('\n'))
+
+            let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+            modlogchannel.send({embed: offlangEmbed});
         }
     } catch (e) {
         console.log(e);
@@ -838,6 +879,8 @@ bot.on('message', (message) => antiSpam.message(message));
  
 antiSpam.on("warnAdd", async member => { 
 
+    try {
+
     member.lastMessage.channel.fetchMessages({
         limit: 80,
        }).then((messages) => {
@@ -881,6 +924,10 @@ antiSpam.on("warnAdd", async member => {
 let modlogchannel = member.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: modlogspamEmbed});
 
+} catch (err) {
+    catchErr(err);
+}
+
 });
 
 const antiSpamMute = new AntiSpam({
@@ -907,6 +954,8 @@ const antiSpamMute = new AntiSpam({
 bot.on('message', (message) => antiSpamMute.message(message)); 
  
 antiSpamMute.on("warnAdd", async member => { 
+
+    try {
 
     member.lastMessage.channel.fetchMessages({
         limit: 80,
@@ -1028,6 +1077,10 @@ const modlogspamEmbed2 = new Discord.RichEmbed()
 
 let modlogchannel = member.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: modlogspamEmbed2});
+
+} catch (err) {
+    catchErr(err);
+}
 
 });
 
