@@ -838,13 +838,13 @@ bot.on('message', (message) => antiSpam.message(message));
  
 antiSpam.on("warnAdd", (member) => { 
 
-    message.channel.fetchMessages({
+    member.lastMessage.channel.fetchMessages({
         limit: 100,
        }).then((messages) => {
     const filterBy = member ? member.id : bot.member.id;
     messages = messages.filter(m => m.author.id === filterBy).array().slice(0, 6);
 
-    message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+    member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
     });
 
     const warningsign = bot.emojis.get("729725849343098900");
