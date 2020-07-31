@@ -246,7 +246,8 @@ bot.on(`message`, async message => {
             .setDescription([
             `**User:** <@${message.author.id}>`,
             `**Channel:** ${message.channel}`,
-            `**Action Taken:** Deleted & Warned`
+            `**Action Taken:** Deleted & Warned`,
+            `**Link:** ${message.content}`
             ].join('\n'))
 
             let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
@@ -405,7 +406,8 @@ bot.on(`message`, async message => {
             .setDescription([
             `**User:** <@${message.author.id}>`,
             `**Channel:** ${message.channel}`,
-            `**Action Taken:** Deleted & Warned`
+            `**Action Taken:** Deleted & Warned`,
+            `**Message Contents:** ${message.content}`
             ].join('\n'))
 
             let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
@@ -456,7 +458,8 @@ bot.on(`message`, async message => {
             .setDescription([
             `**User:** <@${message.author.id}>`,
             `**Channel:** ${message.channel}`,
-            `**Action Taken:** Deleted & Warned`
+            `**Action Taken:** Deleted & Warned`,
+            `**Message Contents:** ${message.content}`
             ].join('\n'))
 
             let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
