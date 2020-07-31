@@ -2,6 +2,7 @@ const botconfig = require("./Botconfig.json");
 const Discord = require("discord.js");
 const moment = require('moment');
 const fs = require("fs");
+const ms = require("ms");
 const AntiSpam = require('discord-anti-spam');
 const bot = new Discord.Client({disableEveryone: false});
 bot.commands = new Discord.Collection();
@@ -812,28 +813,124 @@ modlogchannel.send({embed: cuembed});
 
 });
 
-const warningsign = bot.emojis.get("729725849343098900");
-
-let spamEmbed = new Discord.RichEmbed()
-.setTitle(`${warningsign} **Notice!**`)
-.setColor("RED")
-.setDescription("Please refrain from spamming within the server!")
-.setFooter("Continuing on spamming words will result in disciplinary action!");
-
 const antiSpam = new AntiSpam({
     warnThreshold: 3, // Amount of messages sent in a row that will cause a warning.
+    kickThreshold: 7, // Amount of messages sent in a row that will cause a ban.
     maxInterval: 2000, // Amount of time (in milliseconds) in which messages are considered spam.
-    warnMessage: '{@user}, Please stop spamming.',  // Message that will be sent in chat upon warning a user.
-    maxDuplicatesWarning: 3, // Amount of duplicate messages that trigger a warning.
-    exemptPermissions: [ 'ADMINISTRATOR'], // Bypass users with any of these permissions.
+    maxDuplicatesWarning: 4, // Amount of duplicate messages that trigger a warning.
+    // exemptPermissions: [ 'ADMINISTRATOR'], // Bypass users with any of these permissions.
     ignoreBots: true, // Ignore bot messages.
     verbose: true, // Extended Logs from module.
-    ignoredUsers: [], // Array of User IDs that get ignored.
-    // And many more options... See the documentation.
+
 });
+
+bot.on('message', (message) => antiSpam.message(message)); 
  
-antiSpam.on("spamThresholdWarn", (member) => { 
+await antiSpam.on("spamThresholdWarn", (member) => { 
     member.lastMessage.channel.bulkDelete(3);
+
+    const warningsign = bot.emojis.get("729725849343098900");
+
+    let spamEmbed = new Discord.RichEmbed()
+    .setTitle(`${warningsign} **Notice!**`)
+    .setColor("RED")
+    .setDescription("Please refrain from spamming within the server!")
+    .setFooter("Continuing on spamming will result in an automatic mute!");
+
+    member.lastMessage.channel.send(spamEmbed);
+
+});
+
+antiSpam.on("spamThresholdkick", (member) => { 
+    member.lastMessage.channel.bulkDelete(7);
+
+const warningsign = bot.emojis.get("729725849343098900");
+
+let muterole = member.guild.roles.find(x => x.name === 'Muted');
+let memberrole = member.guild.roles.find(x => x.name === 'Member');
+let approle = member.guild.roles.find(x => x.name === 'Applicant');
+let recrole = member.guild.roles.find(x => x.name === 'Recruit');
+//start of create role
+if (!muterole){
+    try{
+        muterole = await member.guild.createRole({
+            name: "Muted",
+            color: "#000000",
+            permissions: []
+        })
+        member.guild.channels.forEach(async (channel, id) => {
+            await channel.overwritePermissions(muterole, {
+                SEND_MESSAGES: false,
+                ADD_REACTIONS: false
+            });
+        });
+
+    }catch(e){
+        console.log(e.stack);
+    }
+}
+//end of create role
+
+try {
+
+await(member.addRole(muterole.id));
+await(member.removeRole(memberrole.id));
+
+} catch(err) {
+}
+
+try {
+
+await(member.addRole(muterole.id));
+await(member.removeRole(approle.id));
+
+} catch(err) {
+}
+
+try {
+
+await(member.addRole(muterole.id));
+await(member.removeRole(recrole.id));
+    
+} catch(err) {  
+}
+
+geluktEmbed = new Discord.RichEmbed()
+      .setColor("RED")
+      .setTitle(`${warningsign} **Automatic Mute!**`)
+      .setDescription(`<@${member.id}> has been muted for 3h due to spamming.`)
+      .setFooter(`Mentioned User ID: ${member.id}`);
+
+member.lastMessage.channel.send(geluktEmbed);
+
+if(!member.roles.find(r => r.name === "Muted"))
+    
+setTimeout(function(){
+
+member.removeRole(muterole.id);
+
+    try {
+     
+    member.addRole(memberrole.id);
+
+    } catch(err) {
+    }
+
+    try {
+     
+    member.addRole(approle.id);
+    
+    } catch(err) {
+    }
+
+    try {
+     
+    member.addRole(recrole.id);
+        
+    } catch(err) {
+    }        
+
+}, ms("3h"));
 
 });
 
