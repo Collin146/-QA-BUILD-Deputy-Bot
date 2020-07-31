@@ -892,9 +892,9 @@ const antiSpamMute = new AntiSpam({
 
 });
 
-bot.on('message', (message) => antiSpam.message(message)); 
+bot.on('message', (message) => antiSpamMute.message(message)); 
  
-antiSpam.on("warnAdd", async member => { 
+antiSpamMute.on("warnAdd", async member => { 
 
     member.lastMessage.channel.fetchMessages({
         limit: 80,
