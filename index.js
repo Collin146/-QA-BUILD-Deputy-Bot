@@ -836,17 +836,7 @@ const antiSpam = new AntiSpam({
 
 bot.on('message', (message) => antiSpam.message(message)); 
  
-antiSpam.on("warnAdd", (member) => { 
-
-    const warningsign = bot.emojis.get("729725849343098900");
-
-    let spamEmbed = new Discord.RichEmbed()
-    .setTitle(`${warningsign} **Notice!**`)
-    .setColor("RED")
-    .setDescription("Please refrain from spamming within the server!")
-    .setFooter("Continuing on spamming will result in an automatic mute!");
-
-    member.lastMessage.channel.send(spamEmbed);
+antiSpam.on("warnAdd", async member => { 
 
     member.lastMessage.channel.fetchMessages({
         limit: 80,
@@ -856,6 +846,16 @@ antiSpam.on("warnAdd", (member) => {
 
     member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
     });
+
+    const warningsign = bot.emojis.get("729725849343098900");
+
+    let spamEmbed = new Discord.RichEmbed()
+    .setTitle(`${warningsign} **Notice!**`)
+    .setColor("RED")
+    .setDescription("Please refrain from spamming within the server!")
+    .setFooter("Continuing on spamming will result in an automatic mute!");
+
+    await member.lastMessage.channel.send(spamEmbed);
 
 });
 
