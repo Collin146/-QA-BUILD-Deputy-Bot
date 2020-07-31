@@ -45,6 +45,22 @@ const no = bot.emojis.get("700713478578634783");
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 let mentionrole = message.guild.roles.find(x => x.name === 'Member');
 
+message.channel.fetchMessages({
+    limit: 50,
+   }).then((messages) => {
+const filterBy = ClientUser ? ClientUser.id : ClientUser.member.id;
+const amount = ("1");
+
+const bannedWords = [`Reminder!`]
+
+            if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
+ 
+messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
+
+message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+
+            }
+});
 
     message.channel.send([
         `<@&${mentionrole.id}>`,
