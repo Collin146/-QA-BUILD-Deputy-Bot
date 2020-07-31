@@ -838,15 +838,6 @@ bot.on('message', (message) => antiSpam.message(message));
  
 antiSpam.on("warnAdd", (member) => { 
 
-    member.lastMessage.channel.fetchMessages({
-        limit: 100,
-       }).then((messages) => {
-    const filterBy = member ? member.id : bot.member.id;
-    messages = messages.filter(m => m.author.id === filterBy).array().slice(0, 6);
-
-    member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
-    });
-
     const warningsign = bot.emojis.get("729725849343098900");
 
     let spamEmbed = new Discord.RichEmbed()
@@ -856,6 +847,15 @@ antiSpam.on("warnAdd", (member) => {
     .setFooter("Continuing on spamming will result in an automatic mute!");
 
     member.lastMessage.channel.send(spamEmbed);
+
+    member.lastMessage.channel.fetchMessages({
+        limit: 100,
+       }).then((messages) => {
+    const filterBy = member ? member.id : bot.member.id;
+    messages = messages.filter(m => m.author.id === filterBy).array().slice(0, 15);
+
+    member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+    });
 
 });
 
