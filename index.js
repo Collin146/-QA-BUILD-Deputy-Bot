@@ -846,6 +846,7 @@ antiSpam.on("warnAdd", async member => {
     messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
 
     member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+    });
 
     const warningsign = bot.emojis.get("729725849343098900");
 
@@ -857,8 +858,16 @@ antiSpam.on("warnAdd", async member => {
 
     await member.lastMessage.channel.send(spamEmbed);
 
-    await member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
-});
+    member.lastMessage.channel.fetchMessages({
+        limit: 80,
+       }).then((messages) => {
+    const filterBy = member ? member.id : bot.member.id;
+    const amount = ("8");
+    messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
+
+    member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+    });
+
 
 });
 
