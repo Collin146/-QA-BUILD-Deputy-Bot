@@ -852,7 +852,7 @@ antiSpam.on("warnAdd", (member) => {
         limit: 80,
        }).then((messages) => {
     const filterBy = member ? member.id : bot.member.id;
-    messages = messages.filter(m => m.author.id === filterBy).array().slice(0, 5);
+    messages = messages.filter(m => m.author.id === filterBy).array().slice(0, 10);
 
     member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
     });
