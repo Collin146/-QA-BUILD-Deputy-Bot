@@ -837,7 +837,11 @@ const antiSpam = new AntiSpam({
 bot.on('message', (message) => antiSpam.message(message)); 
  
 antiSpam.on("warnAdd", (member) => { 
-    member.lastMessage.channel.bulkDelete(4);
+
+    const filterBy = member ? member.id : bot.member.id;
+    messages = messages.filter(m => m.author.id === filterBy).array().slice(0, 6);
+    
+    message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
 
     const warningsign = bot.emojis.get("729725849343098900");
 
@@ -851,98 +855,126 @@ antiSpam.on("warnAdd", (member) => {
 
 });
 
-antiSpam.on("kickAdd", async member => { 
-    member.lastMessage.channel.bulkDelete(7);
+// const antiSpamMute = new AntiSpam({
+//     warnThreshold: 7, // Amount of messages sent in a row that will cause a warning.
+//     kickThreshold: 3, // Amount of messages sent in a row that will cause a ban.
+//     banThreshold: 7, // Amount of messages sent in a row that will cause a ban.
+//     maxInterval: 5000, // Amount of time (in milliseconds) in which messages are considered spam.
+//     warnMessage: 'Deleting Messages...', // Message that will be sent in chat upon warning a user.
+//     kickMessage: '**{user_tag}** has been kicked for spamming.', // Message that will be sent in chat upon kicking a user.
+//     banMessage: '**{user_tag}** has been banned for spamming.', // Message that will be sent in chat upon banning a user.
+//     maxDuplicatesWarning: 7, // Amount of duplicate messages that trigger a warning.
+//     maxDuplicatesKick: 10, // Amount of duplicate messages that trigger a warning.
+//     maxDuplicatesBan: 12, // Amount of duplicate messages that trigger a warning.
+//     exemptPermissions: [ 'ADMINISTRATOR'], // Bypass users with any of these permissions.
+//     ignoreBots: true, // Ignore bot messages.
+//     verbose: true, // Extended Logs from module.
+//     ignoredUsers: [], // Array of User IDs that get ignored.
+//     warnEnabled: true,
+//     kickEnabled: false,
+//     banEnabled: false
 
-const warningsign = bot.emojis.get("729725849343098900");
+// });
 
-let muterole = member.guild.roles.find(x => x.name === 'Muted');
-let memberrole = member.guild.roles.find(x => x.name === 'Member');
-let approle = member.guild.roles.find(x => x.name === 'Applicant');
-let recrole = member.guild.roles.find(x => x.name === 'Recruit');
-//start of create role
-if (!muterole){
-    try{
-        muterole = await member.guild.createRole({
-            name: "Muted",
-            color: "#000000",
-            permissions: []
-        })
-        member.guild.channels.forEach(async (channel, id) => {
-            await channel.overwritePermissions(muterole, {
-                SEND_MESSAGES: false,
-                ADD_REACTIONS: false
-            });
-        });
+// bot.on('message', (message) => antiSpam.message(message)); 
+ 
 
-    }catch(e){
-        console.log(e.stack);
-    }
-}
-//end of create role
+// antiSpam.on("warnAdd", async member => { 
 
-try {
-
-await(member.addRole(muterole.id));
-await(member.removeRole(memberrole.id));
-
-} catch(err) {
-}
-
-try {
-
-await(member.addRole(muterole.id));
-await(member.removeRole(approle.id));
-
-} catch(err) {
-}
-
-try {
-
-await(member.addRole(muterole.id));
-await(member.removeRole(recrole.id));
+//     const filterBy = member ? member.id : bot.member.id;
+//     messages = messages.filter(m => m.author.id === filterBy).array().slice(0, 10);
     
-} catch(err) {  
-}
+//     message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
 
-geluktEmbed = new Discord.RichEmbed()
-      .setColor("RED")
-      .setTitle(`${warningsign} **Automatic Mute!**`)
-      .setDescription(`<@${member.id}> has been muted for 3h due to spamming.`)
-      .setFooter(`Mentioned User ID: ${member.id}`);
+// const warningsign = bot.emojis.get("729725849343098900");
 
-member.lastMessage.channel.send(geluktEmbed);
+// let muterole = member.guild.roles.find(x => x.name === 'Muted');
+// let memberrole = member.guild.roles.find(x => x.name === 'Member');
+// let approle = member.guild.roles.find(x => x.name === 'Applicant');
+// let recrole = member.guild.roles.find(x => x.name === 'Recruit');
+// //start of create role
+// if (!muterole){
+//     try{
+//         muterole = await member.guild.createRole({
+//             name: "Muted",
+//             color: "#000000",
+//             permissions: []
+//         })
+//         member.guild.channels.forEach(async (channel, id) => {
+//             await channel.overwritePermissions(muterole, {
+//                 SEND_MESSAGES: false,
+//                 ADD_REACTIONS: false
+//             });
+//         });
 
-if(!member.roles.find(r => r.name === "Muted"))
+//     }catch(e){
+//         console.log(e.stack);
+//     }
+// }
+// //end of create role
+
+// try {
+
+// await(member.addRole(muterole.id));
+// await(member.removeRole(memberrole.id));
+
+// } catch(err) {
+// }
+
+// try {
+
+// await(member.addRole(muterole.id));
+// await(member.removeRole(approle.id));
+
+// } catch(err) {
+// }
+
+// try {
+
+// await(member.addRole(muterole.id));
+// await(member.removeRole(recrole.id));
     
-setTimeout(function(){
+// } catch(err) {  
+// }
 
-member.removeRole(muterole.id);
+// geluktEmbed = new Discord.RichEmbed()
+//       .setColor("RED")
+//       .setTitle(`${warningsign} **Automatic Mute!**`)
+//       .setDescription(`<@${member.id}> has been muted for 3h due to spamming.`)
+//       .setFooter(`Mentioned User ID: ${member.id}`);
 
-    try {
-     
-    member.addRole(memberrole.id);
+// member.lastMessage.channel.send(geluktEmbed);
 
-    } catch(err) {
-    }
-
-    try {
-     
-    member.addRole(approle.id);
+// if(!member.roles.find(r => r.name === "Muted"))
     
-    } catch(err) {
-    }
+// setTimeout(function(){
 
-    try {
+// member.removeRole(muterole.id);
+
+//     try {
      
-    member.addRole(recrole.id);
+//     member.addRole(memberrole.id);
+
+//     } catch(err) {
+//     }
+
+//     try {
+     
+//     member.addRole(approle.id);
+    
+//     } catch(err) {
+//     }
+
+//     try {
+     
+//     member.addRole(recrole.id);
         
-    } catch(err) {
-    }        
+//     } catch(err) {
+//     }        
 
-}, ms("3h"));
+// }, ms("3h"));
 
-});
+// });
 
 //  GIVE ROLES THROUGH JOINING VC
 
