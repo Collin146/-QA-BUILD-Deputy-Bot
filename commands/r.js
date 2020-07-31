@@ -31,15 +31,15 @@ module.exports.run = async (bot, message, args) => {
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783");  
 
-    if (talkedRecently.has(message.author.id)) {
+//     if (talkedRecently.has(message.author.id)) {
 
-        let errEmbed2 = new Discord.RichEmbed()
-        .setColor("RED")
-        .setTitle(`${no} **Error!**`)
-        .setDescription(`Please wait until the 5 hour cooldown is over!`);
+//         let errEmbed2 = new Discord.RichEmbed()
+//         .setColor("RED")
+//         .setTitle(`${no} **Error!**`)
+//         .setDescription(`Please wait until the 5 hour cooldown is over!`);
     
-        message.channel.send(errEmbed2);
-} else {
+//         message.channel.send(errEmbed2);
+// } else {
 
 
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
@@ -70,11 +70,11 @@ message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
 
  message.delete().catch(O_o=>{});
 
- talkedRecently.add(message.author.id);
- setTimeout(() => {
-   talkedRecently.delete(message.author.id);
- }, 18000000);
-}
+//  talkedRecently.add(message.author.id);
+//  setTimeout(() => {
+//    talkedRecently.delete(message.author.id);
+//  }, 18000000);
+// }
 
 let ModEmbed = new Discord.RichEmbed()
     .setTitle("**Command Used!**")
