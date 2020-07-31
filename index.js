@@ -842,11 +842,10 @@ antiSpam.on("warnAdd", async member => {
         limit: 80,
        }).then((messages) => {
     const filterBy = member ? member.id : bot.member.id;
-    const amount = ("10");
+    const amount = ("8");
     messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
 
     member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
-    });
 
     const warningsign = bot.emojis.get("729725849343098900");
 
@@ -857,6 +856,9 @@ antiSpam.on("warnAdd", async member => {
     .setFooter("Continuing on spamming will result in an automatic mute!");
 
     await member.lastMessage.channel.send(spamEmbed);
+
+    await member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+});
 
 });
 
