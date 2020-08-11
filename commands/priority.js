@@ -78,7 +78,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
                 message.channel.overwritePermissions(civrole.id, {
                     SEND_MESSAGES: true
                   });
-            }, ms("20m"));
+            }, ms("10s"));
             
         }
         else {
