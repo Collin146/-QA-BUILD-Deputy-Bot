@@ -90,6 +90,8 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
     return;
         }
 
+        const no = bot.emojis.get("700713478578634783"); 
+
         let errEmbed = new Discord.RichEmbed()
         .setColor("RED")
         .setTitle(`${no} **Error!**`)
