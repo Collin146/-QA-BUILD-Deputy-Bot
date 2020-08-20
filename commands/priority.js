@@ -26,8 +26,7 @@ module.exports.run = async (bot, message, args) => {
     let mentionrole = message.guild.roles.find(x => x.name === 'On Patrol');
     let civrole = message.guild.roles.find(x => x.name === 'Civilian');
 
-    var dt = document.getElementById("utc-time").innerHTML;  
-    var m = moment.utc(dt, "DD-MM-YYYY h:mm:ss A");
+    var m = moment.utc("DD-MM-YYYY h:mm:ss A");
 
     let priorityEmbed = new Discord.RichEmbed()
     .setTitle(`${warningsign} **Priority Active!**`)
