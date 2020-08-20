@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
 
     try {
 
-        if (message.channel.id === "737831284390363177") {
+        if (message.channel.id === "742834445131710605") {
 
     const yes = bot.emojis.get("700713527576625205");
     const no = bot.emojis.get("700713478578634783"); 
@@ -104,7 +104,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
         let errEmbed = new Discord.RichEmbed()
         .setColor("RED")
         .setTitle(`${no} **Error!**`)
-        .setDescription("You can only use this command within the <#737831284390363177> channel.");
+        .setDescription("You can only use this command within the <#742834445131710605> channel.");
 
         message.channel.send(errEmbed);
 
