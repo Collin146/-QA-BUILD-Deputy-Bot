@@ -109,7 +109,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
         message.channel.send(errEmbed);
 
     } catch(err) {
-         catchErr(err)
+         console.log(err)
 
     }    
 
