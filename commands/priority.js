@@ -3,6 +3,7 @@ const fs = require("fs");
 const errors = require("../utils/errors.js");
 const ms = require("ms");
 const { time } = require("console");
+const moment = require("moment");
 
 module.exports.run = async (bot, message, args) => { 
 
@@ -17,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
 
     try {
 
-        if (message.channel.id === "742834445131710605") {
+        if (message.channel.id === "737831284390363177") {
 
     const yes = bot.emojis.get("700713527576625205");
     const no = bot.emojis.get("700713478578634783"); 
@@ -29,7 +30,11 @@ module.exports.run = async (bot, message, args) => {
     .setTitle(`${warningsign} **Priority Active!**`)
     .setTimestamp()
     .setColor("RED")
-    .setDescription(`A priority has been started by ${message.author}. To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ${no} below. This cannot be undone!`);
+    .setDescription([
+        `**Activated By:** ${message.author}`,
+        `**Activated At:** ${moment.bst(message.createdAt).format('HH:mm:ss')} BST`,
+        `A priority has been started by ${message.author}. To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ${no} below. This cannot be undone!`,
+      ].join('\n'));
 
     message.channel.bulkDelete(50);
     message.channel.send(`<@&${mentionrole.id}>`);
@@ -59,7 +64,11 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
         .setTitle(`${warningsign} **Priority Ended!**`)
         .setTimestamp()
         .setColor("ORANGE")
-        .setDescription(`The previous priority that was created by ${message.author} has ended! Please wait for the 20 minute cooldown to end before creating another priority!`);
+        .setDescription([
+            `**Deactivated By:** ${message.author}`,
+            `**Deactivated At:** ${moment.bst(message.createdAt).format('HH:mm:ss')} BST`,
+            `The previous priority that was created by ${message.author} has ended! Please wait for the 20 minute cooldown to end before creating another priority!`,
+          ].join('\n'));
 
         message.channel.send(priorityendEmbed);
 
@@ -78,7 +87,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
                 message.channel.overwritePermissions(civrole.id, {
                     SEND_MESSAGES: true
                   });
-            }, ms("10s"));
+            }, ms("20m"));
             
         }
         else {
@@ -95,12 +104,12 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
         let errEmbed = new Discord.RichEmbed()
         .setColor("RED")
         .setTitle(`${no} **Error!**`)
-        .setDescription("You can only use this command within the <#742834445131710605> channel.");
+        .setDescription("You can only use this command within the <#737831284390363177> channel.");
 
         message.channel.send(errEmbed);
 
     } catch(err) {
-         console.log(err)
+         catchErr(err)
 
     }    
 
