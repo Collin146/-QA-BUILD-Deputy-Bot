@@ -26,13 +26,15 @@ module.exports.run = async (bot, message, args) => {
     let mentionrole = message.guild.roles.find(x => x.name === 'On Patrol');
     let civrole = message.guild.roles.find(x => x.name === 'Civilian');
 
+    var m = moment.utc(dt, "DD-MM-YYYY h:mm:ss A");
+
     let priorityEmbed = new Discord.RichEmbed()
     .setTitle(`${warningsign} **Priority Active!**`)
     .setTimestamp()
     .setColor("RED")
     .setDescription([
         `**Activated By:** ${message.author}`,
-        `**Activated At:** ${moment.bst(message.createdAt).format('HH:mm:ss')} BST`,
+        `**Activated At:** ${m.clone().local().format("DD-MM-YYYY h:mm:ss A")}`,
         `A priority has been started by ${message.author}. To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ${no} below. This cannot be undone!`,
       ].join('\n'));
 
@@ -66,7 +68,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
         .setColor("ORANGE")
         .setDescription([
             `**Deactivated By:** ${message.author}`,
-            `**Deactivated At:** ${moment.bst(message.createdAt).format('HH:mm:ss')} BST`,
+            `**Deactivated At:** ${m.clone().local().format("DD-MM-YYYY h:mm:ss A")}`,
             `The previous priority that was created by ${message.author} has ended! Please wait for the 20 minute cooldown to end before creating another priority!`,
           ].join('\n'));
 
