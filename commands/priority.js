@@ -27,12 +27,11 @@ module.exports.run = async (bot, message, args) => {
     let mentionrole = message.guild.roles.find(x => x.name === 'On Patrol');
     let civrole = message.guild.roles.find(x => x.name === 'Civilian');
 
-    var now = moment();
+    // var now = moment();
     
-    var utcCutoff = moment.utc(now, 'HH:mm:ss');
+    // var utcCutoff = moment.utc(now, 'HH:mm:ss');
 
-    var displayCutoff = 
-    moment.tz(utcCutoff.format('HH:mm:ss'), 'HH:mm:ss', 'Europe/London');
+    // var displayCutoff = moment.tz(utcCutoff.format('HH:mm:ss'), 'HH:mm:ss', 'Europe/London');
 
     let priorityEmbed = new Discord.RichEmbed()
     .setTitle(`${warningsign} **Priority Active!**`)
@@ -40,7 +39,7 @@ module.exports.run = async (bot, message, args) => {
     .setColor("RED")
     .setDescription([
         `**Activated By:** ${message.author}`,
-        `**Activated At:** ${displayCutoff.format('HH:mm:ss')} BST`,
+        `**Activated At:** ${moment.tz((message.createdAt).format('HH:mm:ss'), 'HH:mm:ss', 'Europe/London')} BST`,
         `To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ${no} below. This cannot be undone!`,
       ].join('\n'));
 
@@ -74,7 +73,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
         .setColor("ORANGE")
         .setDescription([
             `**Deactivated By:** ${message.author}`,
-            `**Deactivated At:** ${displayCutoff.format('HH:mm:ss')}`,
+            `**Deactivated At:** ${moment.tz((message.createdAt).format('HH:mm:ss'), 'HH:mm:ss', 'Europe/London')}`,
             `The previous priority that was created by ${message.author} has ended! Please wait for the 20 minute cooldown to end before creating another priority!`,
           ].join('\n'));
 
