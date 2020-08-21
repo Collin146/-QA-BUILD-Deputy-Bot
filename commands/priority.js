@@ -4,6 +4,7 @@ const errors = require("../utils/errors.js");
 const ms = require("ms");
 const { time } = require("console");
 const moment = require("moment");
+const momentzone = require("moment-timezone");
 
 module.exports.run = async (bot, message, args) => { 
 
@@ -26,7 +27,12 @@ module.exports.run = async (bot, message, args) => {
     let mentionrole = message.guild.roles.find(x => x.name === 'On Patrol');
     let civrole = message.guild.roles.find(x => x.name === 'Civilian');
 
-    var m = moment.utc("DD-MM-YYYY h:mm:ss A");
+    var now = moment();
+    
+    var utcCutoff = moment.utc(now, 'HH:mm:ss');
+
+    var displayCutoff = 
+    moment.tz(utcCutoff.format('HH:mm:ss'), 'HH:mm:ss', 'United_Kingdom/Birmingham');
 
     let priorityEmbed = new Discord.RichEmbed()
     .setTitle(`${warningsign} **Priority Active!**`)
@@ -34,8 +40,8 @@ module.exports.run = async (bot, message, args) => {
     .setColor("RED")
     .setDescription([
         `**Activated By:** ${message.author}`,
-        `**Activated At:** ${m.clone().local().format("DD-MM-YYYY h:mm:ss A")}`,
-        `A priority has been started by ${message.author}. To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ${no} below. This cannot be undone!`,
+        `**Activated At:** ${displayCutoff.format('HH:mm:ss')} BST`,
+        `To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ${no} below. This cannot be undone!`,
       ].join('\n'));
 
     message.channel.bulkDelete(50);
@@ -68,7 +74,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
         .setColor("ORANGE")
         .setDescription([
             `**Deactivated By:** ${message.author}`,
-            `**Deactivated At:** ${m.clone().local().format("DD-MM-YYYY h:mm:ss A")}`,
+            `**Deactivated At:** ${displayCutoff.format('HH:mm:ss')}`,
             `The previous priority that was created by ${message.author} has ended! Please wait for the 20 minute cooldown to end before creating another priority!`,
           ].join('\n'));
 
