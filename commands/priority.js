@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
     var utcCutoff = moment.utc(now, 'HH:mm:ss');
 
     var displayCutoff = 
-    moment.tz(utcCutoff.format('HH:mm:ss'), 'HH:mm:ss', 'Europe/Birmingham');
+    moment.tz(utcCutoff.format('HH:mm:ss'), 'HH:mm:ss', 'BST');
 
     let priorityEmbed = new Discord.RichEmbed()
     .setTitle(`${warningsign} **Priority Active!**`)
