@@ -3,7 +3,8 @@ const fs = require("fs");
 const errors = require("../utils/errors.js");
 const ms = require("ms");
 const { time } = require("console");
-const moment = require("moment");
+const moment = require("moment-timezone");
+// const tz = require("moment-timezone");
 
 module.exports.run = async (bot, message, args) => { 
 
