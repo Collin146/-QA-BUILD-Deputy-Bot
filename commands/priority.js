@@ -54,6 +54,7 @@ const filter = (reaction, user) => {
     .setDescription([
         `**Cancelled By:** <@${user.id}>`,
         `**Priority By:** ${message.author}`,
+        `**Channel:** ${message.channel}`
       ].join('\n'))
 
     if (gmember.hasPermission("ADMINISTRATOR"), gmember.id !== message.author.id) modlogchannel.send({embed: priocancel});
