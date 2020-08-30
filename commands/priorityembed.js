@@ -3,8 +3,6 @@ const fs = require("fs");
 const errors = require("../utils/errors.js");
 const ms = require("ms");
 const { time } = require("console");
-const moment = require("moment-timezone");
-// const tz = require("moment-timezone");
 
 module.exports.run = async (bot, message, args) => { 
 
@@ -27,21 +25,11 @@ module.exports.run = async (bot, message, args) => {
     let mentionrole = message.guild.roles.find(x => x.name === 'On Patrol');
     let civrole = message.guild.roles.find(x => x.name === 'Civilian');
 
-    // var now = moment();
-    
-    // var utcCutoff = moment.utc(now, 'HH:mm:ss');
-
-    // var displayCutoff = moment.tz(utcCutoff.format('HH:mm:ss'), 'HH:mm:ss', 'Europe/London');
-
     let priorityEmbed = new Discord.RichEmbed()
     .setTitle(`${warningsign} **Priority Active!**`)
     .setTimestamp()
     .setColor("RED")
-    .setDescription([
-        `**Activated By:** ${message.author}`,
-        `**Activated At:** ${moment.tz((message.createdAt).format('HH:mm:ss'), 'HH:mm:ss', 'Europe/London')} BST`,
-        `To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ${no} below. This cannot be undone!`,
-      ].join('\n'));
+    .setDescription(`A priority has been started by ${message.author}. To all civilians, please refrain from creating any other priorities until this priority & the cooldown have ended! To end the priority, press the ${no} below. This cannot be undone!`);
 
     message.channel.bulkDelete(50);
     message.channel.send(`<@&${mentionrole.id}>`);
@@ -55,7 +43,9 @@ module.exports.run = async (bot, message, args) => {
       });
 
 const filter = (reaction, user) => {
-    return [no.id].includes(reaction.emoji.id) && user.id === message.author.id;
+    gmember = message.guild.members.get(user.id)
+    if (user.id === Client.user.id) return;
+    return [no.id].includes(reaction.emoji.id) && user.id === message.author.id, gmember.hasPermission("ADMINISTRATOR");
 };
 
 
@@ -71,11 +61,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
         .setTitle(`${warningsign} **Priority Ended!**`)
         .setTimestamp()
         .setColor("ORANGE")
-        .setDescription([
-            `**Deactivated By:** ${message.author}`,
-            `**Deactivated At:** ${moment.tz((message.createdAt).format('HH:mm:ss'), 'HH:mm:ss', 'Europe/London')}`,
-            `The previous priority that was created by ${message.author} has ended! Please wait for the 20 minute cooldown to end before creating another priority!`,
-          ].join('\n'));
+        .setDescription(`The previous priority that was created by ${message.author} has ended! Please wait for the 20 minute cooldown to end before creating another priority!`);
 
         message.channel.send(priorityendEmbed);
 
@@ -116,12 +102,12 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
         message.channel.send(errEmbed);
 
     } catch(err) {
-         console.log(err)
+         catchErr(err)
 
     }    
 
 }
 
 module.exports.help = {
-    name: "priorityembed"
+    name: "priority"
 }
