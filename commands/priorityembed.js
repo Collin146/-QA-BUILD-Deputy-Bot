@@ -44,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
 
 const filter = (reaction, user) => {
     gmember = message.guild.members.get(user.id)
-    if (user.id === Client.user.id) return;
+    if (user.id === Discord.Client.user.id) return;
     return [no.id].includes(reaction.emoji.id) && user.id === message.author.id, gmember.hasPermission("ADMINISTRATOR");
 };
 
