@@ -123,5 +123,5 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
 }
 
 module.exports.help = {
-    name: "priority"
+    name: "priorityembed"
 }
