@@ -50,7 +50,7 @@ const filter = (reaction, user) => {
     const priocancel = new Discord.RichEmbed()
     .setColor('RED')
     .setTimestamp()
-    .setTitle("**Priority Forcefully Cancel!**")
+    .setTitle("**Priority Admin Cancel!**")
     .setDescription([
         `**Cancelled By:** <@${user.id}>`,
         `**Priority By:** ${message.author}`,
