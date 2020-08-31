@@ -3,6 +3,7 @@ const fs = require("fs");
 const errors = require("../utils/errors.js");
 const ms = require("ms");
 const { time } = require("console");
+const { userInfo } = require("os");
 
 module.exports.run = async (bot, message, args) => { 
 
@@ -43,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
       });
 
 const filter = (reaction, user) => {
-    gmember = message.guild.members.get(user)
+    gmember = message.guild.members.cache.get(user.id)
 
     let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 
