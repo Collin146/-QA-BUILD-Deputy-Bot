@@ -57,7 +57,7 @@ const filter = (reaction, user) => {
         `**Channel:** ${message.channel}`
       ].join('\n'))
 
-    if (gmember.hasPermission("ADMINISTRATOR"), gmember.id !== message.author.id) modlogchannel.send({embed: priocancel});
+    if (gmember.hasPermission("ADMINISTRATOR") && gmember.id !== message.author.id) modlogchannel.send({embed: priocancel});
     return [no.id].includes(reaction.emoji.id) && user.id === message.author.id, gmember.hasPermission("ADMINISTRATOR");
 };
 
