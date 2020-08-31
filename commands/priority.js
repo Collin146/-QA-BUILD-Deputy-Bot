@@ -44,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
       });
 
 const filter = (reaction, user) => {
-    gmember = message.guild.members.cache.get(user.id)
+    gmember = message.guild.members.get(user.id)
 
     let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 
