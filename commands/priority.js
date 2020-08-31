@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args) => {
       });
 
 const filter = (reaction, user) => {
-    gmember = message.guild.members.get(user.id)
+    gmember = message.guild.members.cache.get(user.id)
 
     let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 
@@ -58,7 +58,7 @@ const filter = (reaction, user) => {
       ].join('\n'))
 
     if (gmember.hasPermission("ADMINISTRATOR") && gmember.id !== message.author.id) modlogchannel.send({embed: priocancel});
-    return [no.id].includes(reaction.emoji.id) && user.id === message.author.id, gmember.roles.cache.find(r => r.name === "Administrator"), gmember.roles.cache.find(r => r.name === "Deputy Director"), gmember.roles.cache.find(r => r.name === "Director"); 
+    return [no.id].includes(reaction.emoji.id) && user.id === message.author.id, gmember.roles.cache.has(r => r.name === "Administrator"), gmember.roles.cache.has(r => r.name === "Deputy Director"), gmember.roles.cache.has(r => r.name === "Director"); 
 };
 
 
