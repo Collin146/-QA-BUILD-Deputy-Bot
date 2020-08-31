@@ -44,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
 
 const filter = (reaction, user) => {
     gmember = message.guild.members.get(user.id)
-    if (user.bot) return;
+
     let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 
     const priocancel = new Discord.RichEmbed()
@@ -58,7 +58,7 @@ const filter = (reaction, user) => {
       ].join('\n'))
 
     if (gmember.hasPermission("ADMINISTRATOR") && gmember.id !== message.author.id) modlogchannel.send({embed: priocancel});
-    return [no.id].includes(reaction.emoji.id) && user.id === message.author.id, gmember.hasPermission("ADMINISTRATOR");
+    return [no.id].includes(reaction.emoji.id) && user.id === message.author.id, gmember.roles.some(role => role.name === 'Administrator'); 
 };
 
 
