@@ -58,7 +58,7 @@ const filter = (reaction, user) => {
         `**Channel:** ${message.channel}`
       ].join('\n'))
 
-    if (user.id === '724991641932267612' || user.id === '292598566759956480' || user.id === '385777873581113344' && gmember.id !== message.author.id) modlogchannel.send({embed: priocancel});
+    if (user.id !== message.author.id && user.id === '724991641932267612' || user.id === '292598566759956480' || user.id === '385777873581113344') modlogchannel.send({embed: priocancel});
     return [no.id].includes(reaction.emoji.id) && user.id === message.author.id || user.id === '724991641932267612' || user.id === '292598566759956480' || user.id === '385777873581113344'; 
 };
 
