@@ -1131,7 +1131,7 @@ bot.on("ready", async () => {
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be a member of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
-            let mainguild = bot.guilds.get('644227663829139466');
+            let mainguild = bot.guilds.fetch('644227663829139466');
             mainguild.members.fetch()
           
           if (mainguild.members.get(user.id)) {
@@ -1148,7 +1148,7 @@ bot.on("ready", async () => {
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be a recruit of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
-            let trainguild = bot.guilds.get('645035452956540929');
+            let trainguild = bot.guilds.fetch('645035452956540929');
             trainguild.members.fetch()
           
             if (trainguild.members.get(user.id)) {
@@ -1165,7 +1165,7 @@ bot.on("ready", async () => {
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be an applicant of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
-            let interviewguild = bot.guilds.get('604420918634086411');
+            let interviewguild = bot.guilds.fetch('604420918634086411');
             interviewguild.members.fetch()
           
           if (interviewguild.members.get(user.id)) {
