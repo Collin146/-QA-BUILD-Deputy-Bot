@@ -1133,7 +1133,7 @@ bot.on("ready", async () => {
       
             let mainguild = bot.guilds.get('644227663829139466');
           
-          if (mainguild.member(user.id)) {
+          if (mainguild.member(message.guild.members.get(user.id))) {
             gMember.addRole(roledrpmember.id);
           }
 
@@ -1149,9 +1149,9 @@ bot.on("ready", async () => {
       
             let trainguild = bot.guilds.get('645035452956540929');
           
-          if (trainguild.member(user.id)) {
-            gMember.addRole(roledrprecruit.id);
-          }
+            if (trainguild.member(message.guild.members.get(user.id))) {
+                gMember.addRole(roledrprecruit.id);
+            }
 
           user.send(dmerrEmbed2)
         }
@@ -1165,7 +1165,7 @@ bot.on("ready", async () => {
       
             let interviewguild = bot.guilds.get('604420918634086411');
           
-          if (interviewguild.member(user.id)) {
+          if (interviewguild.member(message.guild.members.get(user.id))) {
             gMember.addRole(roledrpapplicant.id);
           }
 
