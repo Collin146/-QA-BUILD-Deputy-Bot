@@ -1133,9 +1133,8 @@ bot.on("ready", async () => {
       
             //let mainguild = bot.guilds.fetch('644227663829139466');
             let mainguild = bot.guilds.get('644227663829139466');
-            mainguild.guild.members.fetch()
           
-          if (mainguild.guild.members.get(user.id)) {
+          if (mainguild.members.has(user.id)) {
             gMember.addRole(roledrpmember.id);
           }
 
@@ -1151,9 +1150,8 @@ bot.on("ready", async () => {
       
       //      let trainguild = bot.guilds.get('645035452956540929');
             let trainguild = bot.guilds.get('645035452956540929');
-            trainguild.guild.members.fetch()
           
-            if (trainguild.guild.embers.get(user.id)) {
+            if (trainguild.members.has(user.id)) {
                 gMember.addRole(roledrprecruit.id);
             }
 
@@ -1169,9 +1167,8 @@ bot.on("ready", async () => {
       
             //let interviewguild = bot.guilds.fetch('604420918634086411');
             let interviewguild = bot.guilds.get('604420918634086411');
-            interviewguild.guild.members.fetch()
           
-          if (interviewguild.guild.members.get(user.id)) {
+          if (interviewguild.members.has(user.id)) {
             gMember.addRole(roledrpapplicant.id);
           }
 
