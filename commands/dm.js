@@ -76,20 +76,15 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
             `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
             `**Reason:** ${reason}`,
           ].join('\n'))
-      
-      message.guild.members.forEach(member => {
-            if (member.id != bot.user.id && !member.user.bot) member.send(dmembed);
-          });
-    
-      //message.channel.fetchMessages({ limit: 100 })
-      await message.channel.fetchMessage(msgid).then(msg => msg.delete());
 
-      let doneembed = new Discord.RichEmbed()
-      .setTitle(`${yes} **Done!**`)
-      .setColor("GREEN")
-      .setDescription("The message has successfully been sent to everyone within this server.");
-      
-      await message.channel.send(doneembed);
+          let doneembed = new Discord.RichEmbed()
+          .setTitle(`${yes} **Done!**`)
+          .setColor("GREEN")
+          .setDescription("The message has successfully been sent to everyone within this server.");
+          
+      message.guild.members.forEach(member => {
+            if (member.id != bot.user.id && !member.user.bot) member.send(dmembed).then (message.channel.fetchMessage(msgid).then(msg => msg.delete()) && message.channel.send(doneembed));
+          });
 
       let ModEmbed = new Discord.RichEmbed()
       .setTitle("**Command Used!**")
