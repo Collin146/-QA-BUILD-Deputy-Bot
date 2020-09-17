@@ -1190,7 +1190,7 @@ bot.on("ready", async () => {
     }
     
     } catch (err) {
-        catchErr(err);
+        console.log(err);
     }
     
     });
@@ -1249,7 +1249,7 @@ bot.on("ready", async () => {
         }
     
     } catch (err) {
-        catchErr(err);
+        console.log(err);
     }
         });
 
