@@ -30,6 +30,7 @@ module.exports.run = async (bot, message, args) => {
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
 const warningsign = bot.emojis.get("729725849343098900");
+const load = bot.emojis.get("756297351353729055");
 let reason = args.join(" ");
 
 let errEmbed = new Discord.RichEmbed()
@@ -58,7 +59,15 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
       const reaction = collected.first();
 
       if (reaction.emoji.id === yes.id) {
-  
+              
+      let loadembed = new Discord.RichEmbed()
+      .setTitle(`${load} **Sending Messages...**`)
+      .setColor("GREEN")
+      .setDescription("This might take a few moments, a confirmation message will be sent once this process is done.");
+      
+      const sentMessage2 = message.channel.send(loadembed);
+      let msgid = sentMessage2.id
+
         let dmembed = new Discord.RichEmbed()
         .setTitle("**Serverwide Message**")
         .setColor("BLACK")
@@ -71,14 +80,17 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
       message.guild.members.forEach(member => {
             if (member.id != bot.user.id && !member.user.bot) member.send(dmembed);
           });
-      
+    
+      //message.channel.fetchMessages({ limit: 100 })
+      await message.channel.fetchMessage(msgid).then(msg => msg.delete());
+
       let doneembed = new Discord.RichEmbed()
       .setTitle(`${yes} **Done!**`)
       .setColor("GREEN")
-      .setDescription("A message has been sent to everyone in this server.");
+      .setDescription("The message has successfully been sent to everyone within this server.");
       
-      message.channel.send(doneembed);
-      
+      await message.channel.send(doneembed);
+
       let ModEmbed = new Discord.RichEmbed()
       .setTitle("**Command Used!**")
       .setTimestamp()
@@ -119,7 +131,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 
 
   } catch(err) {
-    console.log(err)
+    catchErr(err)
 
   }
 
