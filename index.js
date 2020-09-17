@@ -1132,10 +1132,10 @@ bot.on("ready", async () => {
             .setDescription("You do not appear to be a member of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
             //let mainguild = bot.guilds.fetch('644227663829139466');
-            let mainguild = bot.guilds.cache.get('644227663829139466');
-            mainguild.members.fetch()
+            let mainguild = bot.guilds.get('644227663829139466');
+            mainguild.guild.members.fetch()
           
-          if (mainguild.members.get(user.id)) {
+          if (mainguild.guild.members.get(user.id)) {
             gMember.addRole(roledrpmember.id);
           }
 
@@ -1150,10 +1150,10 @@ bot.on("ready", async () => {
             .setDescription("You do not appear to be a recruit of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
       //      let trainguild = bot.guilds.get('645035452956540929');
-            let trainguild = bot.guilds.cache.get('645035452956540929');
-            trainguild.members.fetch()
+            let trainguild = bot.guilds.get('645035452956540929');
+            trainguild.guild.members.fetch()
           
-            if (trainguild.members.get(user.id)) {
+            if (trainguild.guild.embers.get(user.id)) {
                 gMember.addRole(roledrprecruit.id);
             }
 
@@ -1168,10 +1168,10 @@ bot.on("ready", async () => {
             .setDescription("You do not appear to be an applicant of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
             //let interviewguild = bot.guilds.fetch('604420918634086411');
-            let interviewguild = bot.guilds.cache.get('604420918634086411');
-            interviewguild.members.fetch()
+            let interviewguild = bot.guilds.get('604420918634086411');
+            interviewguild.guild.members.fetch()
           
-          if (interviewguild.members.get(user.id)) {
+          if (interviewguild.guild.members.get(user.id)) {
             gMember.addRole(roledrpapplicant.id);
           }
 
