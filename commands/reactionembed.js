@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
 
     let drpstaff= message.guild.roles.find(x => x.name === 'DRP Staff');
     let drpadmin = message.guild.roles.find(x => x.name === 'DRP Administrator');
-    let drpmember = message.guild.roles.find(x => x.name === 'DRP Member');
+    let drpmemberrole = message.guild.roles.find(x => x.name === 'DRP Member');
 
     let reactEmbed = new Discord.RichEmbed()
     .setTitle("**Self-Role Assigning Menu**")
@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
         ` `,
         `**Deputy Roleplay Membership Roles**`,
         ` `,
-        `When attempting to obtain any of the Deputy Roleplay membership roles, our bot will verify your position and will not give you the role unless you are in the correct discord server, e.x DRP Members will need to be in the DRP Main Server to obtain the ${drpmember} role, etc. `,
+        `When attempting to obtain any of the Deputy Roleplay membership roles, our bot will verify your position and will not give you the role unless you are in the correct discord server, e.x DRP Members will need to be in the DRP Main Server to obtain the ${drpmemberrole} role, etc. `,
         ` `,
         `${drpapplicant} - Deputy Roleplay Applicant`,
         `${drprecruit} - Deputy Roleplay Recruit`,
