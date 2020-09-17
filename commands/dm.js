@@ -126,7 +126,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 
 
   } catch(err) {
-    catchErr(err)
+    console.log(err)
 
   }
 
