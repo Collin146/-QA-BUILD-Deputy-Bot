@@ -58,7 +58,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
   .then(collected => {
       const reaction = collected.first();
 
-      if (reaction.emoji.id === yes.id, async) {
+      if (reaction.emoji.id === yes.id) { 
               
       let loadembed = new Discord.RichEmbed()
       .setTitle(`${load} **Sending Messages...**`)
@@ -88,10 +88,10 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 
           message.channel.fetchMessages({ limit: 100 })
 
-          .then("fetchedMessages", async => {
+          .then(fetchedMessages => {
             const messagesToDelete = fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('Sending Messages...')));
         
-          await message.channel.bulkDelete(messagesToDelete, true).then(message.channel.send(doneembed));
+          message.channel.bulkDelete(messagesToDelete, true).then(message.channel.send(doneembed));
           })
 
       let ModEmbed = new Discord.RichEmbed()
