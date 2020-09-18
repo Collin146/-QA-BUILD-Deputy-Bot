@@ -86,7 +86,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
             .setColor("GREEN")
             .setDescription("The message has successfully been sent to everyone within this server.");
 
-            message.channelchannel.messages.fetch(msgid).then(msg => msg.delete()).then(message.channel.send(doneembed));
+            message.channel.messages.fetch(msgid).then(msg => msg.delete()).then(message.channel.send(doneembed));
           });
 
       let ModEmbed = new Discord.RichEmbed()
