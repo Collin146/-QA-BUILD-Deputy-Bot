@@ -107,7 +107,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
       .setColor("GREEN")
       .setDescription("The message has successfully been sent to everyone within this server.");
       
-      sentMessage2.delete
+      message.channel.messages.fetch().then(msgid.delete)
       message.channel.send(doneembed);
          return; 
       }
