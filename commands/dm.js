@@ -64,11 +64,6 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
       .setTitle(`${load} **Sending Messages...**`)
       .setColor("GREEN")
       .setDescription("This might take a few moments, a confirmation message will be sent once this process is done.");
-      
-      let doneembed = new Discord.RichEmbed()
-      .setTitle(`${yes} **Done!**`)
-      .setColor("GREEN")
-      .setDescription("The message has successfully been sent to everyone within this server.");
 
       const sentMessage2 = message.channel.send(loadembed);
       let msgid = sentMessage2.id
@@ -84,7 +79,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
           
       message.guild.members.forEach(member => {
             if (member.id != bot.user.id && !member.user.bot) member.send(dmembed);
-          }).then(sentMessage2.delete) && (message.channel.send(doneembed));
+          });
 
           // message.channel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
           //   const messagesToDelete = fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('Sending Messages...')));
@@ -106,6 +101,14 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
       
       let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
       modlogchannel.send({embed: ModEmbed});
+
+      let doneembed = new Discord.RichEmbed()
+      .setTitle(`${yes} **Done!**`)
+      .setColor("GREEN")
+      .setDescription("The message has successfully been sent to everyone within this server.");
+      
+      sentMessage2.delete
+      message.channel.send(doneembed);
          return; 
       }
       else {
