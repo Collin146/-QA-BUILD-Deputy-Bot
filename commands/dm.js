@@ -81,19 +81,21 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
             if (member.id != bot.user.id && !member.user.bot) member.send(dmembed);
           });
 
-          let doneembed = new Discord.RichEmbed()
-          .setTitle(`${yes} **Done!**`)
-          .setColor("GREEN")
-          .setDescription("The message has successfully been sent to everyone within this server.");
-
           message.channel.fetchMessages({ limit: 100 })
 
           .then(fetchedMessages => {
             const messagesToDelete = fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('Sending Messages...')));
         
-          message.channel.bulkDelete(messagesToDelete, true).then(message.channel.send(doneembed));
+          message.channel.bulkDelete(messagesToDelete, true)
           })
 
+          let doneembed = new Discord.RichEmbed()
+          .setTitle(`${yes} **Done!**`)
+          .setColor("GREEN")
+          .setDescription("The message has successfully been sent to everyone within this server.");
+
+          message.channel.send(doneembed);
+          
       let ModEmbed = new Discord.RichEmbed()
       .setTitle("**Command Used!**")
       .setTimestamp()
