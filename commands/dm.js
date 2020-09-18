@@ -107,7 +107,7 @@ if (!reason) return message.channel.send(errEmbed);
       .setColor("GREEN")
       .setDescription("The message has successfully been sent to everyone within this server.");
       
-      message.channel.messages.fetch().then(msgid.delete)
+      message.channel.fetchMessages({ limit: 100 }).then(msgid.delete)
       message.channel.send(doneembed);
       //    return; 
       // }
