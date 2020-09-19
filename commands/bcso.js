@@ -14,6 +14,9 @@ module.exports.run = async (bot, message, args) => {
 
 try { 
 
+    const yes = bot.emojis.get("700713527576625205");
+    const no = bot.emojis.get("700713478578634783"); 
+
     let ftoRole = message.guild.roles.find(x => x.name === 'FTO Trainer');
 
     let errEmbedrole = new Discord.RichEmbed()
@@ -23,8 +26,6 @@ try {
 
     if (!message.member.roles.cache.has(ftoRole.id)) return message.channel.send(errEmbedrole)
 
-const yes = bot.emojis.get("700713527576625205");
-const no = bot.emojis.get("700713478578634783"); 
 let tobcso = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
 let errEmbed = new Discord.RichEmbed()
