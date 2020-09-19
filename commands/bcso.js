@@ -24,7 +24,7 @@ try {
     .setTitle(`${no} **Error!**`)
     .setDescription("You do not have permission to use this command!");
 
-    if (!message.member.roles.cache.has(ftoRole.id)) return message.channel.send(errEmbedrole)
+    if (!message.member.roles.has(ftoRole.id)) return message.channel.send(errEmbedrole)
 
 let tobcso = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
