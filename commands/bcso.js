@@ -16,7 +16,12 @@ try {
 
     let ftoRole = message.guild.roles.find(x => x.name === 'FTO Trainer');
 
-    if (!message.member.roles.cache.has(ftoRole.id)) return;
+    let errEmbedrole = new Discord.RichEmbed()
+    .setColor("RED")
+    .setTitle(`${no} **Error!**`)
+    .setDescription("You do not have permission to use this command!");
+
+    if (!message.member.roles.cache.has(ftoRole.id)) return message.channel.send(errEmbedrole)
 
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
@@ -93,7 +98,7 @@ geluktEmbed = new Discord.RichEmbed()
       message.channel.send(geluktEmbed);
 
 } catch (err) {
-    catchErr(err)
+    console.log(err)
 
 }
 
