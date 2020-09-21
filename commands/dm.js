@@ -116,7 +116,7 @@ return;
   .setColor("GREEN")
   .setDescription("This might take a few moments, a confirmation message will be sent once this process is done.");
 
-  const sentMessage2 = message.channel.send(loadembed);
+  const sentMessage2 = await message.channel.send(loadembed);
 
   await sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
     .then(collected => {
@@ -129,8 +129,8 @@ return;
     .setColor("GREEN")
     .setDescription("The message has successfully been sent to everyone within this server.");
 
-    message.channel.fetchMessages({ limit: 100 }).then(sentMessage2.delete)
-    message.channel.send(doneembed22);
+    await message.channel.fetchMessages({ limit: 100 }).then(sentMessage2.delete)
+    await message.channel.send(doneembed22);
     
         }
   });
