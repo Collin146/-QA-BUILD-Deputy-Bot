@@ -117,13 +117,7 @@ return;
   .setDescription("This might take a few moments, a confirmation message will be sent once this process is done.");
 
   const sentMessage2 = await message.channel.send(loadembed);
-
-  await sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
-    .then(collected => {
-        const reaction = collected.first();
   
-        if (reaction.emoji.id === yes.id) {
-
     let doneembed22 = new Discord.RichEmbed()
     .setTitle(`${yes} **Done!**`)
     .setColor("GREEN")
@@ -131,9 +125,6 @@ return;
 
     await message.channel.fetchMessages({ limit: 100 }).then(sentMessage2.delete)
     await message.channel.send(doneembed22);
-    
-        }
-  });
 
   } catch(err) {
     console.log(err)
