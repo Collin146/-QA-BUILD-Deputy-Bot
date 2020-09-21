@@ -118,6 +118,10 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 
   });
 
+  sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+  .then(collected => {
+      const reaction = collected.first();
+
   if (await reaction.emoji.id === yes.id) {
 
     let doneembed22 = new Discord.RichEmbed()
@@ -129,8 +133,10 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
     message.channel.send(doneembed22);
   } 
   else {
-
   }
+})
+.catch(collected => {
+});
 
 
   } catch(err) {
