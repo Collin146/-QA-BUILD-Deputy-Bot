@@ -40,34 +40,26 @@ let errEmbed = new Discord.RichEmbed()
 
 if (!reason) return message.channel.send(errEmbed);
 
-// let confirmationEmbed = new Discord.RichEmbed()
-// .setTitle(`${warningsign} **Confirmation!**`)
-// .setTimestamp()
-// .setColor("RED")
-// .setDescription(`Are you sure you want to send a direct message to ${message.guild.memberCount} members? If so, press ${yes}. If not, press ${no}.`);
+let confirmationEmbed = new Discord.RichEmbed()
+.setTitle(`${warningsign} **Confirmation!**`)
+.setTimestamp()
+.setColor("RED")
+.setDescription(`Are you sure you want to send a direct message to ${message.guild.memberCount} members? If so, press ${yes}. If not, press ${no}.`);
 
-// const sentMessage =  await message.channel.send(confirmationEmbed);
-// await sentMessage.react(yes.id);
-// await sentMessage.react(no.id);
+const sentMessage =  await message.channel.send(confirmationEmbed);
+await sentMessage.react(yes.id);
+await sentMessage.react(no.id);
 
-// const filter = (reaction, user) => {
-//   return [yes.id, no.id].includes(reaction.emoji.id) && user.id === message.author.id;
-// };
+const filter = (reaction, user) => {
+  return [yes.id, no.id].includes(reaction.emoji.id) && user.id === message.author.id;
+};
 
-// sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
-//   .then(collected => {
-//       const reaction = collected.first();
+sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+  .then(collected => {
+      const reaction = collected.first();
 
-      //if (reaction.emoji.id === yes.id) { 
-              
-      let loadembed = new Discord.RichEmbed()
-      .setTitle(`${load} **Sending Messages...**`)
-      .setColor("GREEN")
-      .setDescription("This might take a few moments, a confirmation message will be sent once this process is done.");
-
-      const sentMessage2 = message.channel.send(loadembed);
-      let msgid = sentMessage2.id
-
+      if (reaction.emoji.id === yes.id) {
+  
         let dmembed = new Discord.RichEmbed()
         .setTitle("**Serverwide Message**")
         .setColor("BLACK")
@@ -76,17 +68,18 @@ if (!reason) return message.channel.send(errEmbed);
             `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
             `**Reason:** ${reason}`,
           ].join('\n'))
-          
+      
       message.guild.members.forEach(member => {
             if (member.id != bot.user.id && !member.user.bot) member.send(dmembed);
           });
-
-          // message.channel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-          //   const messagesToDelete = fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('Sending Messages...')));
-        
-          // message.channel.bulkDelete(messagesToDelete, true)
-          // })
-
+      
+          let loadembed = new Discord.RichEmbed()
+          .setTitle(`${load} **Sending Messages...**`)
+          .setColor("GREEN")
+          .setDescription("This might take a few moments, a confirmation message will be sent once this process is done.");
+    
+          const sentMessage2 = message.channel.send(loadembed);
+          
       let ModEmbed = new Discord.RichEmbed()
       .setTitle("**Command Used!**")
       .setTimestamp()
@@ -101,41 +94,47 @@ if (!reason) return message.channel.send(errEmbed);
       
       let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
       modlogchannel.send({embed: ModEmbed});
+         return; 
+      }
+      else {
 
-      let doneembed = new Discord.RichEmbed()
-      .setTitle(`${yes} **Done!**`)
-      .setColor("GREEN")
-      .setDescription("The message has successfully been sent to everyone within this server.");
-      
-      message.channel.fetchMessages({ limit: 100 }).then(msgid.delete)
-      message.channel.send(doneembed);
-      //    return; 
-      // }
-      // else {
-
-  //       let stopEmbed = new Discord.RichEmbed()
-  //       .setTitle(`${no} **Done!**`)
-  //       .setColor("RED")
-  //       .setDescription("The command has been cancelled");
+        let stopEmbed = new Discord.RichEmbed()
+        .setTitle(`${no} **Done!**`)
+        .setColor("RED")
+        .setDescription("The command has been cancelled");
         
-  //       message.channel.send(stopEmbed);
+        message.channel.send(stopEmbed);
 
-  //     }
-  // })
-  // .catch(collected => {
+      }
+  })
+  .catch(collected => {
 
-  //   let stopEmbed2 = new Discord.RichEmbed()
-  //   .setTitle(`${no} **Time Expired!**`)
-  //   .setColor("RED")
-  //   .setDescription("The command has automatically been cancelled.");
+    let stopEmbed2 = new Discord.RichEmbed()
+    .setTitle(`${no} **Time Expired!**`)
+    .setColor("RED")
+    .setDescription("The command has automatically been cancelled.");
     
-  //   message.channel.send(stopEmbed2);
+    message.channel.send(stopEmbed2);
 
-  // });
+  });
+
+  if (await reaction.emoji.id === yes.id) {
+
+    let doneembed22 = new Discord.RichEmbed()
+    .setTitle(`${yes} **Done!**`)
+    .setColor("GREEN")
+    .setDescription("The message has successfully been sent to everyone within this server.");
+
+    message.channel.fetchMessages({ limit: 100 }).then(sentMessage2.delete)
+    message.channel.send(doneembed22);
+  } 
+  else {
+
+  }
 
 
   } catch(err) {
-    console.log(err)
+    catchErr(err)
 
   }
 
