@@ -118,11 +118,15 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 
   });
 
+  const filter = (reaction, user) => {
+    return [yes.id, no.id].includes(reaction.emoji.id) && user.id === message.author.id;
+  };
+  
   sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
-  .then(collected => {
-      const reaction = collected.first();
-
-  if (await reaction.emoji.id === yes.id) {
+    .then(collected => {
+        const reaction = collected.first();
+  
+        if (await reaction.emoji.id === yes.id) {
 
     let doneembed22 = new Discord.RichEmbed()
     .setTitle(`${yes} **Done!**`)
@@ -131,13 +135,9 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 
     message.channel.fetchMessages({ limit: 100 }).then(sentMessage2.delete)
     message.channel.send(doneembed22);
-  } 
-  else {
-  }
-})
-.catch(collected => {
-});
-
+    
+        }
+  });
 
   } catch(err) {
     console.log(err)
