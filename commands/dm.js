@@ -72,13 +72,6 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
       message.guild.members.forEach(member => {
             if (member.id != bot.user.id && !member.user.bot) member.send(dmembed);
           });
-      
-          let loadembed = new Discord.RichEmbed()
-          .setTitle(`${load} **Sending Messages...**`)
-          .setColor("GREEN")
-          .setDescription("This might take a few moments, a confirmation message will be sent once this process is done.");
-    
-          const sentMessage2 = message.channel.send(loadembed);
           
       let ModEmbed = new Discord.RichEmbed()
       .setTitle("**Command Used!**")
@@ -104,7 +97,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
         .setDescription("The command has been cancelled");
         
         message.channel.send(stopEmbed);
-
+return;
       }
   })
   .catch(collected => {
@@ -115,9 +108,16 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
     .setDescription("The command has automatically been cancelled.");
     
     message.channel.send(stopEmbed2);
-
+return;
   });
-  
+
+  let loadembed = new Discord.RichEmbed()
+  .setTitle(`${load} **Sending Messages...**`)
+  .setColor("GREEN")
+  .setDescription("This might take a few moments, a confirmation message will be sent once this process is done.");
+
+  const sentMessage2 = message.channel.send(loadembed);
+
   await sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
     .then(collected => {
         const reaction = collected.first();
