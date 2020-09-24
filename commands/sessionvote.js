@@ -24,7 +24,15 @@ module.exports.run = async (bot, message, args) => {
             
             let votingMessage = votingChannel.fetchMessage("758491732987215923");
 
-            votingMessage.reactions.removeAll()
+            // votingMessage.reactions.removeAll()
+
+            votingMessage.reactions.cache.get('1️⃣').users.remove()
+            votingMessage.reactions.cache.get('2️⃣').users.remove()
+            votingMessage.reactions.cache.get('3️⃣').users.remove()
+            votingMessage.reactions.cache.get('4️⃣').users.remove()
+            votingMessage.reactions.cache.get('5️⃣').users.remove()
+            votingMessage.reactions.cache.get('6️⃣').users.remove()
+            votingMessage.reactions.cache.get('7️⃣').users.remove()
 
             await votingMessage.react("1️⃣");
             await votingMessage.react("2️⃣");
@@ -33,8 +41,6 @@ module.exports.run = async (bot, message, args) => {
             await votingMessage.react("5️⃣");
             await votingMessage.react("6️⃣");
             await votingMessage.react("7️⃣");
-
-
 
             // const filter = (reaction, user) => reaction.emoji.name === '👌' && user.id === 'someID';
             // const collector = votingMessage.createReactionCollector(filter, { time: 15000 });
