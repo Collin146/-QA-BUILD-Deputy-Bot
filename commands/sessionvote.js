@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
             
             let votingMessage = votingChannel.fetchMessages("758491732987215923");
 
-            const userReactions = votingMessage.reactions.cache.filter(reaction => !reaction.users.cache.has('732901249720254485'));
+            const userReactions = votingMessage.reactions.cache.filter(reaction => reaction.users.cache.has('732901249720254485'));
 
             try {
                 for (const reaction of userReactions.values()) {
