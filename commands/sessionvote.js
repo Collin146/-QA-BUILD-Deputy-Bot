@@ -27,19 +27,22 @@ module.exports.run = async (bot, message, args) => {
             const filter = (reaction, user) => !user.bot;
 
             const reactionCollected = votingMessage.createReactionCollector(filter, { time: 10800000 })
-            .then(collected => {
-                const reaction = collected.first();
-        
-                let reactedUsers = !reactionCollected.users.cache.has('732901249720254485')
-                
-                 votingMessage.reactions.forEach(reaction => reaction.remove(reactedUsers))
-            })
-            .catch(collected => {
 
-                let reactedUsers = !reactionCollected.users.cache.has('732901249720254485')
-                
-                votingMessage.reactions.forEach(reaction => reaction.remove(reactedUsers))
+            reactionCollected.on('collect', (reaction, user) => {
+
+                if(!user.bot) reaction.forEach(reaction => reaction.remove())
+
             });
+            
+        
+                // let reactedUsers = !reactionCollected.users.cache.has('732901249720254485')
+                
+                //  votingMessage.reactions.forEach(reaction => reaction.remove(reactedUsers))
+  
+
+                // let reactedUsers = !reactionCollected.users.cache.has('732901249720254485')
+                
+                // votingMessage.reactions.forEach(reaction => reaction.remove(reactedUsers))
 
             
             // votingChannel.fetchMessage('758491732987215923').map(r => r).then(message => {
@@ -70,9 +73,6 @@ module.exports.run = async (bot, message, args) => {
             // votingMessage.reactions.forEach(user => {
             //     if (!user.bot) MessageReaction.remove(user);
             //   });
-    
-
-            votingMessage.reactions.forEach(reactions=>{ r.users.filter(u=>u.bot).forEach(user=>{ r.remove(bot) }) })
         
         }
 
