@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
                 limit: 80,
                });
             
-            const votingMessage = votingChannel.fetchMessages("758491732987215923");
+            let votingMessage = votingChannel.messages.get("758491732987215923");
 
             // votingMessage.reactions.removeAll()
 
