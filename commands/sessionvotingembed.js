@@ -38,8 +38,6 @@ let mentionrole = message.guild.roles.find(x => x.name === 'Member');
 .setDescription([
     `This message will include all 7 days of the week to schedule sessions on. Each member has the ability to vote for a or multiple days they can attend a session on. This is done by reacting to this message with the appropiate reaction signifying the day you are available on. Which reaction signifies which day can be seen below. The time of the sessions will be the standart \`7:30 PM BST\``,
     ` `,
-    `This command was used on: ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY')}`,
-    ` `,
     `1️⃣ - Monday`,
     `2️⃣ - Tuesday`,
     `3️⃣ - Wednesday`,
@@ -69,5 +67,5 @@ await sentMessage.react("7️⃣");
 }
 
 module.exports.help = {
-    name: "sessionvotingembed"
+    name: "session"
 }
