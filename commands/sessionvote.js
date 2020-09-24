@@ -24,15 +24,18 @@ module.exports.run = async (bot, message, args) => {
             
             let votingMessage = votingChannel.fetchMessages("758491732987215923");
 
-            const userReactions = votingMessage.reactions.cache.filter(reaction => reaction.users.cache.has('732901249720254485'));
+            votingChannel.fetchMessage('758491732987215923').map(r => r).then(message => {
+                message.reactions.forEach(reaction => reaction.remove(!'732901249720254485'))
+              })
 
-            try {
-                for (const reaction of userReactions.values()) {
-                    await !reaction.users.remove('732901249720254485');
-                }
-            } catch (error) {
-                console.log(error)
-            }
+            // const userReactions = votingMessage.reactions.cache.filter(reaction => reaction.users.cache.has('732901249720254485'));
+
+            // try {
+            //         await !reaction.users.remove('732901249720254485');
+                
+            // } catch (error) {
+            //     console.log(error)
+            // }
 
         //     votingMessage.reactions.cache.filter.forEach(user => {
         //         if (!user.bot){
