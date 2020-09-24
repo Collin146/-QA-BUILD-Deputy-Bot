@@ -24,9 +24,14 @@ module.exports.run = async (bot, message, args) => {
             
             let votingMessage = votingChannel.fetchMessages("758491732987215923");
 
-            votingChannel.fetchMessage('758491732987215923').map(r => r).then(message => {
-                message.reactions.forEach(reaction => reaction.remove(!'732901249720254485'))
+
+            votingMessage.reactions.cache.users.forEach(users => {
+                if (reaction.users.cache.has('732901249720254485')) reaction.remove();
               })
+
+            // votingChannel.fetchMessage('758491732987215923').map(r => r).then(message => {
+            //     message.reactions.forEach(reaction => reaction.remove(!'732901249720254485'))
+            //   })
 
             // const userReactions = votingMessage.reactions.cache.filter(reaction => reaction.users.cache.has('732901249720254485'));
 
