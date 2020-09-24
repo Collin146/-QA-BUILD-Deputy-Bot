@@ -36,7 +36,7 @@ let mentionrole = message.guild.roles.find(x => x.name === 'Member');
 .setTimestamp()
 .setColor("#f5f5f5")
 .setDescription([
-    `This message will include all 7 days of the week to schedule sessions on. Each member has the ability to vote for a or multiple days they can attend a session on. This is done by reacting to this message with the appropiate reaction signifying the day you are available on. Which reaction signifies which day can be seen below. The time of the sessions will be the standart \`7:30 PM BST\``,
+    `This message will include all 7 days of the week to schedule sessions on. Each member has the ability to vote for a or multiple days they can attend a session on. This is done by reacting to this message with the appropiate reaction signifying the day you are available on. Which reaction signifies which day can be seen below. The time of the sessions will be the standard \`7:30 PM BST\``,
     ` `,
     `1️⃣ - Monday`,
     `2️⃣ - Tuesday`,
@@ -46,7 +46,7 @@ let mentionrole = message.guild.roles.find(x => x.name === 'Member');
     `6️⃣ - Saturday`,
     `7️⃣ - Sunday`,
     ` `,
-    `The system will automatically check if a or multiple reactiond have reached 8+ reactions, including one from the Administrators. If this is the case, a session for that specific day will automatically be announced and all members that voted for that day will be expected to attend.`,
+    `The system will automatically check if one or multiple reactions have reached 8+ reactions, including one from the Administrators (or higher). If this is the case, a session for that specific day will automatically be announced and all members that voted for that day will be expected to attend.`,
   ].join('\n'))
 
 const sentMessage =  await message.channel.send(sessionEmbed);
