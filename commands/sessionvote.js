@@ -24,6 +24,8 @@ module.exports.run = async (bot, message, args) => {
             
             let votingMessage = votingChannel.fetchMessage("758491732987215923");
 
+            const filter = (reaction, user) => !user.bot;
+
             const reactionCollected = votingMessage.createReactionCollector(filter, { time: 10800000 })
             .then(collected => {
                 const reaction = collected.first();
