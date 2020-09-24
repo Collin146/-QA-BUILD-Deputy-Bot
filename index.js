@@ -1462,14 +1462,14 @@ try {
 //-—
 
 //Pinging
-bot.on("ready", async () => {
+// bot.on("ready", async () => {
 
-setInterval(() => {
-let pingChannel = bot.channels.find(x => x.name === 'pinging');
-pingChannel.send("!ping");
-}, 30000);
+// setInterval(() => {
+// let pingChannel = bot.channels.find(x => x.name === 'pinging');
+// pingChannel.send("!ping");
+// }, 30000);
 
-});
+// });
 
 bot.login(botconfig.token);
  
