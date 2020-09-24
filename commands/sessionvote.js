@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+ const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 const moment = require("moment");
 
@@ -24,11 +24,11 @@ module.exports.run = async (bot, message, args) => {
             
             let votingMessage = votingChannel.fetchMessages("758491732987215923");
 
-            votingMessage.reactions.forEach(user => {
-                if (!user.bot){
-                    reaction.remove
-                }
-           })
+        //     votingMessage.reactions.cache.filter.forEach(user => {
+        //         if (!user.bot){
+        //             reaction.remove
+        //         }
+        //    })
 
             // votingMessage.reactions.forEach(r=>{ r.users.filter(u=>u.user).forEach(user=>{ r.remove(user) }) });
 
@@ -37,7 +37,7 @@ module.exports.run = async (bot, message, args) => {
             //   });
     
 
-            // message.reactions.forEach(r=>{ r.users.filter(u=>u.bot).forEach(bot=>{ r.remove(bot) }) })
+            message.reactions.forEach(r=>{ r.users.filter(u=>u.bot).forEach(user=>{ r.remove(bot) }) })
         
         }
 
