@@ -22,10 +22,10 @@ module.exports.run = async (bot, message, args) => {
                 limit: 80,
                });
             
-            let votingMessage = votingChannel.fetchMessage('58491732987215923');
+            let votingMessage = votingChannel.fetchMessages('58491732987215923');
 
 
-            votingMessage.reactions.cache.users.forEach(users => {
+            votingMessage.reaction.cache.users.forEach(users => {
                 if (reaction.users.cache.has('732901249720254485')) reaction.remove();
               })
 
