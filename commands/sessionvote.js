@@ -22,12 +22,27 @@ module.exports.run = async (bot, message, args) => {
                 limit: 80,
                });
             
-            let votingMessage = votingChannel.fetchMessages('58491732987215923');
+            let votingMessage = votingChannel.fetchMessage("758491732987215923");
 
+            const reactionCollected = votingMessage.createReactionCollector(filter, { time: 10800000 })
+            .then(collected => {
+                const reaction = collected.first();
+        
+                let reactedUsers = !reactionCollected.users.cache.has('732901249720254485')
+                
+                 votingMessage.reactions.forEach(reaction => reaction.remove(reactedUsers))
+            })
+            .catch(collected => {
 
-            votingMessage.reaction.cache.users.forEach(users => {
-                if (reaction.users.cache.has('732901249720254485')) reaction.remove();
-              })
+                let reactedUsers = !reactionCollected.users.cache.has('732901249720254485')
+                
+                votingMessage.reactions.forEach(reaction => reaction.remove(reactedUsers))
+            });
+
+            
+            // votingChannel.fetchMessage('758491732987215923').map(r => r).then(message => {
+            //     message.reactions.forEach(reaction => reaction.remove(!'732901249720254485'))
+            //   })
 
             // votingChannel.fetchMessage('758491732987215923').map(r => r).then(message => {
             //     message.reactions.forEach(reaction => reaction.remove(!'732901249720254485'))
