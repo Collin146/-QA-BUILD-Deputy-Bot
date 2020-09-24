@@ -67,5 +67,5 @@ await sentMessage.react("7️⃣");
 }
 
 module.exports.help = {
-    name: "session"
+    name: "sessionvotingembed"
 }
