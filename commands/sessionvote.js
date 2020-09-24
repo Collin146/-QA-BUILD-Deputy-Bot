@@ -24,19 +24,24 @@ module.exports.run = async (bot, message, args) => {
             
             let votingMessage = votingChannel.fetchMessage("758491732987215923");
 
-            const filter = (reaction, user) => {
-                return reaction.emoji.name === '👍' && user.id === message.author.id;
-            };
-            
+            const filter = (reaction, user) => reaction.emoji.name === '👌' && user.id === 'someID';
             const collector = votingMessage.createReactionCollector(filter, { time: 15000 });
+            collector.on('collect', r => console.log(`Collected ${r.emoji.name}`));
+            collector.on('end', collected => console.log(`Collected ${collected.size} items`));
+
+            // const filter = (reaction, user) => {
+            //     return reaction.emoji.name === '👍' && user.id === message.author.id;
+            // };
             
-            collector.on('collect', (reaction, user) => {
-                console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
-            });
+            // const collector = votingMessage.createReactionCollector(filter, { time: 15000 });
             
-            collector.on('end', collected => {
-                console.log(`Collected ${collected.size} items`);
-            });
+            // collector.on('collect', (reaction, user) => {
+            //     console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
+            // });
+            
+            // collector.on('end', collected => {
+            //     console.log(`Collected ${collected.size} items`);
+            // });
 
             // const filter = (reaction, user) => !user.bot;
 
