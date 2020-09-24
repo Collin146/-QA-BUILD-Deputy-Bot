@@ -15,6 +15,10 @@ module.exports.run = async (bot, message, args) => {
 
     try {
 
+        const yes = bot.emojis.get("700713527576625205");
+        const no = bot.emojis.get("700713478578634783");
+        let mentionrole = message.guild.roles.find(x => x.name === 'Member');
+
             message.delete().catch(O_o=>{});
 
             let errEmbed2 = new Discord.RichEmbed()
@@ -26,9 +30,6 @@ module.exports.run = async (bot, message, args) => {
 
             message.channel.bulkDelete(50);
         
-            const yes = bot.emojis.get("700713527576625205");
-            const no = bot.emojis.get("700713478578634783");
-            let mentionrole = message.guild.roles.find(x => x.name === 'Member');
                 
                 let sessionEmbed = new Discord.RichEmbed()
             .setTitle("**Session Date Voting**")
