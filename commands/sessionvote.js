@@ -25,14 +25,13 @@ module.exports.run = async (bot, message, args) => {
             let votingMessage = votingChannel.fetchMessage("758491732987215923");
 
             const filter = (reaction, user) => {
+                return reaction.emoji.name === '👍' && user.id === message.author.id;
             };
             
-            const collector = votingMessage.createReactionCollector(filter, { time: 1500000000 });
+            const collector = votingMessage.createReactionCollector(filter, { time: 15000 });
             
             collector.on('collect', (reaction, user) => {
-
-                if(!user.bot) reaction.forEach(reaction => reaction.remove())
-
+                console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
             });
             
             collector.on('end', collected => {
