@@ -33,6 +33,10 @@ module.exports.run = async (bot, message, args) => {
                 if(!user.bot) reaction.forEach(reaction => reaction.remove())
 
             });
+
+            reactionCollected.on('end', collected => {
+
+            });
             
         
                 // let reactedUsers = !reactionCollected.users.cache.has('732901249720254485')
