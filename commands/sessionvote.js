@@ -17,22 +17,17 @@ module.exports.run = async (bot, message, args) => {
 
         if(args[0] === "reset"){
 
-            let votingChannel = bot.channels.find(x => x.id === '758491693942833163');
+            let votingChannel = message.guild.channels.find(x => x.id === 'session-voting');
             votingChannel.fetchMessages({
                 limit: 80,
                });
             
-            let votingMessage = votingChannel.messages.get("758491732987215923");
+            let votingMessage = votingChannel.fetchMessage('758491732987215923');
 
             // votingMessage.reactions.removeAll()
 
-            votingMessage.reactions.cache.get('1️⃣').users.remove()
-            votingMessage.reactions.cache.get('2️⃣').users.remove()
-            votingMessage.reactions.cache.get('3️⃣').users.remove()
-            votingMessage.reactions.cache.get('4️⃣').users.remove()
-            votingMessage.reactions.cache.get('5️⃣').users.remove()
-            votingMessage.reactions.cache.get('6️⃣').users.remove()
-            votingMessage.reactions.cache.get('7️⃣').users.remove()
+            votingMessage.reactions.first().removeAll
+            
 
             await votingMessage.react("1️⃣");
             await votingMessage.react("2️⃣");
