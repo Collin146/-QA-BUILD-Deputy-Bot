@@ -18,14 +18,14 @@ module.exports.run = async (bot, message, args) => {
         if(args[0] === "reset"){
 
             let votingChannel = bot.channels.find(x => x.name === 'session-voting');
-            fetchchannel.fetchMessages({
+            votingChannel.fetchMessages({
                 limit: 80,
                });
             
             let votingMessage = votingChannel.fetchMessages("758489944330731563");
 
             votingMessage.reactions.forEach(r=>{ r.users.filter(u=>u.users).forEach(users=>{ r.remove(users) }) });
-            
+        
         }
 
 
