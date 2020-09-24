@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
 
         if(args[0] === "reset"){
 
-            let votingChannel = message.guild.channels.find(x => x.id === 'session-voting');
+            let votingChannel = message.guild.channels.find(x => x.name === 'session-voting');
             votingChannel.fetchMessages({
                 limit: 80,
                });
