@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
                 limit: 80,
                });
             
-            let votingMessage = votingChannel.messages.get("758491732987215923");
+            let votingMessage = votingChannel.fetchMessage("758491732987215923");
 
             votingMessage.reactions.removeAll()
 
@@ -33,6 +33,7 @@ module.exports.run = async (bot, message, args) => {
             await votingMessage.react("5️⃣");
             await votingMessage.react("6️⃣");
             await votingMessage.react("7️⃣");
+
 
 
             // const filter = (reaction, user) => reaction.emoji.name === '👌' && user.id === 'someID';
