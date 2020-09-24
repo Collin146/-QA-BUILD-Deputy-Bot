@@ -24,7 +24,12 @@ module.exports.run = async (bot, message, args) => {
             
             let votingMessage = votingChannel.fetchMessages("758491732987215923");
 
-            votingMessage.reactions.forEach(r=>{ r.users.filter(u=>u.user).forEach(user=>{ r.remove(user) }) });
+            // votingMessage.reactions.forEach(r=>{ r.users.filter(u=>u.user).forEach(user=>{ r.remove(user) }) });
+
+            votingMessage.reactions.forEach(user => {
+                if (!user.bot) MessageReaction.remove(user);
+              });
+    
 
             // message.reactions.forEach(r=>{ r.users.filter(u=>u.bot).forEach(bot=>{ r.remove(bot) }) })
         
