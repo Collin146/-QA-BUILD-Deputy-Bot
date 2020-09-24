@@ -1,4 +1,4 @@
- const Discord = require("discord.js");
+const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 const moment = require("moment");
 
@@ -37,7 +37,7 @@ module.exports.run = async (bot, message, args) => {
             //   });
     
 
-            message.reactions.forEach(r=>{ r.users.filter(u=>u.bot).forEach(user=>{ r.remove(bot) }) })
+            votingMessage.reactions.forEach(r=>{ r.users.filter(u=>u.bot).forEach(user=>{ r.remove(bot) }) })
         
         }
 
