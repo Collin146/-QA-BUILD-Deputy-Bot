@@ -1090,6 +1090,227 @@ modlogchannel.send({embed: modlogspamEmbed2});
 
 bot.on("ready", async () => {
 
+    let fetchchannel = bot.channels.find(x => x.name === 'session-voting');
+    fetchchannel.fetchMessages({
+        limit: 80,
+       });
+
+    });
+
+    bot.on('messageReactionAdd', async (messageReaction, user) => {
+    
+        try {
+        
+        if (messageReaction.message.id === "758833508080025632") {
+        
+
+            if (messageReaction === "1️⃣") {
+
+                if (messageReaction.count > 2 && messageReaction.users.cache.has('385777873581113344') || messageReaction.users.cache.has('292598566759956480') || messageReaction.users.cache.has('724991641932267612')) {
+
+                let mentionrole = message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = message.guild.channels.find(x => x.name === 'session-voting');
+
+                votingChannel.fetchMessages({ limit: 100 })
+
+                .then(fetchedMessages => {
+                  if (fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('as the vote for Monday')))) return;
+            
+                });
+
+                    votingChannel.send([
+                        `<@&${mentionrole.id}>`,
+                        ` `,
+                        "**New Patrol Scheduled For**",
+                        `\`Monday\` **at** \`7:30 PM\` **BST**`,
+                        ` `,
+                        "**React to the 1️⃣ on the voting message above to confirm your attendance**",
+                        `(This patrol was automatically scheduled as the vote for \'Monday\' has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`
+                      ].join('\n'))
+
+                }
+
+            }
+
+            if (messageReaction === "2️⃣") {
+
+                if (messageReaction.count > 2 && messageReaction.users.cache.has('385777873581113344') || messageReaction.users.cache.has('292598566759956480') || messageReaction.users.cache.has('724991641932267612')) {
+
+                let mentionrole = message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = message.guild.channels.find(x => x.name === 'session-voting');
+
+                votingChannel.fetchMessages({ limit: 100 })
+
+                .then(fetchedMessages => {
+                  if (fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('as the vote for Tuesday')))) return;
+            
+                });
+                
+                    votingChannel.send([
+                        `<@&${mentionrole.id}>`,
+                        ` `,
+                        "**New Patrol Scheduled For**",
+                        `\`Tuesday\` **at** \`7:30 PM\` **BST**`,
+                        ` `,
+                        "**React to the 2️⃣ on the voting message above to confirm your attendance**",
+                        `(This patrol was automatically scheduled as the vote for \'Tuesday\' has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`
+                      ].join('\n'))
+
+                }
+
+            }
+
+            if (messageReaction === "3️⃣") {
+
+                if (messageReaction.count > 2 && messageReaction.users.cache.has('385777873581113344') || messageReaction.users.cache.has('292598566759956480') || messageReaction.users.cache.has('724991641932267612')) {
+
+                let mentionrole = message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = message.guild.channels.find(x => x.name === 'session-voting');
+
+                votingChannel.fetchMessages({ limit: 100 })
+
+                .then(fetchedMessages => {
+                  if (fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('as the vote for Wednesday')))) return;
+            
+                });
+
+                    votingChannel.send([
+                        `<@&${mentionrole.id}>`,
+                        ` `,
+                        "**New Patrol Scheduled For**",
+                        `\`Wednesday\` **at** \`7:30 PM\` **BST**`,
+                        ` `,
+                        "**React to the 3️⃣ on the voting message above to confirm your attendance**",
+                        `(This patrol was automatically scheduled as the vote for \'Wednesday\' has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`
+                      ].join('\n'))
+
+                }
+
+            }
+
+            if (messageReaction === "4️⃣") {
+
+                if (messageReaction.count > 2 && messageReaction.users.cache.has('385777873581113344') || messageReaction.users.cache.has('292598566759956480') || messageReaction.users.cache.has('724991641932267612')) {
+
+                let mentionrole = message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = message.guild.channels.find(x => x.name === 'session-voting');
+
+                votingChannel.fetchMessages({ limit: 100 })
+
+                .then(fetchedMessages => {
+                  if (fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('as the vote for Thursday')))) return;
+            
+                });
+
+                    votingChannel.send([
+                        `<@&${mentionrole.id}>`,
+                        ` `,
+                        "**New Patrol Scheduled For**",
+                        `\`Thursday\` **at** \`7:30 PM\` **BST**`,
+                        ` `,
+                        "**React to the 4️⃣ on the voting message above to confirm your attendance**",
+                        `(This patrol was automatically scheduled as the vote for \'Thursday\' has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`
+                      ].join('\n'))
+
+                }
+
+            }
+
+            if (messageReaction === "5️⃣") {
+
+                if (messageReaction.count > 2 && messageReaction.users.cache.has('385777873581113344') || messageReaction.users.cache.has('292598566759956480') || messageReaction.users.cache.has('724991641932267612')) {
+
+                let mentionrole = message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = message.guild.channels.find(x => x.name === 'session-voting');
+
+                votingChannel.fetchMessages({ limit: 100 })
+
+                .then(fetchedMessages => {
+                  if (fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('as the vote for Friday')))) return;
+            
+                });
+
+                    votingChannel.send([
+                        `<@&${mentionrole.id}>`,
+                        ` `,
+                        "**New Patrol Scheduled For**",
+                        `\`Friday\` **at** \`7:30 PM\` **BST**`,
+                        ` `,
+                        "**React to the 5️⃣ on the voting message above to confirm your attendance**",
+                        `(This patrol was automatically scheduled as the vote for \'Friday\' has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`
+                      ].join('\n'))
+
+                }
+
+            }
+
+            if (messageReaction === "6️⃣") {
+
+                if (messageReaction.count > 2 && messageReaction.users.cache.has('385777873581113344') || messageReaction.users.cache.has('292598566759956480') || messageReaction.users.cache.has('724991641932267612')) {
+
+                let mentionrole = message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = message.guild.channels.find(x => x.name === 'session-voting');
+
+                votingChannel.fetchMessages({ limit: 100 })
+
+                .then(fetchedMessages => {
+                  if (fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('as the vote for Saturday')))) return;
+            
+                });
+
+                    votingChannel.send([
+                        `<@&${mentionrole.id}>`,
+                        ` `,
+                        "**New Patrol Scheduled For**",
+                        `\`Saturday\` **at** \`7:30 PM\` **BST**`,
+                        ` `,
+                        "**React to the 6️⃣ on the voting message above to confirm your attendance**",
+                        `(This patrol was automatically scheduled as the vote for \'Saturday\' has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`
+                      ].join('\n'))
+
+                }
+
+            }
+
+            if (messageReaction === "7️⃣") {
+
+                if (messageReaction.count > 2 && messageReaction.users.cache.has('385777873581113344') || messageReaction.users.cache.has('292598566759956480') || messageReaction.users.cache.has('724991641932267612')) {
+
+                let mentionrole = message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = message.guild.channels.find(x => x.name === 'session-voting');
+
+                votingChannel.fetchMessages({ limit: 100 })
+
+                .then(fetchedMessages => {
+                  if (fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('as the vote for Sunday')))) return;
+            
+                });
+
+                    votingChannel.send([
+                        `<@&${mentionrole.id}>`,
+                        ` `,
+                        "**New Patrol Scheduled For**",
+                        `\`Sunday\` **at** \`7:30 PM\` **BST**`,
+                        ` `,
+                        "**React to the 7️⃣ on the voting message above to confirm your attendance**",
+                        `(This patrol was automatically scheduled as the vote for \'Sunday\' has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`
+                      ].join('\n'))
+
+                }
+
+            }
+
+        }
+    
+
+    } catch (err) {
+        console.log(err);
+    } 
+});
+});
+
+bot.on("ready", async () => {
+
     let fetchchannel = bot.channels.find(x => x.name === 'self-roles');
     fetchchannel.fetchMessages({
         limit: 80,
