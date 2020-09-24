@@ -26,8 +26,15 @@ module.exports.run = async (bot, message, args) => {
 
             // votingMessage.reactions.removeAll()
 
-            votingMessage.reactions.first().removeAll
-            
+            votingMessage.reactions.get("1️⃣")
+            votingMessage.reactions.get("2️⃣")
+            votingMessage.reactions.get("3️⃣")
+            votingMessage.reactions.get("4️⃣")
+            votingMessage.reactions.get("5️⃣")
+            votingMessage.reactions.get("6️⃣")
+            votingMessage.reactions.get("7️⃣")
+
+            votingMessage.reactions.removeAll()
 
             await votingMessage.react("1️⃣");
             await votingMessage.react("2️⃣");
