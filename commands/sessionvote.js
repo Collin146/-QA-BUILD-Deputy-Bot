@@ -31,7 +31,7 @@ return;
 
 
     } catch(err) {
-        catchErr(err)
+        console.log(err)
         
     }
 
