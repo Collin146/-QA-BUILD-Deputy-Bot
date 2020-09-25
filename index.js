@@ -1122,8 +1122,6 @@ bot.on("ready", async () => {
 
                 if (messageReaction.count >= reactionLimit) {
 
-                if (!messageReaction.users.has('385777873581113344') || !messageReaction.users.has('292598566759956480') || !messageReaction.users.has('724991641932267612')) return;
-
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
