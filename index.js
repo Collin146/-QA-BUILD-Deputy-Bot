@@ -1111,10 +1111,10 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                votingChannel.fetchMessages({ limit: 100 }) .then(fetchedMessages => {
-                  if (fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('as the vote for Monday')))) return;
-            
-                });
+                votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
+                  const messagesToCheck = fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('as the vote for Monday')));
+              
+                  if (!messagesToCheck) {
 
                     votingChannel.send([
                         `<@&${mentionrole.id}>`,
@@ -1125,6 +1125,9 @@ bot.on("ready", async () => {
                         "**React to the 1️⃣ on the voting message above to confirm your attendance**",
                         `(This patrol was automatically scheduled as the vote for Monday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`
                       ].join('\n'))
+
+                    }
+                });
 
                 }
 
