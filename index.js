@@ -1370,7 +1370,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === no.id) {
 
-                if (messageReaction.user.id === '385777873581113344' || messageReaction.user.id === '292598566759956480' || messageReaction.user.id === '724991641932267612') {
+                if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
             
                     let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
 
@@ -1385,7 +1385,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === yes.id) {
 
-                if (messageReaction.user.id === '385777873581113344' || messageReaction.user.id === '292598566759956480' || messageReaction.user.id === '724991641932267612') {
+                if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
             
                     let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
 
