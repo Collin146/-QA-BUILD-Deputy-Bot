@@ -1113,10 +1113,10 @@ bot.on("ready", async () => {
 
                 // votingChannel.fetchMessages({ limit: 100 })
 
-                // .then(fetchedMessages => {
-                //   if (fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('as the vote for Monday')))) return;
+                .then(fetchedMessages => {
+                  if (fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('as the vote for Monday')))) return;
             
-                // });
+                });
 
                     votingChannel.send([
                         `<@&${mentionrole.id}>`,
