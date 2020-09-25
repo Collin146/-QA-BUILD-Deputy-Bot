@@ -1383,6 +1383,7 @@ bot.on("ready", async () => {
                       let modlogEmbed = new Discord.RichEmbed()
                         .setColor("RED")
                         .setTitle(`**Session Voting System Disabled!**`)
+			.setTimestamp()
                         .setDescription(`<@${user.id}> has disabled the Session Voting System.`);
 
                         modlogChannel.send(modlogEmbed);
@@ -1406,6 +1407,7 @@ bot.on("ready", async () => {
                       let modlogEmbed2 = new Discord.RichEmbed()
                       .setColor("GREEN")
                       .setTitle(`**Session Voting System Enabled!**`)
+		      .setTimestamp()
                       .setDescription(`<@${user.id}> has enabled the Session Voting System.`);
 
                       modlogChannel.send(modlogEmbed2);
