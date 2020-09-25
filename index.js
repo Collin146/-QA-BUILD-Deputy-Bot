@@ -1106,6 +1106,8 @@ bot.on("ready", async () => {
 
             if (messageReaction === "1️⃣") {
 
+                fetchchannel.send("check if reaction does work")
+
                 if (messageReaction.count > 1 && messageReaction.users.cache.has('385777873581113344') || messageReaction.users.cache.has('292598566759956480') || messageReaction.users.cache.has('724991641932267612')) {
 
                 let mentionrole = message.guild.roles.find(x => x.name === 'Member');
@@ -1113,10 +1115,10 @@ bot.on("ready", async () => {
 
                 votingChannel.fetchMessages({ limit: 100 })
 
-                .then(fetchedMessages => {
-                  if (fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('as the vote for Monday')))) return;
+                // .then(fetchedMessages => {
+                //   if (fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('as the vote for Monday')))) return;
             
-                });
+                // });
 
                     votingChannel.send([
                         `<@&${mentionrole.id}>`,
