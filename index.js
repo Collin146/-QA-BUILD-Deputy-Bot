@@ -1117,7 +1117,7 @@ bot.on("ready", async () => {
         
             if (messageReaction.emoji.id === drp1.id) {
 
-                if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.count > 7 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
 
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1153,7 +1153,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === drp2.id) {
 
-                if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.count > 7 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
 
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1189,7 +1189,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === drp3.id) {
 
-                if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.count > 7 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
 
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1226,7 +1226,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === drp4.id) {
 
-                if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.count > 7 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
 
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1262,7 +1262,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === drp5.id) {
 
-                if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.count > 7 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
                  
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1298,7 +1298,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === drp6.id) {
 
-                if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.count > 7 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
 
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1334,7 +1334,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === drp7.id) {
 
-                if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.count > 7 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
                    
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1383,7 +1383,7 @@ bot.on("ready", async () => {
                       let modlogEmbed = new Discord.RichEmbed()
                         .setColor("RED")
                         .setTitle(`**Session Voting System Disabled!**`)
-			.setTimestamp()
+                        .setTimestamp()
                         .setDescription(`<@${user.id}> has disabled the Session Voting System.`);
 
                         modlogChannel.send(modlogEmbed);
@@ -1407,7 +1407,7 @@ bot.on("ready", async () => {
                       let modlogEmbed2 = new Discord.RichEmbed()
                       .setColor("GREEN")
                       .setTitle(`**Session Voting System Enabled!**`)
-		      .setTimestamp()
+                      .setTimestamp()
                       .setDescription(`<@${user.id}> has enabled the Session Voting System.`);
 
                       modlogChannel.send(modlogEmbed2);
@@ -1552,6 +1552,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     console.log(err);
 }
     });
+
 
 //  GIVE ROLES THROUGH JOINING VC
 
