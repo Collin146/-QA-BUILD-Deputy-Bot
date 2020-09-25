@@ -1114,10 +1114,12 @@ bot.on("ready", async () => {
             const drp5 = bot.emojis.get("759126035215810592");
             const drp6 = bot.emojis.get("759126060355813376");
             const drp7 = bot.emojis.get("759126083781394444");
+
+            const reactionLimit = 8;
         
             if (messageReaction.emoji.id === drp1.id) {
 
-                if (messageReaction.count > 7 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit) {
 
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1153,7 +1155,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === drp2.id) {
 
-                if (messageReaction.count > 7 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit) {
 
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1189,7 +1191,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === drp3.id) {
 
-                if (messageReaction.count > 7 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit) {
 
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1226,7 +1228,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === drp4.id) {
 
-                if (messageReaction.count > 7 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit) {
 
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1262,7 +1264,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === drp5.id) {
 
-                if (messageReaction.count > 7 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit) {
                  
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1298,7 +1300,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === drp6.id) {
 
-                if (messageReaction.count > 7 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit) {
 
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1334,7 +1336,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === drp7.id) {
 
-                if (messageReaction.count > 7 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit) {
                    
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
