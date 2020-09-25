@@ -1111,7 +1111,7 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                // votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
+                votingChannel.fetchMessages({ limit: 100 }) .then(fetchedMessages => {
                   if (fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('as the vote for Monday')))) return;
             
                 });
@@ -1136,7 +1136,7 @@ bot.on("ready", async () => {
 
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
- 
+
                 votingChannel.fetchMessages({ limit: 100 })
 
                 .then(fetchedMessages => {
