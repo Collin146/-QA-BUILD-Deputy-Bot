@@ -1373,11 +1373,19 @@ bot.on("ready", async () => {
                 if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
             
                     let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                    let modlogChannel = messageReaction.message.guild.channels.find(x => x.name === 'modlog');
 
                     messageReaction.message.channel.overwritePermissions(permRole.id, {
                         VIEW_CHANNEL: false,
                         READ_MESSAGE_HISTORY: false
                       });
+
+                      let modlogEmbed = new Discord.RichEmbed()
+                        .setColor("RED")
+                        .setTitle(`**Session Voting System Disabled!**`)
+                        .setDescription(`<@${user.id}> has disabled the Session Voting System.`);
+
+                        modlogChannel.send(modlogEmbed);
 
                 }
 
@@ -1388,11 +1396,19 @@ bot.on("ready", async () => {
                 if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
             
                     let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                    let modlogChannel = messageReaction.message.guild.channels.find(x => x.name === 'modlog');
 
                     messageReaction.message.channel.overwritePermissions(permRole.id, {
                         VIEW_CHANNEL: true,
                         READ_MESSAGE_HISTORY: true
                       });
+
+                      let modlogEmbed2 = new Discord.RichEmbed()
+                      .setColor("GREEN")
+                      .setTitle(`**Session Voting System Enabled!**`)
+                      .setDescription(`<@${user.id}> has enabled the Session Voting System.`);
+
+                      modlogChannel.send(modlogEmbed2);
 
                 }
 
