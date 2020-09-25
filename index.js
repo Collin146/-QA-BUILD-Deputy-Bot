@@ -1116,15 +1116,15 @@ bot.on("ready", async () => {
             const drp6 = bot.emojis.get("759126060355813376");
             const drp7 = bot.emojis.get("759126083781394444");
 
-            const reactionLimit = 2;
+            const reactionLimit = 1;
         
             if (messageReaction.emoji.id === drp1.id) {
 
-                messageReaction.users.fetch({
-                    limit: 80,
-                   });
-
                 if (messageReaction.count >= reactionLimit) {
+
+                    messageReaction.users.fetch({
+                        limit: 80,
+                       });
 
                     if (!messageReaction.users.cache.has('385777873581113344') || !messageReaction.users.cache.has('292598566759956480') || !messageReaction.users.cache.has('724991641932267612')) return;
 
