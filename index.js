@@ -1097,6 +1097,153 @@ bot.on("ready", async () => {
 
     });
 
+    bot.on('messageReactionRemove', async (messageReaction, user) => {
+
+        try {
+
+            if (messageReaction.message.id === "758833508080025632") {
+
+                if (messageReaction.emoji.name === "1️⃣") {
+
+                    
+                    const warningsign = bot.emojis.get("729725849343098900");
+                    let removallogChannel = messageReaction.message.guild.channels.find(x => x.name === 'vote-removal-log');
+
+                    let voteEmbed1 = new Discord.RichEmbed()
+                    .setColor("RED")
+                    .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
+                    .setDescription([
+                        `**User:** <@${user.id}>`,
+                        `**User's ID:** ${user.id}`,
+                        `**Vote of:** Monday`
+                      ].join('\n'))
+
+                      removallogChannel.send(voteEmbed1);
+
+                }
+
+                if (messageReaction.emoji.name === "2️⃣") {
+
+                    
+                    const warningsign = bot.emojis.get("729725849343098900");
+                    let removallogChannel = messageReaction.message.guild.channels.find(x => x.name === 'vote-removal-log');
+
+                    let voteEmbed2 = new Discord.RichEmbed()
+                    .setColor("RED")
+                    .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
+                    .setDescription([
+                        `**User:** <@${user.id}>`,
+                        `**User's ID:** ${user.id}`,
+                        `**Vote of:** Tuesday`
+                      ].join('\n'))
+
+                      removallogChannel.send(voteEmbed2);
+
+                }
+
+                if (messageReaction.emoji.name === "3️⃣") {
+
+                    
+                    const warningsign = bot.emojis.get("729725849343098900");
+                    let removallogChannel = messageReaction.message.guild.channels.find(x => x.name === 'vote-removal-log');
+
+                    let voteEmbed3 = new Discord.RichEmbed()
+                    .setColor("RED")
+                    .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
+                    .setDescription([
+                        `**User:** <@${user.id}>`,
+                        `**User's ID:** ${user.id}`,
+                        `**Vote of:** Wednesday`
+                      ].join('\n'))
+
+                      removallogChannel.send(voteEmbed3);
+
+                }
+
+                if (messageReaction.emoji.name === "4️⃣") {
+
+                    
+                    const warningsign = bot.emojis.get("729725849343098900");
+                    let removallogChannel = messageReaction.message.guild.channels.find(x => x.name === 'vote-removal-log');
+
+                    let voteEmbed4 = new Discord.RichEmbed()
+                    .setColor("RED")
+                    .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
+                    .setDescription([
+                        `**User:** <@${user.id}>`,
+                        `**User's ID:** ${user.id}`,
+                        `**Vote of:** Thursday`
+                      ].join('\n'))
+
+                      removallogChannel.send(voteEmbed4);
+
+                }
+
+                if (messageReaction.emoji.name === "5️⃣") {
+
+                    
+                    const warningsign = bot.emojis.get("729725849343098900");
+                    let removallogChannel = messageReaction.message.guild.channels.find(x => x.name === 'vote-removal-log');
+
+                    let voteEmbed5 = new Discord.RichEmbed()
+                    .setColor("RED")
+                    .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
+                    .setDescription([
+                        `**User:** <@${user.id}>`,
+                        `**User's ID:** ${user.id}`,
+                        `**Vote of:** Friday`
+                      ].join('\n'))
+
+                      removallogChannel.send(voteEmbed5);
+
+                }
+
+                if (messageReaction.emoji.name === "6️⃣") {
+
+                    
+                    const warningsign = bot.emojis.get("729725849343098900");
+                    let removallogChannel = messageReaction.message.guild.channels.find(x => x.name === 'vote-removal-log');
+
+                    let voteEmbed6 = new Discord.RichEmbed()
+                    .setColor("RED")
+                    .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
+                    .setDescription([
+                        `**User:** <@${user.id}>`,
+                        `**User's ID:** ${user.id}`,
+                        `**Vote of:** Saturday`
+                      ].join('\n'))
+
+                      removallogChannel.send(voteEmbed6);
+
+                }
+
+                if (messageReaction.emoji.name === "7️⃣") {
+
+                    
+                    const warningsign = bot.emojis.get("729725849343098900");
+                    let removallogChannel = messageReaction.message.guild.channels.find(x => x.name === 'vote-removal-log');
+
+                    let voteEmbed7 = new Discord.RichEmbed()
+                    .setColor("RED")
+                    .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
+                    .setDescription([
+                        `**User:** <@${user.id}>`,
+                        `**User's ID:** ${user.id}`,
+                        `**Vote of:** Sunday`
+                      ].join('\n'))
+
+                      removallogChannel.send(voteEmbed7);
+
+                }
+
+            }
+
+        } catch(err) {
+            console.log(err);
+        }
+    
+    });
+
     bot.on('messageReactionAdd', async (messageReaction, user) => {
     
         try {
