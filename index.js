@@ -1120,7 +1120,9 @@ bot.on("ready", async () => {
         
             if (messageReaction.emoji.id === drp1.id) {
 
-                messageReaction.users.fetch()
+                messageReaction.users.fetch({
+                    limit: 80,
+                   });
 
                 if (messageReaction.count >= reactionLimit) {
 
