@@ -1307,7 +1307,6 @@ bot.on("ready", async () => {
         console.log(err);
     } 
 });
-});
 
 bot.on("ready", async () => {
 
