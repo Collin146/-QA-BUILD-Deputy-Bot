@@ -1112,8 +1112,8 @@ bot.on("ready", async () => {
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
                votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                  const messagesToCheck = fetchedMessages.content.includes('as the vote for Monday');
-              
+                  const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Monday')));
+
                   if (!messagesToCheck) {
 
                     votingChannel.send([
