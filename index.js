@@ -1097,11 +1097,26 @@ bot.on("ready", async () => {
 
     });
 
+bot.on("ready", async () => {
+
+    let fetchchannel = bot.channels.find(x => x.name === 'session-voting');
+    fetchchannel.fetchMessages({
+        limit: 80,
+       });
+
+    });
+
     bot.on('messageReactionRemove', async (messageReaction, user) => {
 
         try {
 
+            let removallogChannel = messageReaction.message.guild.channels.find(x => x.name === 'vote-removal-log');
+            removallogChannel.send("general reactionremoval event works")
+
             if (messageReaction.message.id === "759127446162374707") {
+
+                let removallogChannel = messageReaction.message.guild.channels.find(x => x.name === 'vote-removal-log');
+                removallogChannel.send("message idcheck works")
 
                 const drp1 = bot.emojis.get("759125897953017857");
                 const drp2 = bot.emojis.get("759125936586883072");
