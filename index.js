@@ -1123,7 +1123,7 @@ bot.on("ready", async () => {
                         `\`Monday\` **at** \`7:30 PM\` **BST**`,
                         ` `,
                         "**React to the 1️⃣ on the voting message above to confirm your attendance**",
-                        `(This patrol was automatically scheduled as the vote for \'Monday\' has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`
+                        `(This patrol was automatically scheduled as the vote for Monday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`
                       ].join('\n'))
 
                 }
