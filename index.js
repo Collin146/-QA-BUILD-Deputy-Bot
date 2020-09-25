@@ -1105,6 +1105,8 @@ bot.on("ready", async () => {
         
         if (messageReaction.message.id === "759161531572813854") {
 
+            const yes = bot.emojis.get("700713527576625205");
+            const no = bot.emojis.get("700713478578634783");
             const drp1 = bot.emojis.get("759125897953017857");
             const drp2 = bot.emojis.get("759125936586883072");
             const drp3 = bot.emojis.get("759125984967393330");
@@ -1361,6 +1363,36 @@ bot.on("ready", async () => {
 
                     }
                 });
+
+                }
+
+            }
+
+            if (messageReaction.emoji.id === no.id) {
+
+                if (messageReaction.user.id === '385777873581113344' || messageReaction.user.id === '292598566759956480' || messageReaction.user.id === '724991641932267612') {
+            
+                    let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+
+                    messageReaction.message.channel.overwritePermissions(permRole.id, {
+                        VIEW_CHANNEL: false,
+                        READ_MESSAGE_HISTORY: false
+                      });
+
+                }
+
+            }
+
+            if (messageReaction.emoji.id === yes.id) {
+
+                if (messageReaction.user.id === '385777873581113344' || messageReaction.user.id === '292598566759956480' || messageReaction.user.id === '724991641932267612') {
+            
+                    let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+
+                    messageReaction.message.channel.overwritePermissions(permRole.id, {
+                        VIEW_CHANNEL: true,
+                        READ_MESSAGE_HISTORY: true
+                      });
 
                 }
 
