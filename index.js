@@ -1101,10 +1101,17 @@ bot.on("ready", async () => {
 
         try {
 
-            if (messageReaction.message.id === "758833508080025632") {
+            if (messageReaction.message.id === "759127446162374707") {
 
-                if (messageReaction.emoji.name === "1️⃣") {
+                const drp1 = bot.emojis.get("759125897953017857");
+                const drp2 = bot.emojis.get("759125936586883072");
+                const drp3 = bot.emojis.get("759125984967393330");
+                const drp4 = bot.emojis.get("759126011265941506");
+                const drp5 = bot.emojis.get("759126035215810592");
+                const drp6 = bot.emojis.get("759126060355813376");
+                const drp7 = bot.emojis.get("759126083781394444");
 
+                if (messageReaction.emoji.id === drp1.id) {
                     
                     const warningsign = bot.emojis.get("729725849343098900");
                     let removallogChannel = messageReaction.message.guild.channels.find(x => x.name === 'vote-removal-log');
@@ -1118,11 +1125,11 @@ bot.on("ready", async () => {
                         `**Vote of:** Monday`
                       ].join('\n'))
 
-                      removallogChannel.send(voteEmbed1);
+                      removallogChannel.send({Embed: voteEmbed1});
 
                 }
 
-                if (messageReaction.emoji.name === "2️⃣") {
+                if (messageReaction.emoji.id === drp2.id) {
 
                     
                     const warningsign = bot.emojis.get("729725849343098900");
@@ -1141,7 +1148,7 @@ bot.on("ready", async () => {
 
                 }
 
-                if (messageReaction.emoji.name === "3️⃣") {
+                if (messageReaction.emoji.id === drp3.id) {
 
                     
                     const warningsign = bot.emojis.get("729725849343098900");
@@ -1160,7 +1167,7 @@ bot.on("ready", async () => {
 
                 }
 
-                if (messageReaction.emoji.name === "4️⃣") {
+                if (messageReaction.emoji.id === drp4.id) {
 
                     
                     const warningsign = bot.emojis.get("729725849343098900");
@@ -1179,7 +1186,7 @@ bot.on("ready", async () => {
 
                 }
 
-                if (messageReaction.emoji.name === "5️⃣") {
+                if (messageReaction.emoji.id === drp5.id) {
 
                     
                     const warningsign = bot.emojis.get("729725849343098900");
@@ -1198,7 +1205,7 @@ bot.on("ready", async () => {
 
                 }
 
-                if (messageReaction.emoji.name === "6️⃣") {
+                if (messageReaction.emoji.id === drp6.id) {
 
                     
                     const warningsign = bot.emojis.get("729725849343098900");
@@ -1217,7 +1224,7 @@ bot.on("ready", async () => {
 
                 }
 
-                if (messageReaction.emoji.name === "7️⃣") {
+                if (messageReaction.emoji.id === drp7.id) {
 
                     
                     const warningsign = bot.emojis.get("729725849343098900");
@@ -1244,14 +1251,22 @@ bot.on("ready", async () => {
     
     });
 
+
     bot.on('messageReactionAdd', async (messageReaction, user) => {
     
         try {
         
-        if (messageReaction.message.id === "758833508080025632") {
-        
+        if (messageReaction.message.id === "759127446162374707") {
 
-            if (messageReaction.emoji.name === "1️⃣") {
+            const drp1 = bot.emojis.get("759125897953017857");
+            const drp2 = bot.emojis.get("759125936586883072");
+            const drp3 = bot.emojis.get("759125984967393330");
+            const drp4 = bot.emojis.get("759126011265941506");
+            const drp5 = bot.emojis.get("759126035215810592");
+            const drp6 = bot.emojis.get("759126060355813376");
+            const drp7 = bot.emojis.get("759126083781394444");
+        
+            if (messageReaction.emoji.id === drp1.id) {
 
                 if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
 
@@ -1269,7 +1284,7 @@ bot.on("ready", async () => {
                         "**New Patrol Scheduled For**",
                         `\`Monday\` **at** \`7:30 PM\` **BST**`,
                         ` `,
-                        "**React to the 1️⃣ on the voting message above to confirm your attendance**",
+                        `**React to the ${drp1} on the voting message above to confirm your attendance**`,
                         `(This patrol was automatically scheduled as the vote for Monday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
                         ` `,
                         "**Other Timezones:**",
@@ -1287,7 +1302,7 @@ bot.on("ready", async () => {
 
             }
 
-            if (messageReaction.emoji.name === "2️⃣") {
+            if (messageReaction.emoji.id === drp2.id) {
 
                 if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
 
@@ -1305,7 +1320,7 @@ bot.on("ready", async () => {
                         "**New Patrol Scheduled For**",
                         `\`Tuesday\` **at** \`7:30 PM\` **BST**`,
                         ` `,
-                        "**React to the 2️⃣ on the voting message above to confirm your attendance**",
+                        `**React to the ${drp2} on the voting message above to confirm your attendance**`,
                         `(This patrol was automatically scheduled as the vote for Tuesday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
                         ` `,
                         "**Other Timezones:**",
@@ -1323,7 +1338,7 @@ bot.on("ready", async () => {
 
             }
 
-            if (messageReaction.emoji.name === "3️⃣") {
+            if (messageReaction.emoji.id === drp3.id) {
 
                 if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
 
@@ -1341,7 +1356,7 @@ bot.on("ready", async () => {
                         "**New Patrol Scheduled For**",
                         `\`Wednesday\` **at** \`7:30 PM\` **BST**`,
                         ` `,
-                        "**React to the 3️⃣ on the voting message above to confirm your attendance**",
+                        `**React to the ${drp3} on the voting message above to confirm your attendance**`,
                         `(This patrol was automatically scheduled as the vote for Wednesday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
                         ` `,
                         "**Other Timezones:**",
@@ -1360,7 +1375,7 @@ bot.on("ready", async () => {
 
             }
 
-            if (messageReaction.emoji.name === "4️⃣") {
+            if (messageReaction.emoji.id === drp4.id) {
 
                 if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
 
@@ -1378,7 +1393,7 @@ bot.on("ready", async () => {
                         "**New Patrol Scheduled For**",
                         `\`Thursday\` **at** \`7:30 PM\` **BST**`,
                         ` `,
-                        "**React to the 4️⃣ on the voting message above to confirm your attendance**",
+                        `**React to the ${drp4} on the voting message above to confirm your attendance**`,
                         `(This patrol was automatically scheduled as the vote for Thursday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
                         ` `,
                         "**Other Timezones:**",
@@ -1396,7 +1411,7 @@ bot.on("ready", async () => {
 
             }
 
-            if (messageReaction.emoji.name === "5️⃣") {
+            if (messageReaction.emoji.id === drp5.id) {
 
                 if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
                  
@@ -1414,7 +1429,7 @@ bot.on("ready", async () => {
                         "**New Patrol Scheduled For**",
                         `\`Friday\` **at** \`7:30 PM\` **BST**`,
                         ` `,
-                        "**React to the 5️⃣ on the voting message above to confirm your attendance**",
+                        `**React to the ${drp5} on the voting message above to confirm your attendance**`,
                         `(This patrol was automatically scheduled as the vote for Friday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
                         ` `,
                         "**Other Timezones:**",
@@ -1432,7 +1447,7 @@ bot.on("ready", async () => {
 
             }
 
-            if (messageReaction.emoji.name === "6️⃣") {
+            if (messageReaction.emoji.id === drp6.id) {
 
                 if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
 
@@ -1450,7 +1465,7 @@ bot.on("ready", async () => {
                         "**New Patrol Scheduled For**",
                         `\`Saturday\` **at** \`7:30 PM\` **BST**`,
                         ` `,
-                        "**React to the 6️⃣ on the voting message above to confirm your attendance**",
+                        `**React to the ${drp6} on the voting message above to confirm your attendance**`,
                         `(This patrol was automatically scheduled as the vote for Saturday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
                         ` `,
                         "**Other Timezones:**",
@@ -1468,7 +1483,7 @@ bot.on("ready", async () => {
 
             }
 
-            if (messageReaction.emoji.name === "7️⃣") {
+            if (messageReaction.emoji.id === drp7.id) {
 
                 if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
                    
@@ -1486,7 +1501,7 @@ bot.on("ready", async () => {
                         "**New Patrol Scheduled For**",
                         `\`Sunday\` **at** \`7:30 PM\` **BST**`,
                         ` `,
-                        "**React to the 7️⃣ on the voting message above to confirm your attendance**",
+                        `**React to the ${drp7} on the voting message above to confirm your attendance**`,
                         `(This patrol was automatically scheduled as the vote for Sunday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
                         ` `,
                         "**Other Timezones:**",
