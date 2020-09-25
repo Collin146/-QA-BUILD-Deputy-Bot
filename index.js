@@ -1119,14 +1119,15 @@ bot.on("ready", async () => {
         
             if (messageReaction.emoji.id === drp1.id) {
 
-                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
-
-                votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                   const messagesToCheck1 = fetchedMessages.some(msg => (msg.content.includes('as the vote for Monday')));
-
-                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit && !messagesToCheck1) {
+                if (messageReaction.count >= reactionLimit) {
 
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+
+               votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
+                  const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Monday')));
+
+                  if (!messagesToCheck) {
 
                     votingChannel.send([
                         `<@&${mentionrole.id}>`,
@@ -1145,23 +1146,25 @@ bot.on("ready", async () => {
                         `CDT: 1:30 PM`
                       ].join('\n'))
 
-                }
+                   }
+               });
 
-            });
+                }
 
             }
 
             if (messageReaction.emoji.id === drp2.id) {
 
-                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
-
-                votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                    const messagesToCheck2 = fetchedMessages.some(msg => (msg.content.includes('as the vote for Tuesday')));
-
-                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit && !messagesToCheck2) {
+                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit) {
 
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                    let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+
+                    votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
+                        const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Tuesday')));
       
+                        if (!messagesToCheck) {
+
                     votingChannel.send([
                         `<@&${mentionrole.id}>`,
                         ` `,
@@ -1178,23 +1181,25 @@ bot.on("ready", async () => {
                         `MDT: 12:30 PM`,
                         `CDT: 1:30 PM`
                       ].join('\n'))
+
+                    }
+                });
  
                 }
-                
-            });
 
             }
 
             if (messageReaction.emoji.id === drp3.id) {
 
-                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
-
-                votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                    const messagesToCheck3 = fetchedMessages.some(msg => (msg.content.includes('as the vote for Wednesday')));
-                
-                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit && !messagesToCheck3) {
+                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit) {
 
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                    let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+
+                    votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
+                        const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Wednesday')));
+      
+                        if (!messagesToCheck) {
 
                     votingChannel.send([
                         `<@&${mentionrole.id}>`,
@@ -1213,22 +1218,25 @@ bot.on("ready", async () => {
                         `CDT: 1:30 PM`
                       ].join('\n'))
 
-                }
+                      
+                    }
+                });
 
-            });
+                }
 
             }
 
             if (messageReaction.emoji.id === drp4.id) {
 
-                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
-
-                votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                    const messagesToCheck4 = fetchedMessages.some(msg => (msg.content.includes('as the vote for Thursday')));
-
-                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit && !messagesToCheck4) {
+                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit) {
 
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                    let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+
+                    votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
+                        const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Thursday')));
+      
+                        if (!messagesToCheck) {
 
                     votingChannel.send([
                         `<@&${mentionrole.id}>`,
@@ -1247,22 +1255,24 @@ bot.on("ready", async () => {
                         `CDT: 1:30 PM`
                       ].join('\n'))
 
-                }
+                    }
+                });
 
-            });
+                }
 
             }
 
             if (messageReaction.emoji.id === drp5.id) {
 
-                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
-                    
-                votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                    const messagesToCheck5 = fetchedMessages.some(msg => (msg.content.includes('as the vote for Friday')));
-
-                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit && !messagesToCheck5) {
+                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit) {
                  
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                    let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+                    
+                    votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
+                        const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Friday')));
+      
+                        if (!messagesToCheck) {
 
                     votingChannel.send([
                         `<@&${mentionrole.id}>`,
@@ -1281,22 +1291,24 @@ bot.on("ready", async () => {
                         `CDT: 1:30 PM`
                       ].join('\n'))
 
-                }
+                    }
+                });
 
-            });
+                }
 
             }
 
             if (messageReaction.emoji.id === drp6.id) {
 
-                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
-
-                votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                    const messagesToCheck6 = fetchedMessages.some(msg => (msg.content.includes('as the vote for Saturday')));
-
-                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit && !messagesToCheck6) {
+                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit) {
 
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                    let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+
+                    votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
+                        const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Saturday')));
+      
+                        if (!messagesToCheck) {
 
                     votingChannel.send([
                         `<@&${mentionrole.id}>`,
@@ -1315,22 +1327,24 @@ bot.on("ready", async () => {
                         `CDT: 1:30 PM`
                       ].join('\n'))
 
+                    }
+                });
+
                 }
-                
-            });
 
             }
 
             if (messageReaction.emoji.id === drp7.id) {
 
-                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
-
-                votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                    const messagesToCheck7 = fetchedMessages.some(msg => (msg.content.includes('as the vote for Sunday')));
-
-                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit && !messagesToCheck7) {
+                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612') && messageReaction.count >= reactionLimit) {
                    
                     let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                    let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+
+                    votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
+                        const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Sunday')));
+      
+                        if (!messagesToCheck) {
 
                     votingChannel.send([
                         `<@&${mentionrole.id}>`,
@@ -1349,9 +1363,10 @@ bot.on("ready", async () => {
                         `CDT: 1:30 PM`
                       ].join('\n'))
 
+                    }
+                });
+
                 }
-                
-            });
 
             }
 
