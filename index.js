@@ -1095,7 +1095,7 @@ bot.on("ready", async () => {
         limit: 80,
        });
 
-    fetchchannel.fetchMessages("759127446162374707");
+    fetchchannel.fetchMessages("759161531572813854");
 
     });
 
@@ -1103,7 +1103,7 @@ bot.on("ready", async () => {
     
         try {
         
-        if (messageReaction.message.id === "759127446162374707") {
+        if (messageReaction.message.id === "759161531572813854") {
 
             const drp1 = bot.emojis.get("759125897953017857");
             const drp2 = bot.emojis.get("759125936586883072");
@@ -1379,7 +1379,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     try {
 
 
-        if (messageReaction.message.id === "759127446162374707") {
+        if (messageReaction.message.id === "759161531572813854") {
     
             const drp1 = bot.emojis.get("759125897953017857");
             const drp2 = bot.emojis.get("759125936586883072");
