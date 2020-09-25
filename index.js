@@ -1112,7 +1112,7 @@ bot.on("ready", async () => {
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
                 votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                  const messagesToCheck = fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('as the vote for Monday')));
+                  const messagesToCheck = fetchedMessages.filter(msg => (msg.content.includes('attendance') && msg.content.includes('Monday')));
               
                   if (!messagesToCheck) {
 
