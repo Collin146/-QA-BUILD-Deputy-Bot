@@ -1098,7 +1098,7 @@ bot.on("ready", async () => {
 
     const fetchedMessage = fetchchannel.fetchMessages("759161531572813854");
 
-    fetchedMessage.reactions.users.fetch({
+    fetchedMessage.reactions.cache.fetch({
         limit: 80,
        });
 
