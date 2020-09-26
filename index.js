@@ -1089,39 +1089,7 @@ modlogchannel.send({embed: modlogspamEmbed2});
 
 });
 
-bot.on("ready", async () => {
-
-    let fetchchannel = bot.channels.find(x => x.name === 'session-voting');
-    fetchchannel.fetchMessages({
-        limit: 80,
-       });
-
-    const fetchedMessage = fetchchannel.fetchMessages("759161531572813854");
-
-    // fetchedMessage.reactions.fetch({
-    //     limit: 80,
-    //    });
-
-    // const drp1 = bot.emojis.get("759125897953017857");
-    // const drp2 = bot.emojis.get("759125936586883072");
-    // const drp3 = bot.emojis.get("759125984967393330");
-    // const drp4 = bot.emojis.get("759126011265941506");
-    // const drp5 = bot.emojis.get("759126035215810592");
-    // const drp6 = bot.emojis.get("759126060355813376");
-    // const drp7 = bot.emojis.get("759126083781394444");
-
-    // fetchedMessage.reactions.resolve(drp1.id).users.fetch()
-    // fetchedMessage.reactions.resolve(drp2.id).users.fetch()
-    // fetchedMessage.reactions.resolve(drp3.id).users.fetch()
-    // fetchedMessage.reactions.resolve(drp4.id).users.fetch()
-    // fetchedMessage.reactions.resolve(drp5.id).users.fetch()
-    // fetchedMessage.reactions.resolve(drp6.id).users.fetch()
-    // fetchedMessage.reactions.resolve(drp7.id).users.fetch()
-
-    });
-    
-
-    bot.on('messageReactionAdd', async (messageReaction, user) => {
+bot.on('messageReactionAdd', async (messageReaction, user) => {
     
         try {
         
@@ -1147,9 +1115,7 @@ bot.on("ready", async () => {
 
                 if (messageReaction.count > reactionLimit) {
 
-                    if (!messageReaction.users.has('385777873581113344')) return;
-                    if (!messageReaction.users.has('292598566759956480')) return;
-                    if (!messageReaction.users.has('724991641932267612')) return;
+                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
 
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1180,6 +1146,7 @@ bot.on("ready", async () => {
                });
 
                 }
+            }
 
             }
 
