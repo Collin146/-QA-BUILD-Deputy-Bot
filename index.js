@@ -1527,6 +1527,8 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
         
         if (messageReaction.emoji.id === drp1.id) {
 
+            let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+
             votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
                 const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Monday')));
                  
