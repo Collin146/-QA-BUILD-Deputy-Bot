@@ -1096,7 +1096,7 @@ bot.on("ready", async () => {
         limit: 80,
        });
 
-    const fetchedMessage = fetchchannel.fetchMessages("759161531572813854");
+    const fetchedMessage = fetchchannel.fetchMessage("759161531572813854");
 
     // fetchedMessage.reactions.fetch({
     //     limit: 80,
