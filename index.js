@@ -1452,7 +1452,7 @@ bot.on("ready", async () => {
                     let fetchchannel = bot.channels.find(x => x.name === 'session-voting');
                 
                     fetchchannel.fetchMessage("759497458018418691")
-                    .then([message => {
+                    .then([async message => {
                         message.clearReactions(), 
                         await message.react(drp1.id),
                         await message.react(drp2.id),
