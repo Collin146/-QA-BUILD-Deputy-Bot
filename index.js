@@ -1131,7 +1131,7 @@ bot.on("ready", async () => {
                 if (messageReaction.count > reactionLimit) {
 
                     messageReaction.fetchUsers()
-                    .then(users => {
+                    .then(users => {  
 
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1139,7 +1139,11 @@ bot.on("ready", async () => {
                votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
                   const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Monday')));
 
-                  if (!messagesToCheck && users.has('385777873581113344' || '292598566759956480' || '724991641932267612')) {
+                  if (!messagesToCheck) {
+
+                    if (!users.has('385777873581113344')) return;
+                    if (!users.has('292598566759956480')) return;
+                    if (!users.has('724991641932267612')) return;
 
                     votingChannel.send([
                         `<@&${mentionrole.id}>`,
@@ -1159,8 +1163,9 @@ bot.on("ready", async () => {
                       ].join('\n'))
 
                    }
+                });
                });
-            });
+
                // }
             }
 
