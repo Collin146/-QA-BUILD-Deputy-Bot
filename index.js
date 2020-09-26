@@ -1096,27 +1096,11 @@ bot.on("ready", async () => {
         limit: 80,
        });
 
-    const fetchedMessage = fetchchannel.messages.resolve("759161531572813854");
+    const fetchedMessage = fetchchannel.fetchMessage("759497458018418691");
 
     // fetchedMessage.reactions.fetch({
     //     limit: 80,
     //    });
-
-    const drp1 = bot.emojis.get("759125897953017857");
-    const drp2 = bot.emojis.get("759125936586883072");
-    const drp3 = bot.emojis.get("759125984967393330");
-    const drp4 = bot.emojis.get("759126011265941506");
-    const drp5 = bot.emojis.get("759126035215810592");
-    const drp6 = bot.emojis.get("759126060355813376");
-    const drp7 = bot.emojis.get("759126083781394444");
-
-    fetchedMessage.reactions.resolve(drp1.id).users.fetch()
-    fetchedMessage.reactions.resolve(drp2.id).users.fetch()
-    fetchedMessage.reactions.resolve(drp3.id).users.fetch()
-    fetchedMessage.reactions.resolve(drp4.id).users.fetch()
-    fetchedMessage.reactions.resolve(drp5.id).users.fetch()
-    fetchedMessage.reactions.resolve(drp6.id).users.fetch()
-    fetchedMessage.reactions.resolve(drp7.id).users.fetch()
 
     });
     
@@ -1125,10 +1109,11 @@ bot.on("ready", async () => {
 
         try {
         
-        if (messageReaction.message.id === "759161531572813854") {
+        if (messageReaction.message.id === "759497458018418691") {
 
             const yes = bot.emojis.get("700713527576625205");
             const no = bot.emojis.get("700713478578634783");
+            const gno = bot.emojis.get("759495234928902154");
             const drp1 = bot.emojis.get("759125897953017857");
             const drp2 = bot.emojis.get("759125936586883072");
             const drp3 = bot.emojis.get("759125984967393330");
@@ -1143,7 +1128,7 @@ bot.on("ready", async () => {
 
                 if (messageReaction.count > reactionLimit) {
 
-                if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                //if (messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
 
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1173,7 +1158,7 @@ bot.on("ready", async () => {
                    }
                });
 
-                }
+               // }
             }
 
             }
@@ -1455,6 +1440,37 @@ bot.on("ready", async () => {
 
             }
 
+            if (messageReaction.emoji.id === gno.id) {
+
+                if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
+            
+                    let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                    let modlogChannel = messageReaction.message.guild.channels.find(x => x.name === 'modlog');
+
+                    fetchedMessage.clearReactions()
+                    await fetchedMessage.react(drp1.id);
+                    await fetchedMessage.react(drp2.id);
+                    await fetchedMessage.react(drp3.id);
+                    await fetchedMessage.react(drp4.id);
+                    await fetchedMessage.react(drp5.id);
+                    await fetchedMessage.react(drp6.id);
+                    await fetchedMessage.react(drp7.id);
+                    await fetchedMessage.react(gno.id);
+                    await fetchedMessage.react(no.id);
+                    await fetchedMessage.react(yes.id);
+
+                      let modlogEmbed3 = new Discord.RichEmbed()
+                      .setColor("RED")
+                      .setTitle(`**Session Voting Reactions Reset!**`)
+                      .setTimestamp()
+                      .setDescription(`<@${user.id}> has reset the reactions of the Session Voting System.`);
+
+                      modlogChannel.send(modlogEmbed3);
+
+                }
+
+            }
+
         }
     
 
@@ -1468,7 +1484,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     try {
 
 
-        if (messageReaction.message.id === "759161531572813854") {
+        if (messageReaction.message.id === "759497458018418691") {
     
             const drp1 = bot.emojis.get("759125897953017857");
             const drp2 = bot.emojis.get("759125936586883072");
