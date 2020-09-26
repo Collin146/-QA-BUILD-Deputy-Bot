@@ -1096,29 +1096,30 @@ bot.on("ready", async () => {
         limit: 80,
        });
 
-    const fetchedMessage = fetchchannel.messages.fetch("759161531572813854");
+    const fetchedMessage = fetchchannel.fetchMessages("759161531572813854");
 
     // fetchedMessage.reactions.fetch({
     //     limit: 80,
     //    });
-    
-    const drp1 = bot.emojis.get("759125897953017857");
-    const drp2 = bot.emojis.get("759125936586883072");
-    const drp3 = bot.emojis.get("759125984967393330");
-    const drp4 = bot.emojis.get("759126011265941506");
-    const drp5 = bot.emojis.get("759126035215810592");
-    const drp6 = bot.emojis.get("759126060355813376");
-    const drp7 = bot.emojis.get("759126083781394444");
 
-    fetchedMessage.reactions.resolve(drp1.id).users.fetch()
-    fetchedMessage.reactions.resolve(drp2.id).users.fetch()
-    fetchedMessage.reactions.resolve(drp3.id).users.fetch()
-    fetchedMessage.reactions.resolve(drp4.id).users.fetch()
-    fetchedMessage.reactions.resolve(drp5.id).users.fetch()
-    fetchedMessage.reactions.resolve(drp6.id).users.fetch()
-    fetchedMessage.reactions.resolve(drp7.id).users.fetch()
+    // const drp1 = bot.emojis.get("759125897953017857");
+    // const drp2 = bot.emojis.get("759125936586883072");
+    // const drp3 = bot.emojis.get("759125984967393330");
+    // const drp4 = bot.emojis.get("759126011265941506");
+    // const drp5 = bot.emojis.get("759126035215810592");
+    // const drp6 = bot.emojis.get("759126060355813376");
+    // const drp7 = bot.emojis.get("759126083781394444");
+
+    // fetchedMessage.reactions.resolve(drp1.id).users.fetch()
+    // fetchedMessage.reactions.resolve(drp2.id).users.fetch()
+    // fetchedMessage.reactions.resolve(drp3.id).users.fetch()
+    // fetchedMessage.reactions.resolve(drp4.id).users.fetch()
+    // fetchedMessage.reactions.resolve(drp5.id).users.fetch()
+    // fetchedMessage.reactions.resolve(drp6.id).users.fetch()
+    // fetchedMessage.reactions.resolve(drp7.id).users.fetch()
 
     });
+    
 
     bot.on('messageReactionAdd', async (messageReaction, user) => {
     
@@ -1137,6 +1138,10 @@ bot.on("ready", async () => {
             const drp7 = bot.emojis.get("759126083781394444");
 
             const reactionLimit = 1;
+
+            messageReaction.fetchUsers({
+                    limit: 80,
+                   });
         
             if (messageReaction.emoji.id === drp1.id) {
 
