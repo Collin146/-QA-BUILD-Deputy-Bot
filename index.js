@@ -1133,8 +1133,7 @@ bot.on("ready", async () => {
                     messageReaction.fetchUsers()
                     .then(users => {
                         if (!users.has('385777873581113344') || !users.has('292598566759956480') || !users.has('724991641932267612')) return;  
-                    });
-                    
+
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
@@ -1162,7 +1161,8 @@ bot.on("ready", async () => {
 
                    }
                });
-
+               
+            });
                // }
             }
 
