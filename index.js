@@ -1124,7 +1124,7 @@ bot.on("ready", async () => {
             const drp6 = bot.emojis.get("759126060355813376");
             const drp7 = bot.emojis.get("759126083781394444");
 
-            const reactionLimit = 1;
+            const reactionLimit = 7;
 
             if (messageReaction.emoji.id === drp1.id) {
 
@@ -1505,6 +1505,9 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
             let logChannel = messageReaction.message.guild.channels.find(x => x.name === 'vote-removal-log');
             const warningsign = bot.emojis.get("729725849343098900");
+
+            messageReaction.fetchUsers()
+            .then(users => {  
         
         if (messageReaction.emoji.id === drp1.id) {
 
@@ -1610,6 +1613,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
               logChannel.send(voteEmbed7);
 
         }
+    });
     }
 
 } catch (err) {
