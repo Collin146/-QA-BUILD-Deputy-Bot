@@ -1272,7 +1272,7 @@ bot.on("ready", async () => {
                             "**New Patrol Scheduled For**",
                             `\`Thursday\` **at** \`7:30 PM\` **BST**`,
                             ` `,
-                            `**React to the ${drp4} on the voting message above to confirm your attendance**`,
+                            `**React to the ${drp4} on the voting message above to confirm your attendance.**`,
                             `(This patrol was automatically scheduled as the vote for Thursday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
                             ` `,
                             "**Other Timezones:**",
@@ -1313,7 +1313,7 @@ bot.on("ready", async () => {
                             "**New Patrol Scheduled For**",
                             `\`Friday\` **at** \`7:30 PM\` **BST**`,
                             ` `,
-                            `**React to the ${drp5} on the voting message above to confirm your attendance**`,
+                            `**React to the ${drp5} on the voting message above to confirm your attendance.**`,
                             `(This patrol was automatically scheduled as the vote for Friday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
                             ` `,
                             "**Other Timezones:**",
@@ -1354,7 +1354,7 @@ bot.on("ready", async () => {
                             "**New Patrol Scheduled For**",
                             `\`Saturday\` **at** \`7:30 PM\` **BST**`,
                             ` `,
-                            `**React to the ${drp6} on the voting message above to confirm your attendance**`,
+                            `**React to the ${drp6} on the voting message above to confirm your attendance.**`,
                             `(This patrol was automatically scheduled as the vote for Saturday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
                             ` `,
                             "**Other Timezones:**",
@@ -1395,7 +1395,7 @@ bot.on("ready", async () => {
                             "**New Patrol Scheduled For**",
                             `\`Sunday\` **at** \`7:30 PM\` **BST**`,
                             ` `,
-                            `**React to the ${drp7} on the voting message above to confirm your attendance**`,
+                            `**React to the ${drp7} on the voting message above to confirm your attendance.**`,
                             `(This patrol was automatically scheduled as the vote for Sunday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
                             ` `,
                             "**Other Timezones:**",
@@ -1509,6 +1509,9 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
     try {
 
+        messageReaction.fetchUsers()
+        .then(users => {  
+
         if (messageReaction.message.id === "759497458018418691") {
     
             const drp1 = bot.emojis.get("759125897953017857");
@@ -1521,18 +1524,8 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
             let logChannel = messageReaction.message.guild.channels.find(x => x.name === 'vote-removal-log');
             const warningsign = bot.emojis.get("729725849343098900");
-
-            messageReaction.fetchUsers()
-            .then(users => {  
         
         if (messageReaction.emoji.id === drp1.id) {
-
-            let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
-
-            votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Monday')));
-                 
-                  if (!messagesToCheck) {
 
                     let voteEmbed1 = new Discord.RichEmbed()
                     .setColor("RED")
@@ -1545,22 +1538,6 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
         
                       logChannel.send(voteEmbed1);
                       
-                      return;
-                  } else {
-
-                  let voteEmbed1 = new Discord.RichEmbed()
-                  .setColor("RED")
-                  .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
-                  .setDescription([
-                      `**User:** <@${user.id}>`,
-                      `**User's ID:** ${user.id}`,
-                      `**Vote of:** Monday`
-                    ].join('\n'))
-      
-                    logChannel.send(voteEmbed1);
-		}
-              });
-
         }
     
         if (messageReaction.emoji.id === drp2.id) {
@@ -1652,8 +1629,8 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
               logChannel.send(voteEmbed7);
 
         }
-    });
     }
+});
 
 } catch (err) {
     console.log(err);
