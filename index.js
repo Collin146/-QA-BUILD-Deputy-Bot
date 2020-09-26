@@ -1544,6 +1544,8 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
                       ].join('\n'))
         
                       logChannel.send(voteEmbed1);
+
+                      return;
                   }
               });
 
