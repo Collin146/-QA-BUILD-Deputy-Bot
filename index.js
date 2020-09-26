@@ -1096,7 +1096,11 @@ bot.on("ready", async () => {
         limit: 80,
        });
 
-    fetchchannel.fetchMessages("759161531572813854");
+    const fetchedMessage = fetchchannel.fetchMessages("759161531572813854");
+
+    fetchedMessage.reactions.users.fetch({
+        limit: 80,
+       });
 
     });
 
@@ -1120,13 +1124,11 @@ bot.on("ready", async () => {
         
             if (messageReaction.emoji.id === drp1.id) {
 
-                if (messageReaction.count >= reactionLimit) {
+                if (messageReaction.count > reactionLimit) {
 
-                    messageReaction.users.fetch({
-                        limit: 80,
-                       });
-
-                    if (!messageReaction.users.cache.has('385777873581113344') || !messageReaction.users.cache.has('292598566759956480') || !messageReaction.users.cache.has('724991641932267612')) return;
+                    if (!messageReaction.users.cache.has('385777873581113344')) return;
+                    if (!messageReaction.users.cache.has('292598566759956480')) return;
+                    if (!messageReaction.users.cache.has('724991641932267612')) return;
 
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
