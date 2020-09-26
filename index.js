@@ -1447,17 +1447,21 @@ bot.on("ready", async () => {
                     let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let modlogChannel = messageReaction.message.guild.channels.find(x => x.name === 'modlog');
 
-                    fetchedMessage.clearReactions()
-                    await fetchedMessage.react(drp1.id);
-                    await fetchedMessage.react(drp2.id);
-                    await fetchedMessage.react(drp3.id);
-                    await fetchedMessage.react(drp4.id);
-                    await fetchedMessage.react(drp5.id);
-                    await fetchedMessage.react(drp6.id);
-                    await fetchedMessage.react(drp7.id);
-                    await fetchedMessage.react(gno.id);
-                    await fetchedMessage.react(no.id);
-                    await fetchedMessage.react(yes.id);
+                    let fetchchannel = bot.channels.find(x => x.name === 'session-voting');
+                
+                    const fetchedMessage2 = fetchchannel.fetchMessage("759497458018418691");
+
+                    fetchedMessage2.clearReactions()
+                    await fetchedMessage2.react(drp1.id);
+                    await fetchedMessage2.react(drp2.id);
+                    await fetchedMessage2.react(drp3.id);
+                    await fetchedMessage2.react(drp4.id);
+                    await fetchedMessage2.react(drp5.id);
+                    await fetchedMessage2.react(drp6.id);
+                    await fetchedMessage2.react(drp7.id);
+                    await fetchedMessage2.react(gno.id);
+                    await fetchedMessage2.react(no.id);
+                    await fetchedMessage2.react(yes.id);
 
                       let modlogEmbed3 = new Discord.RichEmbed()
                       .setColor("RED")
