@@ -1139,8 +1139,6 @@ bot.on("ready", async () => {
                votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
                   const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Monday')));
 
-                    if (messagesToCheck) return;
-
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
                     if (!messagesToCheck) {
@@ -1529,6 +1527,24 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
         
         if (messageReaction.emoji.id === drp1.id) {
 
+            votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
+                const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Monday')));
+                 
+                  if (!messagesToCheck) {
+
+                    let voteEmbed1 = new Discord.RichEmbed()
+                    .setColor("RED")
+                    .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
+                    .setDescription([
+                        `**User:** <@${user.id}>`,
+                        `**User's ID:** ${user.id}`,
+                        `**Vote of:** Monday`
+                      ].join('\n'))
+        
+                      logChannel.send(voteEmbed1);
+                  }
+              });
+
             let voteEmbed1 = new Discord.RichEmbed()
             .setColor("RED")
             .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
@@ -1638,6 +1654,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     console.log(err);
 }
     });
+
 
 //  GIVE ROLES THROUGH JOINING VC
 
