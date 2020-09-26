@@ -1124,6 +1124,10 @@ bot.on("ready", async () => {
     bot.on('messageReactionAdd', async (messageReaction, user) => {
     
         try {
+
+                messageReaction.users.fetch({
+                    limit: 80,
+                   });
         
         if (messageReaction.message.id === "759161531572813854") {
 
@@ -1140,10 +1144,6 @@ bot.on("ready", async () => {
             const reactionLimit = 1;
 
             if (messageReaction.emoji.id === drp1.id) {
-
-                messageReaction.users.fetch({
-                    limit: 80,
-                   });
 
                 if (messageReaction.count > reactionLimit) {
 
