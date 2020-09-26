@@ -1544,21 +1544,21 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
                       ].join('\n'))
         
                       logChannel.send(voteEmbed1);
-
+                      
                       return;
                   }
+
+                  let voteEmbed1 = new Discord.RichEmbed()
+                  .setColor("RED")
+                  .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
+                  .setDescription([
+                      `**User:** <@${user.id}>`,
+                      `**User's ID:** ${user.id}`,
+                      `**Vote of:** Monday`
+                    ].join('\n'))
+      
+                    logChannel.send(voteEmbed1);
               });
-
-            let voteEmbed1 = new Discord.RichEmbed()
-            .setColor("RED")
-            .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
-            .setDescription([
-                `**User:** <@${user.id}>`,
-                `**User's ID:** ${user.id}`,
-                `**Vote of:** Monday`
-              ].join('\n'))
-
-              logChannel.send(voteEmbed1);
 
         }
     
