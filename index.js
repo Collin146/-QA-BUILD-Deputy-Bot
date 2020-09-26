@@ -1096,7 +1096,7 @@ bot.on("ready", async () => {
         limit: 80,
        });
 
-    const fetchedMessage = fetchchannel.fetchMessages("759161531572813854");
+    const fetchedMessage = fetchchannel.messages.resolve("759161531572813854");
 
     // fetchedMessage.reactions.fetch({
     //     limit: 80,
@@ -1110,13 +1110,13 @@ bot.on("ready", async () => {
     const drp6 = bot.emojis.get("759126060355813376");
     const drp7 = bot.emojis.get("759126083781394444");
 
-    fetchedMessage.reactions.resolve(drp1).users.fetch()
-    fetchedMessage.reactions.resolve(drp2).users.fetch()
-    fetchedMessage.reactions.resolve(drp3).users.fetch()
-    fetchedMessage.reactions.resolve(drp4).users.fetch()
-    fetchedMessage.reactions.resolve(drp5).users.fetch()
-    fetchedMessage.reactions.resolve(drp6).users.fetch()
-    fetchedMessage.reactions.resolve(drp7).users.fetch()
+    fetchedMessage.reactions.resolve(drp1.id).users.fetch()
+    fetchedMessage.reactions.resolve(drp2.id).users.fetch()
+    fetchedMessage.reactions.resolve(drp3.id).users.fetch()
+    fetchedMessage.reactions.resolve(drp4.id).users.fetch()
+    fetchedMessage.reactions.resolve(drp5.id).users.fetch()
+    fetchedMessage.reactions.resolve(drp6.id).users.fetch()
+    fetchedMessage.reactions.resolve(drp7.id).users.fetch()
 
     });
     
