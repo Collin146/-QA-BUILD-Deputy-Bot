@@ -1139,7 +1139,7 @@ bot.on("ready", async () => {
                votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
                   const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Monday')));
 
-                  if (!users.has('385777873581113344'), !users.has('292598566759956480'), !users.has('724991641932267612' && !messagesToCheck)) {
+                  if (!users.has('385777873581113344'), !users.has('292598566759956480'), !users.has('724991641932267612') && !messagesToCheck) {
 
                     votingChannel.send([
                         `<@&${mentionrole.id}>`,
