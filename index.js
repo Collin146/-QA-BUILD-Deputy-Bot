@@ -1450,7 +1450,7 @@ bot.on("ready", async () => {
                     let fetchchannel = bot.channels.find(x => x.name === 'session-voting');
                 
                     fetchchannel.fetchMessage("759497458018418691")
-                    .then(message => message.clearReactions() && message.react(drp1.id) && await message.react(drp2.id) && await message.react(drp3.id) && await message.react(drp4.id) && await message.react(drp5.id) && await message.react(drp6.id) && await message.react(drp7.id) && await message.react(gno.id) && await message.react(no.id) && await message.react(yes.id))
+                    .then(message => message.clearReactions() && message.react(drp1.id) && message.react(drp2.id) && message.react(drp3.id) && message.react(drp4.id) && message.react(drp5.id) && message.react(drp6.id) && message.react(drp7.id) && message.react(gno.id) && message.react(no.id) && message.react(yes.id));
 
                       let modlogEmbed3 = new Discord.RichEmbed()
                       .setColor("RED")
