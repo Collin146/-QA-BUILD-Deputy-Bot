@@ -1546,7 +1546,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
                       logChannel.send(voteEmbed1);
                       
                       return;
-                  }
+                  } else {
 
                   let voteEmbed1 = new Discord.RichEmbed()
                   .setColor("RED")
@@ -1558,6 +1558,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
                     ].join('\n'))
       
                     logChannel.send(voteEmbed1);
+		}
               });
 
         }
