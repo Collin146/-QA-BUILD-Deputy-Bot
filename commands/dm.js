@@ -88,7 +88,7 @@ if (!reason) return message.channel.send(errEmbed);
           let sentmessage4 = await message.channel.send(loadembed)
           let deleteID = sentmessage4.id
 
-          message.channel.fetchMessage(deleteID).then(msg => {
+        await message.channel.fetchMessage(deleteID).then(msg => {
             msg.delete
             
         });      
