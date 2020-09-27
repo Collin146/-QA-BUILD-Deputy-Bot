@@ -90,9 +90,10 @@ if (!reason) return message.channel.send(errEmbed);
 
           message.channel.fetchMessage(deleteID).then(msg => {
             msg.delete
-            .then(() => message.channel.send(doneembed));
+            
         });      
             
+        await message.channel.send(doneembed)
 
       
       let ModEmbed = new Discord.RichEmbed()
