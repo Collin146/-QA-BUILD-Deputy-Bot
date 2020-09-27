@@ -131,7 +131,7 @@ if (!reason) return message.channel.send(errEmbed);
 
 
   } catch(err) {
-    catchErr(err)
+    console.log(err)
 
   }
 
