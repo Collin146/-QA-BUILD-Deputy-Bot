@@ -80,17 +80,20 @@ if (!reason) return message.channel.send(errEmbed);
           .setDescription("A message has been sent to everyone in this server.");
       
       message.guild.members.forEach(async member => {
-    
-        let sentmessage4 = await message.channel.send(loadembed)
-        let deleteID = sentmessage4.id
         
-        .then(() => { if (member.id != bot.user.id && !member.user.bot) member.send(dmembed)})
-        .then(async () => { message.channel.fetchMessage(deleteID).then(msg => {
-            message.deleteID
-            
+        if (member.id != bot.user.id && !member.user.bot) member.send(dmembed)
+        
+        });
+
+          let sentmessage4 = await message.channel.send(loadembed)
+          let deleteID = sentmessage4.id
+
+          message.channel.fetchMessage(deleteID).then(msg => {
+            msg.delete
+            .then(() => message.channel.send(doneembed));
         });      
-            await message.channel.send(doneembed)});
-          });
+            
+
       
       let ModEmbed = new Discord.RichEmbed()
       .setTitle("**Command Used!**")
