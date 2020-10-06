@@ -163,8 +163,18 @@ let memberTag = member.user.tag;
 
 //let leftuser = member.guild.member(member) || member.guild.fetchMember(member)
 
-let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
+
+if (member.guild.id === "700639523272523776") {
+
+    let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
+    leftchannel.send(`**${memberTag}**, (${member.nickname}) has left the server.`);
+
+} else {
+
+    let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
     leftchannel.send(`**${memberTag}** has left the server.`);
+
+}
     
 } catch (err) {
     catchErr(err);
