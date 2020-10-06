@@ -1868,9 +1868,10 @@ try {
 bot.on('presenceUpdate', (oldMember, newMember) => {
 
     try {
-            if (newMember.presence === "offline") {
 
-                if (newMember.id === '471634993114906635') {
+            if (oldMember.presence.status !== newMember.presence.status) {
+                
+                if (newMember.id === '471634993114906635' && newMember.presence.status === "offline")  {
                     
                 let dmmember = member.guild.members.get('292598566759956480');
                 const warningsign = bot.emojis.get("729725849343098900");
@@ -1882,14 +1883,13 @@ bot.on('presenceUpdate', (oldMember, newMember) => {
                     "Primary: https://dashboard.heroku.com/apps/grpbot1/logs",
                     "Secondary: https://dashboard.heroku.com/apps/grpbot/logs"
                    ].join('\n'));
-    }
-}
+           }
+        }
 
     } catch(err) {
         console.log(err)
     }
 
-});
 
 //
 //Mainbot status monitor end
