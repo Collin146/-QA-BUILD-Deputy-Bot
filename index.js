@@ -1865,14 +1865,12 @@ try {
 //Mainbot status monitor start
 //
 
-bot.on('presenceUpdate', (oldPresence, newPresence) => {
-    
-    member = newPresence.GuildMember.guild.members.get('471634993114906635');
+bot.on('presenceUpdate', (oldMember, newMember) => {
 
-    if (member.id === '471634993114906635') {
-        if (oldPresence.status !== newPresence.status) {
+    if (newMember.id === '471634993114906635') {
+        if (oldMember.presence !== newMember.presence) {
 
-            if (newPresence.status === "offline") {
+            if (newMember.presence === "offline") {
                 let dmmember = member.guild.members.get('292598566759956480');
                 const warningsign = bot.emojis.get("729725849343098900");
 
@@ -1885,8 +1883,8 @@ bot.on('presenceUpdate', (oldPresence, newPresence) => {
                    ].join('\n'));
         }
     }
-    
-   }
+}
+
 });
 
 //
