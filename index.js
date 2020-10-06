@@ -1867,6 +1867,8 @@ try {
 
 bot.on('presenceUpdate', (oldMember, newMember) => {
 
+    try {
+
     if (newMember.id === '471634993114906635') {
         if (oldMember.presence !== newMember.presence) {
 
@@ -1884,6 +1886,10 @@ bot.on('presenceUpdate', (oldMember, newMember) => {
         }
     }
 }
+
+    } catch(err) {
+        console.log(err)
+    }
 
 });
 
