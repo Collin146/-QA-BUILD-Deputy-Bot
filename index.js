@@ -1890,6 +1890,7 @@ bot.on('presenceUpdate', (oldMember, newMember) => {
         console.log(err)
     }
 
+});
 
 //
 //Mainbot status monitor end
