@@ -1861,5 +1861,35 @@ try {
 
 // });
 
+//
+//Mainbot status monitor start
+//
+
+bot.on('presenceUpdate', (oldPresence, newPresence) => {
+    
+    member = newPresence.member;
+
+    if (member.id === '471634993114906635') {
+        if (oldPresence.status !== newPresence.status) {
+
+            if (newPresence.status === "offline") {
+                let dmmember = member.guild.members.get('292598566759956480');
+                const warningsign = bot.emojis.get("729725849343098900");
+
+                dmmember.send([
+                    `${warningsign} Deputy Bot has gone offline!`,
+                    " ",
+                    "Heroku Applications:",
+                    "Primary: https://dashboard.heroku.com/apps/grpbot1/logs",
+                    "Secondary: https://dashboard.heroku.com/apps/grpbot/logs"
+                   ].join('\n'));
+        }
+    }
+});
+
+//
+//Mainbot status monitor end
+//
+
 bot.login(botconfig.token);
  
