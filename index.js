@@ -1885,6 +1885,8 @@ bot.on('presenceUpdate', (oldPresence, newPresence) => {
                    ].join('\n'));
         }
     }
+    
+   }
 });
 
 //
