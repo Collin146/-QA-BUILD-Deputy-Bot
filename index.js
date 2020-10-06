@@ -1873,7 +1873,7 @@ bot.on('presenceUpdate', (oldMember, newMember) => {
                 
                 if (newMember.id === '471634993114906635' && newMember.presence.status === "offline")  {
                     
-                let dmmember = member.guild.members.get('292598566759956480');
+                let dmmember = newMember.guild.members.get('292598566759956480');
                 const warningsign = bot.emojis.get("729725849343098900");
 
                 dmmember.send([
