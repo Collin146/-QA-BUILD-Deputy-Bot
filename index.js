@@ -1918,7 +1918,7 @@ bot.on('message', message => {
       .setColor("BLACK")
       .setDescription([
           `**User:** ${message.author}, ${message.author.tag}`,
-          `**User ID:** ${message.author.id}`
+          `**User ID:** ${message.author.id}`,
           `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
           `**Message:** ${message.content}`
         ].join('\n'))
