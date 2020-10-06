@@ -1907,7 +1907,7 @@ bot.on('message', message => {
     if (message.channel.type == "dm") {
       message.author.send("I cannot reply to DM's. If you require support, please reach out to a staff member in any of the Deputy Roleplay servers.");
 
-      let staffguild2 = bot.guilds.get('644254160019128320');
+      let staffguild2 = bot.guilds.get('700639523272523776');
 
       let dmmodlogembed = new Discord.RichEmbed()
       .setTitle("**Direct Message Received!**")
