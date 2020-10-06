@@ -1867,7 +1867,7 @@ try {
 
 bot.on('presenceUpdate', (oldPresence, newPresence) => {
     
-    member = newPresence.member.guild.members.get('471634993114906635');
+    member = newPresence.GuildMember.guild.members.get('471634993114906635');
 
     if (member.id === '471634993114906635') {
         if (oldPresence.status !== newPresence.status) {
