@@ -1870,7 +1870,6 @@ bot.on('presenceUpdate', (oldMember, newMember) => {
     try {
 
     if (newMember.id === '471634993114906635') {
-        if (oldMember.presence !== newMember.presence) {
 
             if (newMember.presence === "offline") {
                 let dmmember = member.guild.members.get('292598566759956480');
@@ -1883,7 +1882,6 @@ bot.on('presenceUpdate', (oldMember, newMember) => {
                     "Primary: https://dashboard.heroku.com/apps/grpbot1/logs",
                     "Secondary: https://dashboard.heroku.com/apps/grpbot/logs"
                    ].join('\n'));
-        }
     }
 }
 
