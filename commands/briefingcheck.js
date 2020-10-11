@@ -52,11 +52,9 @@ if(args[0] === "monday" || "Monday"){
 }
 
 } catch(err){
-    catchErr(err)
+    console.log(err)
 
 }
-
-`${iuser.roles.map(r => `${r}`).join(' | ')}`
 
 }
 
