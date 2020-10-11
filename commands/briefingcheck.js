@@ -34,8 +34,8 @@ const no = bot.emojis.get("700713478578634783");
 
 if(args[0] === "monday" || "Monday"){
 
-    let votingChannel = message.message.guild.channels.find(x => x.name === 'session-voting');
-    let briefingChannel = message.message.guild.channels.get(x => x.id === '764855057853579286');
+    let votingChannel = message.guild.channels.find(x => x.name === 'session-voting');
+    let briefingChannel = message.guild.channels.get(x => x.id === '764855057853579286');
 
       votingChannel.fetchMessage("764846601583722516")
       .then(message => {
@@ -55,6 +55,7 @@ if(args[0] === "monday" || "Monday"){
     console.log(err)
 
 }
+
 
 }
 
