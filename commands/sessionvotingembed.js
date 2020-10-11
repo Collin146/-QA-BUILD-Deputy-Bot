@@ -58,7 +58,7 @@ const drp7 = bot.emojis.get("759126083781394444");
     ` `,
     `Below this message, you will be able to view a list of all 7 days of the week and whether there is a session scheduled for that day or not. This is signified with the ${no}, meaning a session is not scheduled, and ${yes}, meaning one is scheduled for that day. The system will automatically check if any of the reactions have reached a total of 8 or more, including one from an Administrator+. If this is the case, that specific day will show a ${yes} instead of a ${no} and all members that voted for that day will be expected to attend.`,
     ` `,
-    `For Administrators+ only, to reset the reactions & schedules sessions list, press the ${gno}. To disable the session voting system, press the ${no}. To enable the system again, press the ${yes}.`
+    `For Administrators+ only, to reset the reactions & scheduled sessions list, press the ${gno}. To disable the session voting system, press the ${no}. To enable the system again, press the ${yes}.`
   ].join('\n'))
 
 const sentMessage =  await message.channel.send(sessionEmbed);
