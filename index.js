@@ -1380,37 +1380,37 @@ bot.on("ready", async () => {
                         .then(() => message.react(yes.id));
                     });
 
-                    votingChannel.fetchMessage("764846636923879424")
+                    fetchchannel.fetchMessage("764846636923879424")
                     .then(message => {
                         message.edit(`${no} - Monday`);
                     });
 
-                    votingChannel.fetchMessage("764846637230718988")
+                    fetchchannel.fetchMessage("764846637230718988")
                     .then(message => {
                         message.edit(`${no} - Tuesday`);
                     });
                     
-                    votingChannel.fetchMessage("764846638266843136")
+                    fetchchannel.fetchMessage("764846638266843136")
                     .then(message => {
                         message.edit(`${no} - Wednesday`);
                     });
 
-                    votingChannel.fetchMessage("764846639319744532")
+                    fetchchannel.fetchMessage("764846639319744532")
                     .then(message => {
                         message.edit(`${no} - Thursday`);
                     });
 
-                    votingChannel.fetchMessage("764846663143129149")
+                    fetchchannel.fetchMessage("764846663143129149")
                     .then(message => {
                         message.edit(`${no} - Friday`);
                     });
                     
-                    votingChannel.fetchMessage("764846664284372992")
+                    fetchchannel.fetchMessage("764846664284372992")
                     .then(message => {
                         message.edit(`${no} - Saturday`);
                     });
 
-                    votingChannel.fetchMessage("764846664796078101")
+                    fetchchannel.fetchMessage("764846664796078101")
                     .then(message => {
                         message.edit(`${no} - Sunday`);
                     });
