@@ -35,13 +35,12 @@ const no = bot.emojis.get("700713478578634783");
 if(args[0] === "monday" || "Monday"){
 
     let votingChannel = message.guild.channels.find(x => x.name === 'session-voting');
-    let briefingChannel = message.guild.channels.get(x => x.id === '764855057853579286');
 
       votingChannel.fetchMessage("764846601583722516")
       .then(message => {
          const bReaction = message.reactions.get('759125897953017857')
 
-         const briefingMembers = briefingChannel.members()
+         const briefingMembers = message.guild.channels.get('764855057853579286').members();
 
          bReaction.users.forEach(user => {
             if (!user.id === briefingMembers.id) message.channel.send(`**The following members are not in briefing room but did vote:** ${user.map(user => `${user}`).join(' | ')}
