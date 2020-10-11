@@ -1380,11 +1380,46 @@ bot.on("ready", async () => {
                         .then(() => message.react(yes.id));
                     });
 
+                    votingChannel.fetchMessage("764846636923879424")
+                    .then(message => {
+                        message.edit(`${no} - Monday`);
+                    });
+
+                    votingChannel.fetchMessage("764846637230718988")
+                    .then(message => {
+                        message.edit(`${no} - Tuesday`);
+                    });
+                    
+                    votingChannel.fetchMessage("764846638266843136")
+                    .then(message => {
+                        message.edit(`${no} - Wednesday`);
+                    });
+
+                    votingChannel.fetchMessage("764846639319744532")
+                    .then(message => {
+                        message.edit(`${no} - Thursday`);
+                    });
+
+                    votingChannel.fetchMessage("764846663143129149")
+                    .then(message => {
+                        message.edit(`${no} - Friday`);
+                    });
+                    
+                    votingChannel.fetchMessage("764846664284372992")
+                    .then(message => {
+                        message.edit(`${no} - Saturday`);
+                    });
+
+                    votingChannel.fetchMessage("764846664796078101")
+                    .then(message => {
+                        message.edit(`${no} - Sunday`);
+                    });
+
                       let modlogEmbed3 = new Discord.RichEmbed()
                       .setColor("RED")
-                      .setTitle(`**Session Voting Reactions Reset!**`)
+                      .setTitle(`**Session Voting System Reset!**`)
                       .setTimestamp()
-                      .setDescription(`<@${user.id}> has reset the reactions of the Session Voting System.`);
+                      .setDescription(`<@${user.id}> has reset the reactions & scheduling list of the Session Voting System.`);
 
                       modlogChannel.send(modlogEmbed3);
 
@@ -1531,7 +1566,6 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     console.log(err);
 }
     });
-
 
 //  GIVE ROLES THROUGH JOINING VC
 
