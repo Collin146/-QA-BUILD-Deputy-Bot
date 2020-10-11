@@ -1119,11 +1119,7 @@ bot.on("ready", async () => {
         limit: 80,
        });
 
-    const fetchedMessage = fetchchannel.fetchMessage("759497458018418691");
-
-    // fetchedMessage.reactions.fetch({
-    //     limit: 80,
-    //    });
+    const fetchedMessage = fetchchannel.fetchMessage("764846601583722516");
 
     });
     
@@ -1134,7 +1130,7 @@ bot.on("ready", async () => {
 
         if (user.bot) return;
         
-        if (messageReaction.message.id === "759497458018418691") {
+        if (messageReaction.message.id === "764846601583722516") {
 
             const yes = bot.emojis.get("700713527576625205");
             const no = bot.emojis.get("700713478578634783");
@@ -1147,7 +1143,7 @@ bot.on("ready", async () => {
             const drp6 = bot.emojis.get("759126060355813376");
             const drp7 = bot.emojis.get("759126083781394444");
 
-            const reactionLimit = 2;
+            const reactionLimit = 1;
 
             if (messageReaction.emoji.id === drp1.id) {
 
@@ -1159,32 +1155,14 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-               votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                  const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Monday')));
-
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
-                   
-                    if (!messagesToCheck) {
+                    
+                    votingChannel.fetchMessage("764846636923879424")
+                    .then(message => {
+                        message.edit(`${yes} - Monday`);
 
-                    votingChannel.send([
-                        `<@&${mentionrole.id}>`,
-                        ` `,
-                        "**New Patrol Scheduled For**",
-                        `\`Monday\` **at** \`7:30 PM\` **BST**`,
-                        ` `,
-                        `**React to the ${drp1} on the voting message above to confirm your attendance.**`,
-                        `(This patrol was automatically scheduled as the vote for Monday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
-                        ` `,
-                        "**Other Timezones:**",
-                        `PDT: 11:30 AM`,
-                        `EDT: 2:30 PM`,
-                        `CEST: 8:30 PM`,
-                        `MDT: 12:30 PM`,
-                        `CDT: 1:30 PM`
-                      ].join('\n'))
-                    }
+                    });
                    }
-                });
                });
             }
 
@@ -1535,7 +1513,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
         messageReaction.fetchUsers()
         .then(users => {  
 
-        if (messageReaction.message.id === "759497458018418691") {
+        if (messageReaction.message.id === "764846601583722516") {
     
             const drp1 = bot.emojis.get("759125897953017857");
             const drp2 = bot.emojis.get("759125936586883072");
@@ -1560,7 +1538,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
                       ].join('\n'))
         
                       logChannel.send(voteEmbed1);
-                      
+
         }
     
         if (messageReaction.emoji.id === drp2.id) {
