@@ -34,17 +34,17 @@ const no = bot.emojis.get("700713478578634783");
 
 if(args[0] === "monday" || "Monday"){
 
-    let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
-    let briefingChannel = messageReaction.message.guild.channels.find(x => x.name === 'Briefing Room');
+    let votingChannel = message.message.guild.channels.find(x => x.name === 'session-voting');
+    let briefingChannel = message.message.guild.channels.get(x => x.id === '764855057853579286');
 
       votingChannel.fetchMessage("764846601583722516")
       .then(message => {
          const bReaction = message.reactions.get('759125897953017857')
 
-         briefingMembers = briefingChannel.members()
+         const briefingMembers = briefingChannel.members()
 
          bReaction.users.forEach(user => {
-            if (!user.id === briefingMembers.id) message.channel.send(`**The following members are not in briefing room but did vote:** ${users.map(users => `${users}`).join(' | ')}
+            if (!user.id === briefingMembers.id) message.channel.send(`**The following members are not in briefing room but did vote:** ${user.map(user => `${user}`).join(' | ')}
             `)
           });
       });
