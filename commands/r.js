@@ -48,7 +48,7 @@ let mentionrole = message.guild.roles.find(x => x.name === 'Member');
 message.channel.fetchMessages({ limit: 100 })
 
   .then(fetchedMessages => {
-    const messagesToDelete = fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('"⚠ **Reminder!** ⚠')));
+    const messagesToDelete = fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('"⚠ Reminder! ⚠')));
 
     return message.channel.bulkDelete(messagesToDelete, true);
   })
