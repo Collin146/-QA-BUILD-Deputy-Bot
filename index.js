@@ -251,16 +251,20 @@ bot.on(`message`, async message => {
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
             const warningsign = bot.emojis.get("729725849343098900");
+            if (message.channel.name === "general-chat" && message.content.includes(`tenor`)) return;
+            if (message.channel.name === "general-chat" && message.content.includes(`giphy`)) return;
+            if (message.channel.name === "general-chat" && message.content.includes(`youtu.be`)) return;
+            if (message.channel.name === "general-chat" && message.content.includes(`youtube`)) return;
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
-            if (message.channel.id === '750830455334502511') return;
+            if (message.channel.id === '750827004525281430') return;
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Links are not allowed to be sent!")
-            .setFooter("Continuing with sending links words will result in disciplinary action!");
+            .setFooter("Continuing with sending links will result in disciplinary action!");
            
             await message.channel.send(linkembed);
 
@@ -276,7 +280,7 @@ bot.on(`message`, async message => {
             ].join('\n'))
 
             let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
-            modlogchannel.send({embed: modloglinkEmbed});
+            modlogchannel.send({embed: modloglinkEmbed}).then(msg => msg.delete(10000));
 
         }
     } catch (e) {
@@ -436,7 +440,7 @@ bot.on(`message`, async message => {
             ].join('\n'))
 
             let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
-            modlogchannel.send({embed: mentionEmbed});
+            modlogchannel.send({embed: mentionEmbed}).then(msg => msg.delete(10000));
 
         }
     } catch (e) {
@@ -488,7 +492,7 @@ bot.on(`message`, async message => {
             ].join('\n'))
 
             let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
-            modlogchannel.send({embed: offlangEmbed});
+            modlogchannel.send({embed: offlangEmbed}).then(msg => msg.delete(10000));
         }
     } catch (e) {
         console.log(e);
