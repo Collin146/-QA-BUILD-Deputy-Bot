@@ -61,5 +61,5 @@ message.channel.send(welcomedmEmbed);
 }
 
 module.exports.help = {
-    name: "sessionvotingembed"
+    name: "dmembed"
 }
