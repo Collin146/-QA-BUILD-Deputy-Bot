@@ -280,7 +280,7 @@ bot.on(`message`, async message => {
             ].join('\n'))
 
             let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
-            modlogchannel.send({embed: modloglinkEmbed}).then(msg => msg.delete(10000));
+            modlogchannel.send(modloglinkEmbed).then(message => message.delete(10000));
 
         }
     } catch (e) {
@@ -440,7 +440,7 @@ bot.on(`message`, async message => {
             ].join('\n'))
 
             let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
-            modlogchannel.send({embed: mentionEmbed}).then(msg => msg.delete(10000));
+            modlogchannel.send(mentionEmbed).then(message => message.delete(10000));
 
         }
     } catch (e) {
@@ -492,7 +492,7 @@ bot.on(`message`, async message => {
             ].join('\n'))
 
             let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
-            modlogchannel.send({embed: offlangEmbed}).then(msg => msg.delete(10000));
+            modlogchannel.send(offlangEmbed).then(message => message.delete(10000));
         }
     } catch (e) {
         console.log(e);
