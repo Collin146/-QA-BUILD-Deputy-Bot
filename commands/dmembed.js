@@ -30,8 +30,6 @@ module.exports.run = async (bot, message, args) => {
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783");
 const gno = bot.emojis.get("759495234928902154");
-    
-const drplogo = bot.emojis.get("689681849559023635");
 
 const drp1 = bot.emojis.get("759125897953017857");
 const drp2 = bot.emojis.get("759125936586883072");
@@ -44,7 +42,6 @@ const drp7 = bot.emojis.get("759126083781394444");
     let welcomedmEmbed = new Discord.RichEmbed()
 .setTitle(`Sorry to see you leave!**`)
 .setTimestamp()
-.setFooter("I am a bot and cannot reply to DM's.")
 .setColor("#00f4ef")
 .setDescription([
     `Hey there, we find very it unfurtunate to see you leave the Deputy Roleplay Interview server. We at Deputy Roleplay always aim to improve and are open to any feedback!`,
@@ -56,7 +53,7 @@ const drp7 = bot.emojis.get("759126083781394444");
     `${drp3} - The community was not for the platform(s) i own.`,
     `${drp4} - The application form was too hard for me.`,
     `${drp5} - The department i was interested in was unavailable/closed.`,
-    `${drp6} - Other, (please click the reaction and message your reason here).` 
+    `${drp6} - Other, (please click the reaction and message your reason here).`,
     ` `,
     `Please note that this message is automated and i am unable to reply to any questions you have.`
   ].join('\n'))
@@ -71,7 +68,7 @@ const drp7 = bot.emojis.get("759126083781394444");
 
 
     } catch(err) {
-        catchErr(err)
+        console.log(err)
         
     }
 
