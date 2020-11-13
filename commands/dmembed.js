@@ -55,9 +55,10 @@ const drp7 = bot.emojis.get("759126083781394444");
     `${drp5} - The department I was interested in was unavailable/closed.`,
     `${drp6} - Other, (please click the reaction and message your reason here).`,
     ` `,
-    `Please note that this message is automated and I am unable to reply to any questions you have.`
+    `Please note that this message is automated and I am unable to reply to any questions you have.`,
+    ` `,
+    "[Join Back](https://discord.gg/hR3rWWw)"
   ].join('\n'))
-  .addField("Its mine now", "Add DiscordBot to your server! [Click here](https://discord.gg/hR3rWWw)");
 
   const sentMessage =  await message.channel.send(welcomedmEmbed);
   await sentMessage.react(drp1.id);
