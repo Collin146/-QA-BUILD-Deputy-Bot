@@ -40,22 +40,22 @@ const drp6 = bot.emojis.get("759126060355813376");
 const drp7 = bot.emojis.get("759126083781394444");
 
     let welcomedmEmbed = new Discord.RichEmbed()
-.setTitle(`Sorry to see you leave!**`)
+.setTitle(`😕 **Sorry to see you leave!**`)
 .setTimestamp()
 .setColor("#00f4ef")
 .setDescription([
-    `Hey there, we find very it unfurtunate to see you leave the Deputy Roleplay Interview server. We at Deputy Roleplay always aim to improve and are open to any feedback!`,
+    `Hey there, we find very it unfortunate to see you leave the Deputy Roleplay Interview server. We at Deputy Roleplay always aim to improve and are open to any feedback!`,
     ` `,
-    "**We would appreciate it a lot if you told us why you decided to leave. All you have to do is click the appropiate reaction signifying the reason why you left.**",
+    "**We would appreciate it a lot if you told us why you decided to leave. All you have to do is click the appropriate reaction signifying the reason why you left.**",
     ` `,
     `${drp1} - The application process seemed too extensive/complicated.`,
     `${drp2} - I did not know how to apply/join the community.`,
-    `${drp3} - The community was not for the platform(s) i own.`,
+    `${drp3} - The community was not for the platform(s) I own.`,
     `${drp4} - The application form was too hard for me.`,
-    `${drp5} - The department i was interested in was unavailable/closed.`,
+    `${drp5} - The department I was interested in was unavailable/closed.`,
     `${drp6} - Other, (please click the reaction and message your reason here).`,
     ` `,
-    `Please note that this message is automated and i am unable to reply to any questions you have.`
+    `Please note that this message is automated and I am unable to reply to any questions you have.`
   ].join('\n'))
 
   const sentMessage =  await message.channel.send(welcomedmEmbed);
