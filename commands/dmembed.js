@@ -57,7 +57,7 @@ const drp7 = bot.emojis.get("759126083781394444");
     ` `,
     `Please note that this message is automated and I am unable to reply to any questions you have.`,
     ` `,
-    "[Join Back](https://discord.gg/hR3rWWw)"
+    "Want to join back? [Click here](https://discord.gg/hR3rWWw)"
   ].join('\n'))
 
   const sentMessage =  await message.channel.send(welcomedmEmbed);
