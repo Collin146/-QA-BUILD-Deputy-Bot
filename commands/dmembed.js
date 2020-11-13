@@ -43,7 +43,6 @@ const drp7 = bot.emojis.get("759126083781394444");
 .setTitle(`😕 **Sorry to see you leave!**`)
 .setTimestamp()
 .setColor("#00f4ef")
-.setFooter("Its mine now", "Add DiscordBot to your server! [Click here](https://discord.gg/hR3rWWw)")
 .setDescription([
     `Hey there, we find very it unfortunate to see you leave the Deputy Roleplay Interview server. We at Deputy Roleplay always aim to improve and are open to any feedback!`,
     ` `,
