@@ -33,24 +33,41 @@ const gno = bot.emojis.get("759495234928902154");
     
 const drplogo = bot.emojis.get("689681849559023635");
 
+const drp1 = bot.emojis.get("759125897953017857");
+const drp2 = bot.emojis.get("759125936586883072");
+const drp3 = bot.emojis.get("759125984967393330");
+const drp4 = bot.emojis.get("759126011265941506");
+const drp5 = bot.emojis.get("759126035215810592");
+const drp6 = bot.emojis.get("759126060355813376");
+const drp7 = bot.emojis.get("759126083781394444");
+
     let welcomedmEmbed = new Discord.RichEmbed()
-.setTitle(`${drplogo} **Welcome to Deputy Roleplay!**`)
+.setTitle(`Sorry to see you leave!**`)
 .setTimestamp()
 .setFooter("I am a bot and cannot reply to DM's.")
 .setColor("#00f4ef")
 .setDescription([
-    `We all welcome you and thank you for taking a look into Deputy Roleplay. Here, we strive to achieve both the most realism and professionalism within roleplaying! If you ever have any questions, feel free to reach out to any of our staff members!`,
+    `Hey there, we find very it unfurtunate to see you leave the Deputy Roleplay Interview server. We at Deputy Roleplay always aim to improve and are open to any feedback!`,
     ` `,
-    "**Further below, we will cover step by step how to join our community**",
+    "**We would appreciate it a lot if you told us why you decided to leave. All you have to do is click the appropiate reaction signifying the reason why you left.**",
     ` `,
-    "● First, you will have to read the Community Requirements to ensure you are eligible to apply for Deputy Roleplay: https://bit.ly/3ahPEUZ",
-    "● Secondly, you will also have to read our Rules & Regulations: https://bit.ly/3e9dbcl",
-    "● Finally, you can apply using the Application Form. When doing so, please make sure to include as many details as possible and also reach the minimum number of sentences required. This is outlined above every open question. If you fail to do so, there is a high possibility you will be declined: https://bit.ly/3koxkOc",
+    `${drp1} - The application process seemed too extensive/complicated.`,
+    `${drp2} - I did not know how to apply/join the community.`,
+    `${drp3} - The community was not for the platform(s) i own.`,
+    `${drp4} - The application form was too hard for me.`,
+    `${drp5} - The department i was interested in was unavailable/closed.`,
+    `${drp6} - Other, (please click the reaction and message your reason here).` 
     ` `,
-    `If you ever need any more help/assistance, feel free to ask in <#697522485100281946>. We wish you good luck and hope to see you soon!`,  
+    `Please note that this message is automated and i am unable to reply to any questions you have.`
   ].join('\n'))
 
-message.channel.send(welcomedmEmbed);
+  const sentMessage =  await message.channel.send(welcomedmEmbed);
+  await sentMessage.react(drp1.id);
+  await sentMessage.react(drp2.id);
+  await sentMessage.react(drp3.id);
+  await sentMessage.react(drp4.id);
+  await sentMessage.react(drp5.id);
+  await sentMessage.react(drp6.id);
 
 
     } catch(err) {
