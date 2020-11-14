@@ -178,7 +178,7 @@ if (member.guild.id === "700639523272523776") {
 
 }
 
-if (member.guild.id === "700639523272523776") {
+if (member.guild.id === "604420918634086411") {
 
     const yes = bot.emojis.get("700713527576625205");
     const no = bot.emojis.get("700713478578634783");
@@ -222,7 +222,8 @@ if (member.guild.id === "700639523272523776") {
       await sentMessage.react(drp6.id);
 
 const filter = (reaction, user) => {
-    gmember = message.guild.members.get(user.id)
+    let mainguild1 = bot.guilds.get('700639523272523776')
+    gmember = mainguild1.members.get(user.id)
 
     return [drp1.id, drp2.id, drp3.id, drp4.id, drp5.id, drp6.id].includes(reaction.emoji.id) && user.id === member.id; 
 };
