@@ -177,6 +177,198 @@ if (member.guild.id === "700639523272523776") {
     leftchannel.send(`**${memberTag}** has left the server.`);
 
 }
+
+if (member.guild.id === "604420918634086411") {
+
+    const yes = bot.emojis.get("700713527576625205");
+    const no = bot.emojis.get("700713478578634783");
+    const gno = bot.emojis.get("759495234928902154");
+    
+    const drp1 = bot.emojis.get("759125897953017857");
+    const drp2 = bot.emojis.get("759125936586883072");
+    const drp3 = bot.emojis.get("759125984967393330");
+    const drp4 = bot.emojis.get("759126011265941506");
+    const drp5 = bot.emojis.get("759126035215810592");
+    const drp6 = bot.emojis.get("759126060355813376");
+    const drp7 = bot.emojis.get("759126083781394444");
+    
+        let welcomedmEmbed = new Discord.RichEmbed()
+    .setTitle(`😕 **Sorry to see you leave!**`)
+    .setTimestamp()
+    .setColor("#00f4ef")
+    .setDescription([
+        `Hey there, we find very it unfortunate to see you leave the Deputy Roleplay Interview server. We at Deputy Roleplay always aim to improve and are open to any feedback!`,
+        ` `,
+        "**We would appreciate it a lot if you told us why you decided to leave. All you have to do is click the appropriate reaction signifying the reason why you left.**",
+        ` `,
+        `${drp1} - The application process seemed too extensive/complicated.`,
+        `${drp2} - I did not know how to apply/join the community.`,
+        `${drp3} - The community was not for the platform(s) I own.`,
+        `${drp4} - The application form was too hard for me.`,
+        `${drp5} - The department I was interested in was unavailable/closed.`,
+        `${drp6} - Other, (please click the reaction and message your reason here).`,
+        ` `,
+        `Please note that this message is automated and I am unable to reply to any questions you have.`,
+        ` `,
+        "Want to join back? [Click here](https://discord.gg/hR3rWWw)"
+      ].join('\n'))
+    
+      const sentMessage =  await member.send(welcomedmEmbed);
+      await sentMessage.react(drp1.id);
+      await sentMessage.react(drp2.id);
+      await sentMessage.react(drp3.id);
+      await sentMessage.react(drp4.id);
+      await sentMessage.react(drp5.id);
+      await sentMessage.react(drp6.id);
+
+const filter = (reaction, user) => {
+    gmember = message.guild.members.get(user.id)
+
+    return [drp1.id, drp2.id, drp3.id, drp4.id, drp5.id, drp6.id].includes(reaction.emoji.id) && user.id === member.id; 
+};
+
+sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
+    .then(collected => {
+        const reaction = collected.first();
+
+        if (reaction.emoji.id === drp1.id) {
+    
+            let mainguild1 = bot.guilds.get('700639523272523776')
+            
+            let feedbackEmbed1 = new Discord.RichEmbed()
+            .setTitle("**Feedback Received!**")
+            .setTimestamp()
+            .setColor("BLACK")
+            .setDescription([
+                `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+                `**User:** ${member}, ${member.tag}`,
+                `**User ID:** ${member.id}`,
+                `**Reason For Leaving:** The application process seemed too extensive/complicated.`,
+              ].join('\n'))
+            .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+            
+            let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
+            feedbackChannel.send({embed: feedbackEmbed1});
+
+        }
+
+        if (reaction.emoji.id === drp2.id) {
+    
+            let mainguild1 = bot.guilds.get('700639523272523776')
+            
+            let feedbackEmbed2 = new Discord.RichEmbed()
+            .setTitle("**Feedback Received!**")
+            .setTimestamp()
+            .setColor("BLACK")
+            .setDescription([
+                `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+                `**User:** ${member}, ${member.tag}`,
+                `**User ID:** ${member.id}`,
+                `**Reason For Leaving:** I did not know how to apply/join the community.`,
+              ].join('\n'))
+            .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+            
+            let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
+            feedbackChannel.send({embed: feedbackEmbed2});
+
+        }
+
+        if (reaction.emoji.id === drp3.id) {
+    
+            let mainguild1 = bot.guilds.get('700639523272523776')
+            
+            let feedbackEmbed3 = new Discord.RichEmbed()
+            .setTitle("**Feedback Received!**")
+            .setTimestamp()
+            .setColor("BLACK")
+            .setDescription([
+                `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+                `**User:** ${member}, ${member.tag}`,
+                `**User ID:** ${member.id}`,
+                `**Reason For Leaving:** The community was not for the platform(s) I own.`,
+              ].join('\n'))
+            .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+            
+            let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
+            feedbackChannel.send({embed: feedbackEmbed3});
+
+        }
+
+        if (reaction.emoji.id === drp4.id) {
+    
+            let mainguild1 = bot.guilds.get('700639523272523776')
+            
+            let feedbackEmbed4 = new Discord.RichEmbed()
+            .setTitle("**Feedback Received!**")
+            .setTimestamp()
+            .setColor("BLACK")
+            .setDescription([
+                `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+                `**User:** ${member}, ${member.tag}`,
+                `**User ID:** ${member.id}`,
+                `**Reason For Leaving:** The application form was too hard for me.`,
+              ].join('\n'))
+            .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+            
+            let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
+            feedbackChannel.send({embed: feedbackEmbed4});
+
+        }
+
+        if (reaction.emoji.id === drp5.id) {
+    
+            let mainguild1 = bot.guilds.get('700639523272523776')
+            
+            let feedbackEmbed5 = new Discord.RichEmbed()
+            .setTitle("**Feedback Received!**")
+            .setTimestamp()
+            .setColor("BLACK")
+            .setDescription([
+                `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+                `**User:** ${member}, ${member.tag}`,
+                `**User ID:** ${member.id}`,
+                `**Reason For Leaving:** The department I was interested in was unavailable/closed.`,
+              ].join('\n'))
+            .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+            
+            let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
+            feedbackChannel.send({embed: feedbackEmbed5});
+
+        }
+
+        if (reaction.emoji.id === drp6.id) {
+
+            fUser = bot.users.get(member.id);
+    
+            fUser.dmChannel.awaitMessages({ max: 1, time: 60000, errors: ['time'] })
+              .then((collected) => {
+
+                let mainguild1 = bot.guilds.get('700639523272523776')
+            
+                let feedbackEmbed6 = new Discord.RichEmbed()
+                .setTitle("**Feedback Received!**")
+                .setTimestamp()
+                .setColor("BLACK")
+                .setDescription([
+                    `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+                    `**User:** ${member}, ${member.tag}`,
+                    `**User ID:** ${member.id}`,
+                    `**Reason For Leaving (Other):** ${(collected.first().content) || "None"}`,
+                  ].join('\n'))
+                .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+                
+                let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
+                feedbackChannel.send({embed: feedbackEmbed6});
+
+              });
+
+        }
+
+    })
+    .catch(collected => {
+    });
+
+}
     
 } catch (err) {
     catchErr(err);
