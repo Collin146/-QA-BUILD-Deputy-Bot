@@ -178,7 +178,7 @@ if (member.guild.id === "700639523272523776") {
 
 }
 
-if (member.guild.id === "604420918634086411") {
+if (member.guild.id === "700639523272523776") {
 
     const yes = bot.emojis.get("700713527576625205");
     const no = bot.emojis.get("700713478578634783");
