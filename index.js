@@ -1189,7 +1189,6 @@ bot.on('messageReactionAdd', async (messageReaction, user) => {
                         .setTimestamp()
                         .setColor("BLACK")
                         .setDescription([
-                            `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
                             `**User:** ${user}, ${user.tag}`,
                             `**User ID:** ${user.id}`,
                             `**Reason For Leaving:** The application process seemed too extensive/complicated.`,
@@ -1209,7 +1208,6 @@ bot.on('messageReactionAdd', async (messageReaction, user) => {
                         .setTimestamp()
                         .setColor("BLACK")
                         .setDescription([
-                            `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
                             `**User:** ${user}, ${user.tag}`,
                             `**User ID:** ${user.id}`,
                             `**Reason For Leaving:** I did not know how to apply/join the community.`,
@@ -1229,7 +1227,6 @@ bot.on('messageReactionAdd', async (messageReaction, user) => {
                         .setTimestamp()
                         .setColor("BLACK")
                         .setDescription([
-                            `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
                             `**User:** ${user}, ${user.tag}`,
                             `**User ID:** ${user.id}`,
                             `**Reason For Leaving:** The community was not for the platform(s) I own.`,
@@ -1249,7 +1246,6 @@ bot.on('messageReactionAdd', async (messageReaction, user) => {
                         .setTimestamp()
                         .setColor("BLACK")
                         .setDescription([
-                            `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
                             `**User:** ${user}, ${user.tag}`,
                             `**User ID:** ${user.id}`,
                             `**Reason For Leaving:** The application form was too hard for me.`,
@@ -1269,7 +1265,6 @@ bot.on('messageReactionAdd', async (messageReaction, user) => {
                         .setTimestamp()
                         .setColor("BLACK")
                         .setDescription([
-                            `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
                             `**User:** ${user}, ${user.tag}`,
                             `**User ID:** ${user.id}`,
                             `**Reason For Leaving:** The department I was interested in was unavailable/closed.`,
@@ -1292,7 +1287,6 @@ bot.on('messageReactionAdd', async (messageReaction, user) => {
                             .setTimestamp()
                             .setColor("BLACK")
                             .setDescription([
-                                `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
                                 `**User:** ${user}, ${user.tag}`,
                                 `**User ID:** ${user.id}`,
                                 `**Reason For Leaving (Other):** ${(collected.first().content) || "None"}`,
