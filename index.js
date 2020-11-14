@@ -221,14 +221,14 @@ if (member.guild.id === "700639523272523776") {
       await sentMessage.react(drp5.id);
       await sentMessage.react(drp6.id);
 
-const filter = (reaction, user) => {
-    // let mainguild1 = bot.guilds.get('700639523272523776')
-    // gmember = mainguild1.members.get(user.id)
+// const filter = (reaction, user) => {
+//     // let mainguild1 = bot.guilds.get('700639523272523776')
+//     // gmember = mainguild1.members.get(user.id)
 
-    return [drp1.id, drp2.id, drp3.id, drp4.id, drp5.id, drp6.id].includes(reaction.emoji.id); 
-};
+//     return [drp1.id, drp2.id, drp3.id, drp4.id, drp5.id, drp6.id].includes(reaction.emoji.id); 
+// };
 
-sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
+sentMessage.awaitReactions({ max: 1, time: 10800000, errors: ['time'] })
     .then(collected => {
         const reaction = collected.first();
 
