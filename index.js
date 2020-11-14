@@ -370,9 +370,9 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
     });
 
 }
-    
+
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
