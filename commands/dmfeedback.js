@@ -38,7 +38,7 @@ const cnt3 = 0;
 const cnt4 = 0;
 const cnt5 = 0;
 const cnt6 = 0;
-
+const cnt7 = 0;
 
 await message.channel.send([
     "⠀⠀",
@@ -51,6 +51,7 @@ await message.channel.send(`${cnt3} - The community was not for the platform(s) 
 await message.channel.send(`${cnt4} - The application form was too hard for me.`)
 await message.channel.send(`${cnt5} - The department I was interested in was unavailable/closed.`)
 await message.channel.send(`${cnt6} - Other, (see #channelname)`)
+await message.channel.send(`${cnt7} - No Response`)
 
 
     } catch(err) {
