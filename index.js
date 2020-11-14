@@ -1277,7 +1277,9 @@ bot.on('messageReactionAdd', async (messageReaction, user) => {
 
                     if (messageReaction.emoji.id === drp6.id) {
                 
-                        user.dmChannel.awaitMessages({ max: 1, time: 60000, errors: ['time'] })
+                        const filter = m => m.author.id === user.id;
+                
+                        user.dmChannel.awaitMessages(filter, { max: 1, time: 60000, errors: ['time'] })
                         .then((collected) => {
 
                             let mainguild1 = bot.guilds.get('700639523272523776')
