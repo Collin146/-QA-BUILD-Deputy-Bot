@@ -225,7 +225,6 @@ const filter = (reaction, user) => {
     // let mainguild1 = bot.guilds.get('700639523272523776')
     // gmember = mainguild1.members.get(user.id)
 
-    return [drp1.id, drp2.id, drp3.id, drp4.id, drp5.id, drp6.id].includes(reaction.emoji.id) && user.id === member.id; 
 };
 
 sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
@@ -241,7 +240,6 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
             .setTimestamp()
             .setColor("BLACK")
             .setDescription([
-                `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
                 `**User:** ${member}, ${member.tag}`,
                 `**User ID:** ${member.id}`,
                 `**Reason For Leaving:** The application process seemed too extensive/complicated.`,
