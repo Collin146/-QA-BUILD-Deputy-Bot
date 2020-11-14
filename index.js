@@ -221,14 +221,14 @@ if (member.guild.id === "700639523272523776") {
       await sentMessage.react(drp5.id);
       await sentMessage.react(drp6.id);
 
-// const filter = (reaction, user) => {
-//     // let mainguild1 = bot.guilds.get('700639523272523776')
-//     // gmember = mainguild1.members.get(user.id)
+const filter = (reaction, user) => {
+    // let mainguild1 = bot.guilds.get('700639523272523776')
+    // gmember = mainguild1.members.get(user.id)
 
-//     return [drp1.id, drp2.id, drp3.id, drp4.id, drp5.id, drp6.id].includes(reaction.emoji.id); 
-// };
+    return [drp1.id, drp2.id, drp3.id, drp4.id, drp5.id, drp6.id].includes(reaction.emoji.id) && user.id === member.id; 
+};
 
-sentMessage.awaitReactions({ max: 1, time: 10800000, errors: ['time'] })
+sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
     .then(collected => {
         const reaction = collected.first();
 
@@ -246,7 +246,6 @@ sentMessage.awaitReactions({ max: 1, time: 10800000, errors: ['time'] })
                 `**User ID:** ${member.id}`,
                 `**Reason For Leaving:** The application process seemed too extensive/complicated.`,
               ].join('\n'))
-            .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
             
             let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
             feedbackChannel.send({embed: feedbackEmbed1});
@@ -267,7 +266,6 @@ sentMessage.awaitReactions({ max: 1, time: 10800000, errors: ['time'] })
                 `**User ID:** ${member.id}`,
                 `**Reason For Leaving:** I did not know how to apply/join the community.`,
               ].join('\n'))
-            .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
             
             let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
             feedbackChannel.send({embed: feedbackEmbed2});
@@ -288,7 +286,6 @@ sentMessage.awaitReactions({ max: 1, time: 10800000, errors: ['time'] })
                 `**User ID:** ${member.id}`,
                 `**Reason For Leaving:** The community was not for the platform(s) I own.`,
               ].join('\n'))
-            .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
             
             let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
             feedbackChannel.send({embed: feedbackEmbed3});
@@ -309,7 +306,6 @@ sentMessage.awaitReactions({ max: 1, time: 10800000, errors: ['time'] })
                 `**User ID:** ${member.id}`,
                 `**Reason For Leaving:** The application form was too hard for me.`,
               ].join('\n'))
-            .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
             
             let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
             feedbackChannel.send({embed: feedbackEmbed4});
@@ -330,7 +326,6 @@ sentMessage.awaitReactions({ max: 1, time: 10800000, errors: ['time'] })
                 `**User ID:** ${member.id}`,
                 `**Reason For Leaving:** The department I was interested in was unavailable/closed.`,
               ].join('\n'))
-            .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
             
             let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
             feedbackChannel.send({embed: feedbackEmbed5});
@@ -356,7 +351,6 @@ sentMessage.awaitReactions({ max: 1, time: 10800000, errors: ['time'] })
                     `**User ID:** ${member.id}`,
                     `**Reason For Leaving (Other):** ${(collected.first().content) || "None"}`,
                   ].join('\n'))
-                .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
                 
                 let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
                 feedbackChannel.send({embed: feedbackEmbed6});
