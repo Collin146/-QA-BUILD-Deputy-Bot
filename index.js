@@ -2017,9 +2017,12 @@ bot.on('message', message => {
 
       if (message.author.bot) return;
 
-      const bannedWords4 = [`feedback`]
+     user.dmChannel.fetchMessages({ limit: 100 })
 
-      if (bannedWords4.some(word => message.content.toLowerCase().includes(word))) return;;
+     .then(fetchedMessages => {
+     if (fetchedMessages.filter(msg => (msg.content.has("feedback")))) return;
+
+     });
 
       message.author.send("I cannot reply to DM's. If you require support, please reach out to a staff member in any of the Deputy Roleplay servers.");
 
