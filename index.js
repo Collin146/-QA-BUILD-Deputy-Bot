@@ -2012,6 +2012,11 @@ bot.on('presenceUpdate', (oldMember, newMember) => {
 });
 
 bot.on('message', message => {
+	
+	message.channel.fetchMessages({ limit: 5 }).then(fetchedMessages => {
+        const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('feedback.')));
+      return;
+      });
 
     if (message.channel.type == "dm") {
 
