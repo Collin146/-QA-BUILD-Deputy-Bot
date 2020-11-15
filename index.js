@@ -2012,19 +2012,19 @@ bot.on('presenceUpdate', (oldMember, newMember) => {
 });
 
 bot.on('message', message => {
-	
-	message.channel.fetchMessages({ limit: 5 }).then(fetchedMessages => {
-        const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('feedback.')));
-      return;
-      });
 
     if (message.channel.type == "dm") {
 
       if (message.author.bot) return;
 
+      message.channel.fetchMessages({ limit: 5 }).then(fetchedMessages => {
+        const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('feedback.')));
+
+        if (!messagesToCheck) {
+
       message.author.send("I cannot reply to DM's. If you require support, please reach out to a staff member in any of the Deputy Roleplay servers.");
 
-      let staffguild2 = bot.guilds.get('700639523272523776');
+      let staffguild2 = bot.guilds.get('644254160019128320');
 
       let dmmodlogembed = new Discord.RichEmbed()
       .setTitle("**Direct Message Received!**")
@@ -2042,6 +2042,10 @@ bot.on('message', message => {
       fetchchannelstaff.send({embed: dmmodlogembed});
 
       return;
+    }
+
+    });
+
     }
 
   });
