@@ -2017,7 +2017,7 @@ bot.on('message', message => {
 
       if (message.author.bot) return;
 
-      message.channel.fetchMessages({ limit: 1 }).then(fetchedMessages => {
+      message.channel.fetchMessages({ limit: 2 }).then(fetchedMessages => {
         const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('feedback.')));
 
         if (!messagesToCheck) {
