@@ -2017,13 +2017,6 @@ bot.on('message', message => {
 
       if (message.author.bot) return;
 
-     message.author.dmChannel.fetchMessages({ limit: 100 })
-
-     .then(fetchedMessages => {
-     if (fetchedMessages.filter(msg => (msg.content.includes("feedback.")))) return;
-
-     });
-
       message.author.send("I cannot reply to DM's. If you require support, please reach out to a staff member in any of the Deputy Roleplay servers.");
 
       let staffguild2 = bot.guilds.get('700639523272523776');
