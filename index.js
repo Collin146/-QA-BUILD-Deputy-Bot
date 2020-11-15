@@ -1195,7 +1195,7 @@ bot.on('messageReactionAdd', async (messageReaction, user) => {
                           ].join('\n'))
                         
                         let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
-                        feedbackChannel.send({embed: feedbackEmbed1}); 
+                        feedbackChannel.send({embed: feedbackEmbed1}).then(user.send("Thank you for providing your feedback!"));
  
                     }
 
@@ -1214,7 +1214,7 @@ bot.on('messageReactionAdd', async (messageReaction, user) => {
                         ].join('\n'))
                         
                         let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
-                        feedbackChannel.send({embed: feedbackEmbed2});
+                        feedbackChannel.send({embed: feedbackEmbed2}).then(user.send("Thank you for providing your feedback!"));
  
                     }
 
@@ -1233,7 +1233,7 @@ bot.on('messageReactionAdd', async (messageReaction, user) => {
                         ].join('\n'))
                         
                         let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
-                        feedbackChannel.send({embed: feedbackEmbed3});
+                        feedbackChannel.send({embed: feedbackEmbed3}).then(user.send("Thank you for providing your feedback!"));
  
                     }
 
@@ -1252,7 +1252,7 @@ bot.on('messageReactionAdd', async (messageReaction, user) => {
                         ].join('\n'))
                         
                         let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
-                        feedbackChannel.send({embed: feedbackEmbed4});
+                        feedbackChannel.send({embed: feedbackEmbed4}).then(user.send("Thank you for providing your feedback!"));
                         
                     }
 
@@ -1271,14 +1271,14 @@ bot.on('messageReactionAdd', async (messageReaction, user) => {
                         ].join('\n'))
                         
                         let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
-                        feedbackChannel.send({embed: feedbackEmbed5});
+                        feedbackChannel.send({embed: feedbackEmbed5}).then(user.send("Thank you for providing your feedback!"));
  
                     }
 
                     if (messageReaction.emoji.id === drp6.id) {
 
                         user.send("Please provide your feedback.")
-                
+
                         const filter = m => m.author.id === user.id;
                 
                         user.dmChannel.awaitMessages(filter, { max: 1, time: 60000, errors: ['time'] })
@@ -1297,8 +1297,7 @@ bot.on('messageReactionAdd', async (messageReaction, user) => {
                             ].join('\n'))
                             
                             let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
-                            feedbackChannel.send({embed: feedbackEmbed6}).then(user.send("Thank you for providing your feedback!"));;
-
+                            feedbackChannel.send({embed: feedbackEmbed6}).then(user.send("Thank you for providing your feedback!"));
 
                         });
  
