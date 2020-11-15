@@ -1295,7 +1295,8 @@ bot.on('messageReactionAdd', async (messageReaction, user) => {
                             ].join('\n'))
                             
                             let feedbackChannel = mainguild1.channels.find(x => x.name === 'left-members-feedback');
-                            feedbackChannel.send({embed: feedbackEmbed6});
+                            feedbackChannel.send({embed: feedbackEmbed6}).then(user.send("Thank you for providing your feedback!"));;
+
 
                         });
  
@@ -2013,6 +2014,10 @@ bot.on('message', message => {
     if (message.channel.type == "dm") {
 
       if (message.author.bot) return;
+
+      const bannedWords4 = [`feedback`]
+
+      if (bannedWords4.some(word => message.content.toLowerCase().includes(word))) return;;
 
       message.author.send("I cannot reply to DM's. If you require support, please reach out to a staff member in any of the Deputy Roleplay servers.");
 
