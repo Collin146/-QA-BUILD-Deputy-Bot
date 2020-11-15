@@ -2020,7 +2020,7 @@ bot.on('message', message => {
      message.author.dmChannel.fetchMessages({ limit: 100 })
 
      .then(fetchedMessages => {
-     if (fetchedMessages.filter(msg => (msg.content.has("feedback")))) return;
+     if (fetchedMessages.filter(msg => (msg.content.includes("feedback.")))) return;
 
      });
 
