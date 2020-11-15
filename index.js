@@ -2017,7 +2017,7 @@ bot.on('message', message => {
 
       if (message.author.bot) return;
 
-     user.dmChannel.fetchMessages({ limit: 100 })
+     message.author.dmChannel.fetchMessages({ limit: 100 })
 
      .then(fetchedMessages => {
      if (fetchedMessages.filter(msg => (msg.content.has("feedback")))) return;
