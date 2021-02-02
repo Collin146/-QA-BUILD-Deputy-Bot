@@ -32,7 +32,7 @@ let dmembed = new Discord.RichEmbed()
 .setDescription(`Per ${message.author}, AOP has been changed to Blaine County! Please finish your scenarios and head to the new AOP.`);
 
 message.guild.members.forEach(member => {
-    if (message.member.roles.find(r => r.name === "On Patrol")) member.send(dmembed);
+    if (member.roles.find(r => r.name === "On Patrol")) member.send(dmembed);
   });
 
   return; 
@@ -48,7 +48,7 @@ if(args[0] === "ss&s"){
     .setDescription(`Per ${message.author}, AOP has been changed to Sandy Shores & Surrounding! Please finish your scenarios and head to the new AOP.`);
     
     message.guild.members.forEach(member => {
-        if (message.member.roles.find(r => r.name === "On Patrol")) member.send(dmembed2);
+        if (member.roles.find(r => r.name === "On Patrol")) member.send(dmembed2);
       });
     
       return; 
