@@ -12,7 +12,7 @@ function catchErr (err, message) {
         
         }
         
-try {
+//try {
     
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
@@ -38,9 +38,11 @@ let dmembed = new Discord.RichEmbed()
 message.guild.members.forEach(member => {
     if (member.roles.some(role => role.name === 'On Patrol')) {
         member.send(dmembed)
+        return;
     }
   });
 
+  return;
 }
 
 if(args[0] === "ss&s"){
@@ -55,15 +57,17 @@ if(args[0] === "ss&s"){
     message.guild.members.forEach(member => {
         if (member.roles.some(role => role.name === 'On Patrol')) {
             member.send(dmembed2)
+            return;
         }
       });
     
+      return;
     }
 
-} catch(err) {
-    console.log(err) 
+// } catch(err) {
+//     console.log(err) 
     
-    }
+//     }
     
     }
 
