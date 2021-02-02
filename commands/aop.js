@@ -55,7 +55,7 @@ if(args[0] === "ss&s"){
     }
 
 } catch(err) {
-    catchErr(err) 
+    console.log(err) 
     
     }
     
