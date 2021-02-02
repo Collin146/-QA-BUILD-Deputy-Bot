@@ -22,6 +22,8 @@ const mainguild = bot.guilds.get('700639523272523776')
 
 let AOPchannel = mainguild.channels.find(x => x.id === '806224054079324220');
 
+let patrolrole = mainguild.roles.find(x => x.name === 'On Patrol');
+
 message.delete().catch(_O_o=>{})
 
 if(args[0] === "bc"){
@@ -34,7 +36,7 @@ let dmembed = new Discord.RichEmbed()
 .setDescription(`Per ${message.author}, AOP has been changed to Blaine County! Please finish your scenarios and head to the new AOP.`);
 
 message.guild.members.forEach(member => {
-    if (member.roles.has(r => r.name === "On Patrol")) member.send(dmembed);
+    if (member.roles.has(patrolrole)) member.send(dmembed);
   });
 
   return; 
@@ -50,7 +52,7 @@ if(args[0] === "ss&s"){
     .setDescription(`Per ${message.author}, AOP has been changed to Sandy Shores & Surrounding! Please finish your scenarios and head to the new AOP.`);
     
     message.guild.members.forEach(member => {
-        if (member.roles.has(r => r.name === "On Patrol")) member.send(dmembed2);
+        if (member.roles.has(patrolrole)) member.send(dmembed2);
       });
     
       return; 
