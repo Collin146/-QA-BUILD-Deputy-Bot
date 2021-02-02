@@ -40,6 +40,9 @@ message.guild.members.forEach(member => {
         member.send(dmembed)
         return;
     }
+    else {
+        return;
+    }
   });
 
   return;
@@ -57,6 +60,9 @@ if(args[0] === "ss&s"){
     message.guild.members.forEach(member => {
         if (member.roles.some(role => role.name === 'On Patrol')) {
             member.send(dmembed2)
+            return;
+        }  
+        else {
             return;
         }
       });
