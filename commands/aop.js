@@ -18,13 +18,13 @@ const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
 const warningsign = bot.emojis.get("729725849343098900");
 
+if(args[0] === "bc"){
+        
 const mainguild = bot.guilds.get('700639523272523776')
 
 let AOPchannel = mainguild.channels.find(x => x.id === '806224054079324220');
 
-if(args[0] === "bc"){
-
-AOPchannel.edit({ name: 'Current AOP: Blaine County' })
+AOPchannel.edit({ name: 'Current AOP: BC' })
 
 let dmembed = new Discord.RichEmbed()
 .setColor("RED")
@@ -39,8 +39,12 @@ message.guild.members.forEach(member => {
 }
 
 if(args[0] === "ss&s"){
+        
+    const mainguild = bot.guilds.get('700639523272523776')
 
-    AOPchannel.edit({ name: 'Current AOP: Sandy Shores & Surrounding' })
+    let AOPchannel = mainguild.channels.find(x => x.id === '806224054079324220');
+
+    AOPchannel.edit({ name: 'Current AOP: SS&S' })
     
     let dmembed = new Discord.RichEmbed()
     .setColor("RED")
