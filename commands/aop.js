@@ -18,9 +18,9 @@ const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
 const warningsign = bot.emojis.get("729725849343098900");
 
-const mainguild = bot.guilds.get('700639523272523776')
+const mainguild = bot.guilds.get('560105204809203723')
 
-let AOPchannel = mainguild.channels.find(x => x.id === '806224054079324220');
+let AOPchannel = mainguild.channels.find(x => x.id === '560105204809203727');
 
 let patrolrole = mainguild.roles.find(x => x.name === 'On Patrol');
 
