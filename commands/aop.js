@@ -39,8 +39,8 @@ let patrolrole = mainguild.roles.find(x => x.name === 'On Patrol');
 if (!patrolrole) return message.reply('There is not such a role!');
 
 for (let i = 0; i < message.guild.members.size; i++) {
-    if (message.guild.members[i].roles.has(patrolrole.id)) {
-        message.guild.members[i].user.send(dmembed);
+    if (message.guild.members.roles.has(patrolrole.id)) {
+        message.guild.members.user.send(dmembed);
     }
 }
 
@@ -80,8 +80,8 @@ if(args[0] === "ss&s"){
 if (!patrolrole) return message.reply('There is not such a role!');
 
 for (let i = 0; i < message.guild.members.size; i++) {
-    if (message.guild.members[i].roles.has(patrolrole.id)) {
-        message.guild.members[i].user.send(dmembed2);
+    if (message.guild.members.roles.has(patrolrole.id)) {
+        message.guild.members.user.send(dmembed2);
     }
 }
     
