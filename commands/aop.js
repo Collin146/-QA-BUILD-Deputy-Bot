@@ -35,15 +35,24 @@ let dmembed = new Discord.RichEmbed()
 .setTitle(`${warningsign} **Notice!**`)
 .setDescription(`Per ${message.author}, AOP has been changed to Blaine County! Please finish your scenarios and head to the new AOP.`);
 
-message.guild.members.forEach(member => {
-    if (member.roles.some(role => role.name === 'On Patrol')) {
-        member.send(dmembed)
-        return;
+let patrolrole = mainguild.roles.find(x => x.name === 'On Patrol');
+if (!patrolrole) return message.reply('There is not such a role!');
+
+for (let i = 0; i < message.guild.members.size; i++) {
+    if (message.guild.members[i].roles.has(patrolrole.id)) {
+        message.guild.members[i].user.send(dmembed);
     }
-    else {
-        return;
-    }
-  });
+}
+
+// message.guild.members.forEach(member => {
+//     if (member.roles.some(role => role.name === 'On Patrol')) {
+//         member.send(dmembed)
+//         return;
+//     }
+//     else {
+//         return;
+//     }
+//   });
 
   return;
 }
@@ -57,15 +66,24 @@ if(args[0] === "ss&s"){
     .setTitle(`${warningsign} **Notice!**`)
     .setDescription(`Per ${message.author}, AOP has been changed to Sandy Shores & Surrounding! Please finish your scenarios and head to the new AOP.`);
     
-    message.guild.members.forEach(member => {
-        if (member.roles.some(role => role.name === 'On Patrol')) {
-            member.send(dmembed2)
-            return;
-        }  
-        else {
-            return;
-        }
-      });
+    // message.guild.members.forEach(member => {
+    //     if (member.roles.some(role => role.name === 'On Patrol')) {
+    //         member.send(dmembed2)
+    //         return;
+    //     }  
+    //     else {
+    //         return;
+    //     }
+    //   });
+
+    let patrolrole = mainguild.roles.find(x => x.name === 'On Patrol');
+if (!patrolrole) return message.reply('There is not such a role!');
+
+for (let i = 0; i < message.guild.members.size; i++) {
+    if (message.guild.members[i].roles.has(patrolrole.id)) {
+        message.guild.members[i].user.send(dmembed2);
+    }
+}
     
       return;
     }
