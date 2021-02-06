@@ -15,14 +15,14 @@ module.exports.run = async (bot, message, args) => {
 
     try {
 
-        const no = bot.emojis.get("700713478578634783"); 
+const no = bot.emojis.get("700713478578634783"); 
 
        let errEmbed = new Discord.RichEmbed()
       .setColor("RED")
       .setTitle(`${no} **Error!**`)
       .setDescription(`Only LEO have permission to use this command!`)
 
-    if(!message.member.roles.has(role => role.name === "BCSO")) return message.send(errEmbed);
+    if(!message.member.roles.has(role => role.name === "BCSO")) return message.channel.send(errEmbed);
     if(args[0] === "help"){
         message.reply("Usage: !jail <user> <time> <reason>");
         return;
@@ -37,7 +37,7 @@ let errEmbed2 = new Discord.RichEmbed()
 .setTitle(`${no} **Error!**`)
 .setDescription(`You didn't specify the user!`);
 
-if (!tojail) return message.send(errEmbed2);
+if (!tojail) return message.channel.send(errEmbed2);
 
 let jailtime = args[1];
 
