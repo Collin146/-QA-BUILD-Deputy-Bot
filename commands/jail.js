@@ -24,7 +24,7 @@ const no = bot.emojis.get("700713478578634783");
 
     guildAuthor = message.guild.members.get(message.author.id);
 
-    if(!guildAuthor.roles.has(role => role.name === "BCSO")) return message.channel.send(errEmbed);
+    if(!guildAuthor.roles.has("471634993114906635")) return message.channel.send(errEmbed);
     if(args[0] === "help"){
         message.reply("Usage: !jail <user> <time> <reason>");
         return;
