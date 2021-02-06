@@ -69,7 +69,7 @@ message.author.send(geluktEmbed);
 
 jailEmbed = new Discord.RichEmbed()
       .setColor("BLUE")
-      .setDescription(`Judge: <@${tojail.id}> has been sentenced for ${ms(ms(jailtime))} for ${jailReason}.`)
+      .setDescription(`**Judge:** <@${tojail.id}> has been sentenced for ${ms(ms(jailtime))} for ${jailReason}.`)
 
 let rpchannel = message.guild.channels.find(x => x.name === 'rp-actions');
 rpchannel.send({embed: jailEmbed});
