@@ -79,7 +79,7 @@ geluktEmbed3 = new Discord.RichEmbed()
 .setTitle(`${yes} **Jailed!**`)
 .setDescription(`You have been sentenced for ${ms(ms(jailtime))} for ${jailReason}. Due to this, you have been moved to the Penitentiary voice channel. Please stay there until you receive another message stating you have served your time.`)
 
-tojail.send(geluktEmbed2);
+tojail.send(geluktEmbed3);
     
 setTimeout(function(){
 
