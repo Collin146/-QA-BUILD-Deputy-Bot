@@ -89,7 +89,7 @@ setTimeout(function(){
 }, ms(jailtime));
 
 } catch(err) {
-    catchErr(err)
+    console.log(err)
 
 }
 
