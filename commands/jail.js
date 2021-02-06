@@ -22,7 +22,9 @@ const no = bot.emojis.get("700713478578634783");
       .setTitle(`${no} **Error!**`)
       .setDescription(`Only LEO have permission to use this command!`)
 
-    if(!message.member.roles.has(role => role.name === "BCSO")) return message.channel.send(errEmbed);
+    guildAuthor = message.guild.members.get(message.author.id);
+
+    if(!guildAuthor.roles.has(role => role.name === "BCSO")) return message.channel.send(errEmbed);
     if(args[0] === "help"){
         message.reply("Usage: !jail <user> <time> <reason>");
         return;
