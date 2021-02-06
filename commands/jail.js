@@ -15,6 +15,8 @@ module.exports.run = async (bot, message, args) => {
 
     try {
 
+        const no = bot.emojis.get("700713478578634783"); 
+
        let errEmbed = new Discord.RichEmbed()
       .setColor("RED")
       .setTitle(`${no} **Error!**`)
