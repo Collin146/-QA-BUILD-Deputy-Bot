@@ -18,9 +18,9 @@ const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
 const warningsign = bot.emojis.get("729725849343098900");
 
-const mainguild = bot.guilds.get('560105204809203723')
+const mainguild = bot.guilds.get('700639523272523776')
 
-let AOPchannel = mainguild.channels.find(x => x.id === '560105204809203727');
+let AOPchannel = mainguild.channels.find(x => x.id === '806224054079324220');
 
 let patrolrole = mainguild.roles.find(x => x.name === 'On Patrol');
 
@@ -36,7 +36,7 @@ let dmembed = new Discord.RichEmbed()
 .setDescription(`Per ${message.author}, AOP has been changed to Blaine County! Please finish your scenarios and head to the new AOP.`);
 
 message.guild.members.forEach(member => {
-    if (member.roles.has('806589265135272017') && !member.user.bot) member.send(dmembed)
+    if (member.roles.has('708007528122024006') && !member.user.bot) member.send(dmembed)
   });
 
   return;
@@ -52,7 +52,7 @@ if(args[0] === "ss&s"){
     .setDescription(`Per ${message.author}, AOP has been changed to Sandy Shores & Surrounding! Please finish your scenarios and head to the new AOP.`);
 
     message.guild.members.forEach(member => {
-        if (member.roles.has('806589265135272017') && !member.user.bot) member.send(dmembed2)
+        if (member.roles.has('708007528122024006') && !member.user.bot) member.send(dmembed2)
       });
     
       return;
