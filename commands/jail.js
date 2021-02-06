@@ -31,6 +31,7 @@ const no = bot.emojis.get("700713478578634783");
     }
     
 const yes = bot.emojis.get("700713527576625205");
+const warningsign = bot.emojis.get("729725849343098900");
 let tojail = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 let jailReason = args.slice(2).join(" ");
 
@@ -75,8 +76,8 @@ let rpchannel = message.guild.channels.find(x => x.name === 'rp-actions');
 rpchannel.send({embed: jailEmbed});
 
 geluktEmbed3 = new Discord.RichEmbed()
-.setColor("GREEN")
-.setTitle(`${yes} **Jailed!**`)
+.setColor("RED")
+.setTitle(`${warningsign} **Jailed!**`)
 .setDescription(`You have been sentenced for ${ms(ms(jailtime))} for ${jailReason}. Due to this, you have been moved to the Penitentiary voice channel. Please stay there until you receive another message stating you have served your time.`)
 
 tojail.send(geluktEmbed3);
