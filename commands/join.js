@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
       let RTOchannel = message.guild.channels.find(x => x.id === '700641419257184297');
       
-RTOchannel.voiceChannel.join();
+RTOchannel.join();
 
     }
 
