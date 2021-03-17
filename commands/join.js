@@ -9,8 +9,6 @@ RTOchannel.voiceChannel.join();
 
     }
 
-}
-
 module.exports.help = {
     name: "join"
 }
