@@ -5,9 +5,16 @@ const fs = require("fs");
 const ms = require("ms");
 const AntiSpam = require('discord-anti-spam');
 const bot = new Discord.Client({disableEveryone: false});
-const ffmpeg = require('ffmpeg-static');
+const ffmpeg = require('ffmpeg');
+const pathToFfmpeg = require('ffmpeg-static');
+const { OpusEncoder } = require('@discordjs/opus');
 bot.commands = new Discord.Collection();
 process.setMaxListeners(Infinity);
+
+const encoder = new OpusEncoder(48000, 2);
+
+const encoded = encoder.encode(buffer);
+const decoded = encoder.decode(encoded);
 
 function catchErr (err, message) {
 
