@@ -11,11 +11,6 @@ const { OpusEncoder } = require('@discordjs/opus');
 bot.commands = new Discord.Collection();
 process.setMaxListeners(Infinity);
 
-const encoder = new OpusEncoder(48000, 2);
-
-const encoded = encoder.encode(buffer);
-const decoded = encoder.decode(encoded);
-
 function catchErr (err, message) {
 
 let errchannel = bot.channels.find(x => x.name === 'errors');
