@@ -5,7 +5,7 @@ const fs = require("fs");
 const ms = require("ms");
 const AntiSpam = require('discord-anti-spam');
 const bot = new Discord.Client({disableEveryone: false});
-const ffmpeg = require('ffmpeg');
+const ffmpeg = require('ffmpeg-static');
 bot.commands = new Discord.Collection();
 process.setMaxListeners(Infinity);
 
