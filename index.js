@@ -8,6 +8,7 @@ const bot = new Discord.Client({disableEveryone: false});
 const FFMPEG = require('ffmpeg');
 const pathToFfmpeg = require('ffmpeg-static');
 const { OpusEncoder } = require('@discordjs/opus');
+const = ytdl = require('ytdl-core');
 bot.commands = new Discord.Collection();
 process.setMaxListeners(Infinity);
 
